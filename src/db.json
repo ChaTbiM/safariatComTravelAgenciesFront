@@ -55,9 +55,21 @@
 		}
 	],
 	"top_tours": [
-		{ "Title": "Sahara", "Rate": 94, "views": 3 },
-		{ "Title": "Sahara", "Rate": 94, "views": 3 },
-		{ "Title": "Sahara", "Rate": 94, "views": 3 }
+		{
+			"Title": "Sahara",
+			"Rate": 94,
+			"views": 3
+		},
+		{
+			"Title": "Sahara",
+			"Rate": 94,
+			"views": 3
+		},
+		{
+			"Title": "Sahara",
+			"Rate": 94,
+			"views": 3
+		}
 	],
 	"booking": [
 		{
@@ -218,19 +230,19 @@
 	},
 	"tasks": [
 		{
-			"key": 151520,
-			"name": "travel agency task 1",
-			"date": "24/03/2020",
-			"checked": false
-		},
-		{
-			"key": 46845,
+			"id": 421,
 			"name": "travel agency task 2",
 			"date": "14/10/2020",
 			"checked": false
 		},
 		{
-			"key": 55545,
+			"id": 46845,
+			"name": "travel agency task 2",
+			"date": "14/10/2020",
+			"checked": false
+		},
+		{
+			"id": 55545,
 			"name": "travel agency task 3",
 			"date": "10/06/2020",
 			"checked": false

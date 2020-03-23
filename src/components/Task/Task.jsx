@@ -5,6 +5,7 @@ import Axios from "axios";
 const Task = () => {
 	const [dataTasks, setDataTasks] = useState([]);
 	const handleCheckBox = e => {
+		let key = e.currentTarget.attributes[1].nodeValue;
 		//put request
 	};
 	useEffect(() => {
@@ -17,14 +18,14 @@ const Task = () => {
 			<div className="w-1/2">
 				{dataTasks.map(item => (
 					<div
-						key={item.key}
+						key={item.id}
 						className="flex flex-row justify-start w-full my-4 items-center"
 					>
 						<div className="float-left  flex flex-col justify-center items-start">
 							<div className="flex justify-between items-center">
 								<input
 									type="checkbox"
-									data-key={item.key}
+									data-key={item.id}
 									onChange={handleCheckBox}
 								/>
 								<label
