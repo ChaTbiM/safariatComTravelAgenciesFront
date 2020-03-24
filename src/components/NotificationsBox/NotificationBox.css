@@ -1,123 +1,123 @@
 ._tw {
-  background: #fff;
-  border: 1px solid rgba(100, 100, 100, 0.4);
-  border-radius: 0 0 2px 2px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-  color: #1d2129;
-  top: 38px;
-  width: 430px;
-  z-index: -1;
-  width: 25rem;
+	background: #fff;
+	border: 1px solid rgba(100, 100, 100, 0.4);
+	border-radius: 0 0 2px 2px;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+	color: #1d2129;
+	top: 38px;
+	width: 430px;
+	z-index: -1;
+	width: 25rem;
 }
 
 .beeperNub {
-  background-image: url("./images/NvJbVp4esgg.png");
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 0 -267px;
-  height: 11px;
-  position: absolute;
-  top: -11px;
-  width: 20px;
-  right: 5px;
+	background-image: url("./images/NvJbVp4esgg.png");
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: 0 -267px;
+	height: 11px;
+	position: absolute;
+	top: -11px;
+	width: 20px;
+	right: 5px;
 }
 .jewelHeader {
-  background-clip: padding-box;
-  background-color: #fff;
-  border-bottom: solid 1px #dddfe2;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  padding: 12px;
-  position: relative;
-  z-index: 100;
+	background-clip: padding-box;
+	background-color: #fff;
+	border-bottom: solid 1px #dddfe2;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	padding: 12px;
+	position: relative;
+	z-index: 100;
 }
 .h3-notif {
-  color: #4d4f5c;
-  font-size: 16px;
-  font-weight: bold;
+	color: #4d4f5c;
+	font-size: 16px;
+	font-weight: bold;
 }
 .seeMore {
-  background-color: #fff;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-top: 1px solid #dddfe2;
-  display: block;
-  font-weight: 600;
-  font-family: "Montserrat", sans-serif;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: relative;
-  text-align: center;
-  z-index: 100;
-  color: #ffcc4e;
-  cursor: pointer;
-  text-decoration: none;
+	background-color: #fff;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-top: 1px solid #dddfe2;
+	display: block;
+	font-weight: 600;
+	font-family: "Montserrat", sans-serif;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: relative;
+	text-align: center;
+	z-index: 100;
+	color: #ffcc4e;
+	cursor: pointer;
+	text-decoration: none;
 }
 .jewelBody {
-  height: 475px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  position: relative;
+	height: 475px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	position: relative;
 }
 .jewelScroll {
-  height: 100%;
-  outline: none;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  position: relative;
-  margin-right: -30px;
-  padding-right: 30px;
-  overscroll-behavior: contain;
+	height: 100%;
+	outline: none;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: relative;
+	margin-right: -30px;
+	padding-right: 30px;
+	overscroll-behavior: contain;
 }
 .uiScrollableAreaBody {
-  margin-right: -17px;
-  width: 430px;
-  direction: ltr;
-  position: relative;
+	margin-right: -17px;
+	width: 430px;
+	direction: ltr;
+	position: relative;
 }
 .jewelItemNew.seen {
-  background-color: white !important;
+	background-color: white !important;
 }
 .my-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 .jewelItemNew {
-  background-color: #f1f1f1;
-  border-bottom: 1px solid #dddfe2;
-  overflow: hidden;
+	background-color: #f1f1f1;
+	border-bottom: 1px solid #dddfe2;
+	overflow: hidden;
 }
 .jewelLeft {
-  display: block;
-  height: 48px;
-  margin: 0 12px;
-  width: 48px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 0;
+	display: block;
+	height: 48px;
+	margin: 0 12px;
+	width: 48px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 0;
 }
 
 .jewelDisplay {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: -1px;
-  min-height: 50px;
-  word-wrap: break-word;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: -1px;
+	min-height: 50px;
+	word-wrap: break-word;
 }
 .jewelDisplay > span {
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  max-height: 2.67em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	max-height: 2.67em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
 }
 .clearfix {
-  color: #90949c;
-  margin-top: -1px;
-  padding-top: 3px;
+	color: #90949c;
+	margin-top: -1px;
+	padding-top: 3px;
 }

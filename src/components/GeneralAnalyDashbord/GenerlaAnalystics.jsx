@@ -148,7 +148,7 @@ const GenerlaAnalystics = ({
 					<div className="flex">
 						<div className="px-4 w-full">
 							<div className="mb-3 card">
-								<div className="flex items-center h-16 border-none py-2  px-2 bg-white">
+								<div className="flex items-center h-16 border-none py-2  px-6 bg-white">
 									<div className="flex items-center whitespace-no-wrap text-21">
 										Top tours
 									</div>

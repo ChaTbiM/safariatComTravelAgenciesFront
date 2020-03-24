@@ -60,7 +60,7 @@ const HeaderAdmin = props => {
 							<div
 								className={
 									show
-										? "notification-box mx-6"
+										? "notification-box flex mx-6"
 										: "notification-box hidden mx-6"
 								}
 							>
