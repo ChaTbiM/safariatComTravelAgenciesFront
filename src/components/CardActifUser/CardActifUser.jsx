@@ -30,21 +30,28 @@ const CardActifUser = () => {
 								}}
 								className=" flex flex-row flex-row justify-between items-center p-3"
 							>
-								<div className="flex lD:flex-row mD:flex-col sD:flex-row lD:py-2 mD:py-0 justify-start lD:items-center mD:items-center sD:items-center xsD:items-center">
-									<div className="pr-2">
-										<img
-											className="lD:h-20 lD:w-20 mD:w-12 mD:h-12 sD:w-16 sD:h-16 xsD:w-16 xsD:h-16 rounded-full "
-											src={Person}
-											alt="img"
-										/>
+								<div
+									className="flex flex-row items-center justify-start"
+									direction="left"
+								>
+									<div className="float-left">
+										<img src={Person} alt="img" className="jewelLeft" />
 									</div>
-									<div className="flex flex-col justify-start ml-1">
-										<span className="lD:text-16 font-bold mD:text-16 sD:text-18 xsD:text-18">
-											{user["name"]}
-										</span>
-										<span className="text-gray-600 lD:text-14 mD:text-12 sD:text-16 xsD:text-16">
-											{user["type"]} user
-										</span>
+									<div className="" direction="right">
+										<div className="overflow-hidden">
+											<div className="jewelDisplay">
+												<span>
+													<span className="font-bold">
+														<span className="text-sm">{user["name"]}</span>
+													</span>
+												</span>
+												<div className="clearfix" direction="left">
+													<div className="float-left">
+														<span className="text-sm">{user["type"]}</span>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 								<div className="agency_contact_user flex flex-row justify-start items-center">

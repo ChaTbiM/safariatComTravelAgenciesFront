@@ -1,0 +1,84 @@
+.activeItem {
+	border-left: 5px solid #ffcc4e;
+	background-color: #3c6775;
+}
+.agency_aside {
+	width: 300px;
+	transition: width 0.5s;
+	height: 100%;
+	background-color: #084c61;
+	position: fixed !important;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	box-shadow: 7px 0 60px rgba(0, 0, 0, 0.05);
+}
+.agency_aside.toggled {
+	width: 80px;
+	transition: width 0.5s;
+}
+
+.agency_profile_sidebar span:last-child {
+	font-size: 12px;
+	transition: font-size 0.5s;
+}
+.agency_profile_sidebar span:first-child {
+	font-size: 14px;
+	transition: font-size 0.5s;
+}
+.agency_profile_sidebar {
+	font-size: 14px;
+	transition: font-size 0.5s;
+	color: #ffffff;
+	font-weight: normal;
+}
+.agency_profile_sidebar span {
+	font-size: 14px;
+	transition: font-size 0.5s;
+	color: #ffffff;
+	font-weight: normal;
+}
+.agency_profile_sidebar.toggled span,
+.agency_profile_sidebar.toggled {
+	font-size: 0px !important;
+	transition: font-size 0.5s;
+}
+.treeview-menu {
+	width: 100%;
+	flex-direction: column;
+	margin: 0 1px;
+	background: rgb(8, 53, 66);
+	overflow: visible;
+	height: auto;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+	list-style: none;
+	display: flex !important;
+	transition: display 0.5s;
+}
+.treeview-menu.hid {
+	background: #2c3b41;
+	overflow: visible;
+	display: none !important;
+	list-style: none;
+	transition: display 0.5s;
+}
+.treeview-menu > li {
+	margin: 0;
+}
+.treeview-menu > li > a {
+	color: #8aa4af;
+	padding: 5px 5px 5px 15px;
+	display: block;
+	font-size: 14px;
+	position: relative;
+	text-decoration: none;
+}
+.treeview-menu > li > a > .fa {
+	width: 20px;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 14px;
+	font-size: inherit;
+	text-rendering: auto;
+}

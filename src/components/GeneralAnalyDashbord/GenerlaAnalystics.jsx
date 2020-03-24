@@ -92,7 +92,7 @@ const GenerlaAnalystics = ({
 	};
 
 	return (
-		<div className="z-10 flex flex-col ">
+		<div className="z-10 flex flex-col">
 			<HeaderPage
 				title="Analytics and Statistics"
 				buttons={[
@@ -148,7 +148,7 @@ const GenerlaAnalystics = ({
 					<div className="flex">
 						<div className="px-4 w-full">
 							<div className="mb-3 card">
-								<div className="flex items-center h-16 border-none py-2  px-2 bg-white">
+								<div className="flex items-center h-16 border-none py-2  px-6 bg-white">
 									<div className="flex items-center whitespace-no-wrap text-21">
 										Top tours
 									</div>
@@ -202,7 +202,10 @@ const GenerlaAnalystics = ({
 										<Slider ref={c => setSlider(c)} {...settings}>
 											{isLoading ? (
 												dataTopTours.map(data => (
-													<div className="flex justify-center items-center">
+													<div
+														key={data.id}
+														className="flex justify-center items-center"
+													>
 														<MyCard
 															Title={data.Title}
 															Img={Sahara}
@@ -213,7 +216,7 @@ const GenerlaAnalystics = ({
 												))
 											) : (
 												<div className="slider-spinner flex justify-center items-center">
-													<div class="lds-ring">
+													<div className="lds-ring">
 														<div></div>
 														<div></div>
 														<div></div>

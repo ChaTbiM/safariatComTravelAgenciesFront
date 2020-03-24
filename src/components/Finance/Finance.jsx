@@ -56,7 +56,7 @@ const Finance = (
 	};
 
 	return (
-		<div className="z-10 flex flex-col ">
+		<div className="z-10 flex flex-col">
 			<HeaderPage
 				title="Finance"
 				buttons={[

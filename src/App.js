@@ -25,12 +25,10 @@ import ToursManagement from "./scenes/ToursManagement/ToursManagement";
 import ProductsManagement from "./scenes/ProductsManagement/ProductsManagement";
 import EmployeesManagement from "./scenes/EmployeesManagement/EmployeesManagement";
 import TasksManagement from "./scenes/TasksManagement/TasksManagement";
-import TempAside from "./components/TempAside/TempAside.jsx";
 function App() {
 	return (
 		<Router>
 			<Switch>
-				<Route component={TempAside} path="/temp"></Route>
 				<Route component={Home} exact path="/"></Route>
 				<Route component={SearchBar} path="/search"></Route>
 				<Route component={Services} path="/services"></Route>
