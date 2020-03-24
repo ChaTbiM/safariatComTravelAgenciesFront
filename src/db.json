@@ -1,6 +1,7 @@
 {
 	"products": [
 		{
+			"id": 1,
 			"productName": "first medical kit",
 			"price": "98$-149$",
 			"rate": 2,
@@ -8,6 +9,7 @@
 			"down": 0
 		},
 		{
+			"id": 2,
 			"productName": "Renting Diving tools",
 			"price": "98$-149$",
 			"rate": 4,
@@ -15,6 +17,7 @@
 			"down": 0
 		},
 		{
+			"id": 3,
 			"productName": "Renting a Woody cabin",
 			"price": "98$-149$",
 			"rate": 4,
@@ -22,6 +25,7 @@
 			"down": 0
 		},
 		{
+			"id": 4,
 			"productName": "Hiking shoes",
 			"price": "98$-149$",
 			"rate": 5,
@@ -29,6 +33,7 @@
 			"down": 0
 		},
 		{
+			"id": 5,
 			"productName": "2P tent",
 			"price": "98$-149$",
 			"rate": 4.5,
@@ -56,16 +61,13 @@
 	],
 	"top_tours": [
 		{
+			"id": 1,
 			"Title": "Sahara",
 			"Rate": 94,
 			"views": 3
 		},
 		{
-			"Title": "Sahara",
-			"Rate": 94,
-			"views": 3
-		},
-		{
+			"id": 2,
 			"Title": "Sahara",
 			"Rate": 94,
 			"views": 3
@@ -91,24 +93,10 @@
 	],
 	"news": [
 		{
-			"name": "test",
+			"id": 1,
+			"name": "Oussama Bengoudifa",
 			"time": "Today at 22:45",
 			"type": "story"
-		},
-		{
-			"name": "Kevin Makelien",
-			"time": "Today at 22:45",
-			"type": "story"
-		},
-		{
-			"name": "Kevin Makelien",
-			"time": "Today at 22:45",
-			"type": "story"
-		},
-		{
-			"name": "bengoudifa oussama",
-			"time": "Now",
-			"type": "post"
 		}
 	],
 	"users_top_tours": [

@@ -24,15 +24,15 @@ const TableProduct = () => {
 	return (
 		<Container>
 			<div className="px-3 bg-white agency_scroll">
-				<table className="w-full">
-					<thead>
-						<tr>
-							<th className="agency_th">Product name</th>
-							<th className="agency_th">Price</th>
-							<th className="agency_th">Rate</th>
-						</tr>
-					</thead>
-					{isLoaded ? (
+				{isLoaded ? (
+					<table className="w-full">
+						<thead>
+							<tr>
+								<th className="agency_th">Product name</th>
+								<th className="agency_th">Price</th>
+								<th className="agency_th">Rate</th>
+							</tr>
+						</thead>
 						<tbody>
 							{top_product_data.map(product => {
 								return (
@@ -82,19 +82,17 @@ const TableProduct = () => {
 								);
 							})}
 						</tbody>
-					) : (
-						<tbody className="agency_tbody flex justify-end items-center">
-							<tr>
-								<div class="lds-ring">
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-								</div>
-							</tr>
-						</tbody>
-					)}
-				</table>
+					</table>
+				) : (
+					<div className="flex justify-center items-center">
+						<div className="lds-ring">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+				)}
 			</div>
 		</Container>
 	);

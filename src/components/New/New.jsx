@@ -90,7 +90,7 @@ const New = () => {
 						))
 					) : (
 						<div className="flex justify-center items-center">
-							<div class="lds-ring">
+							<div className="lds-ring">
 								<div></div>
 								<div></div>
 								<div></div>

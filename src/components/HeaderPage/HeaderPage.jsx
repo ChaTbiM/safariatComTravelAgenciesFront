@@ -17,8 +17,9 @@ export default class HeaderPage extends Component {
 							<h1>{title}</h1>
 						</div>
 						<div className="ml-auto ">
-							{buttons.map(btn => (
+							{buttons.map((btn, index) => (
 								<Link
+									key={index}
 									className={
 										btn.active
 											? "agency_active_btn mx-4 p-4"
