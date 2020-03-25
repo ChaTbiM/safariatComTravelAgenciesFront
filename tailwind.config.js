@@ -1,12 +1,6 @@
 module.exports = {
 	important: true,
 	theme: {
-		colors: {
-			yellow: "#FFCC4E",
-			blue: "#084C61",
-			green: "#00F318",
-			gray: "#C1C1C1"
-		},
 		extend: {},
 		opacity: {
 			"0": "0",

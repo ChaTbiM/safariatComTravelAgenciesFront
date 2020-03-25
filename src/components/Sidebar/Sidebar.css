@@ -27,7 +27,7 @@
 	transition: font-size 0.5s;
 }
 .agency_profile_sidebar {
-	font-size: 14px;
+	font-size: 16px;
 	transition: font-size 0.5s;
 	color: #ffffff;
 	font-weight: normal;
@@ -37,6 +37,9 @@
 	transition: font-size 0.5s;
 	color: #ffffff;
 	font-weight: normal;
+}
+.hovy:hover {
+	background: rgba(128, 128, 128, 0.158);
 }
 .agency_profile_sidebar.toggled span,
 .agency_profile_sidebar.toggled {
@@ -70,7 +73,7 @@
 	color: #8aa4af;
 	padding: 5px 5px 5px 15px;
 	display: block;
-	font-size: 14px;
+	font-size: 16px;
 	position: relative;
 	text-decoration: none;
 }

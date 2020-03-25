@@ -22,7 +22,7 @@ const TableProduct = () => {
 	}, []);
 
 	return (
-		<Container>
+		<Container className="bg-white">
 			<div className="px-3 bg-white agency_scroll">
 				{isLoaded ? (
 					<table className="w-full">

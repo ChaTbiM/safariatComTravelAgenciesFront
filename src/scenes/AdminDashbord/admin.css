@@ -50,6 +50,9 @@
 	background-color: #ffcc4e;
 	color: white;
 }
+.agency_col {
+	width: 50%;
+}
 @media (max-width: 1200px) {
 	.agency_row {
 		flex-direction: column-reverse !important;

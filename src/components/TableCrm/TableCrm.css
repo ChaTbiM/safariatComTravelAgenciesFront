@@ -7,9 +7,65 @@
 	text-decoration: underline;
 	color: #ffcc4e;
 }
-.custom-blue {
+.agency-btn-custom {
 	background: #084c61;
 	border-radius: 10px;
 	font-weight: normal;
 	color: white;
+	font-size: 18px;
+	padding: 0.6em 2em;
+}
+.agency-btn-custom_v1 {
+	background: #084c61;
+	border-radius: 10px;
+	font-weight: normal;
+	color: white;
+	font-size: 21px;
+	padding: 0.7em 1.6em;
+	text-align: center;
+	cursor: pointer;
+}
+.agency_crm_thead {
+	background: #f5f5f5;
+}
+.agency-btn-custom.hold {
+	padding: 0.6em 3em !important;
+}
+.agency-btn-custom.create {
+	padding: 0.6em 2.4em !important;
+}
+.agency-btn-custom.shadowz {
+	box-shadow: 0 1px 6px #000000;
+}
+@media (max-width: 1250px) {
+	.agency_crm_tr td {
+		padding: 1em 0 !important;
+	}
+	.agency_crm_tr p {
+		font-size: 14px !important;
+	}
+	.agency_crm_tr th {
+		font-size: 16px !important;
+		padding: 0.5em 0 !important;
+	}
+
+	.agency-btn-custom {
+		font-size: 14px !important;
+	}
+	.int-ext p {
+		font-size: 16px !important;
+		text-align: center !important;
+	}
+	.select-box__current {
+		width: 150px !important;
+	}
+	.select-box__icon {
+		width: 12px !important;
+	}
+	.container_search input {
+		width: 200px !important;
+	}
+	.select-box__list label {
+		font-size: 14px !important;
+	}
 }

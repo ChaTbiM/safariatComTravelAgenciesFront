@@ -1,14 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FilterDropdown from "../FilterDropdown/FilterDropdown.jsx";
 import StyledSearchBox from "../StyledSearchbox/StyledSearchBox.jsx";
 import "./TableCrm.css";
 import { ReactComponent as Info } from "../GeneralAnalyDashbord/images/information.svg";
 import Edit from "../../assets/edit.png";
 import Delete from "../../assets/delete.png";
+import Axios from "axios";
 
 const TableCrm = props => {
+	const [orderType, setOrderType] = useState("internal");
+	const [dataTable, setDataTable] = useState([]);
+	const [sortBy, setSortBy] = useState("name");
+
+	const sortignData = (type, data) => {
+		let newData = Array();
+		let isDate = false;
+		newData.push(data[0]);
+		if (type === "date") {
+			isDate = true;
+		}
+		for (let i = 1; i < data.length; i++) {
+			let bool = false;
+			for (let j = 0; j <= i - 1; j++) {
+				if (isDate) {
+					if (Date.parse(data[i][type]) < Date.parse(newData[j][type])) {
+						newData.splice(j, 0, data[i]);
+						bool = true;
+						break;
+					}
+				}
+				if (data[i][type] < newData[j][type]) {
+					newData.splice(j, 0, data[i]);
+					bool = true;
+					break;
+				}
+			}
+			if (bool == true) bool = false;
+			else newData.push(data[i]);
+		}
+		return newData;
+	};
+	useEffect(() => {
+		let url;
+		if (orderType === "internal") {
+			url = "http://localhost:3000/internal_crm_orders";
+		} else if (orderType === "external") {
+			url = " http://localhost:3000/external_crm_orders";
+		}
+		if (url)
+			Axios.get(url).then(res => {
+				setDataTable(sortignData(sortBy, res.data));
+			});
+	}, [orderType, sortBy]);
+	const handleFilterTable = e => {
+		setSortBy(e);
+	};
 	const handleOrderType = () => {
-		console.log("handling..");
+		setOrderType(prevState => {
+			if (prevState === "internal") {
+				return "external";
+			} else return "internal";
+		});
 	};
 	const handleEvent = () => {
 		console.log("handling");
@@ -24,27 +76,36 @@ const TableCrm = props => {
 						</span>
 						<span className="mx-2 pl-4">
 							{" "}
-							<FilterDropdown />
+							<FilterDropdown
+								filterOption={handleFilterTable}
+								sortBy={sortBy}
+							/>
 						</span>
 					</div>
 					<div className="flex p-4">
 						<span
-							className="mx-6 text-21 int-ext cursor-pointer"
+							className={
+								orderType === "external"
+									? "mx-6 text-21 int-ext active cursor-pointer"
+									: "mx-6 text-21 int-ext cursor-pointer"
+							}
 							onClick={handleOrderType}
 						>
 							<p>External orders</p>
 						</span>
 						<span
-							className="mx-6 text-21 int-ext active cursor-pointer"
+							className={
+								orderType === "internal"
+									? "mx-6 text-21 int-ext active cursor-pointer"
+									: "mx-6 text-21 int-ext cursor-pointer"
+							}
 							onClick={handleOrderType}
 						>
 							<p>Internal orders</p>
 						</span>
 					</div>
 					<div className="flex p-4 justify-between items-center">
-						<span className="px-6 py-2 text-21 custom-blue">
-							Add Billing order
-						</span>
+						<span className="agency-btn-custom_v1">Add Billing order</span>
 						<span className="pl-4">
 							<span
 								className="hint--bottom text-center hint--medium"
@@ -60,107 +121,129 @@ const TableCrm = props => {
 				<div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
 					<div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
 						<table className="min-w-full leading-normal">
-							<thead>
-								<tr>
-									<th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+							<thead className="agency_crm_thead">
+								<tr className="agency_crm_tr">
+									<th className="px-5 py-3 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
 										Client name
 									</th>
-									<th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+									<th className="px-5 py-3 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
 										Destination
 									</th>
-									<th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+									<th className="px-5 py-3 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
 										Tour id
 									</th>
-									<th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+									<th className="px-5 py-3 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
 										Date
 									</th>
-									<th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+									<th className="px-8 py-3  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
 										Billing invoices
 									</th>
-									<th className="px-2 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+									<th className="px-8 py-3  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
 										Confirmation
 									</th>
-									<th className="px-2 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"></th>
+									<th className="px-2 py-3bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-										<div className="flex items-center">
-											<div className="ml-3">
-												<p className="text-gray-900 font-bold whitespace-no-wrap text-18">
-													Bengoudifa Oussama
-												</p>
+								{dataTable.map(data => (
+									<tr key={data.id} className="agency_crm_tr">
+										<td className="px-5 py-5  bg-white text-sm">
+											<div className="flex items-center">
+												<div className="ml-3">
+													<p className="text-gray-900 font-bold whitespace-no-wrap text-18">
+														{data["name"]}
+													</p>
+												</div>
 											</div>
-										</div>
-									</td>
-									<td className="px-5 py-5 border-b border-gray-200 bg-white text-18">
-										<p className="text-gray-700 whitespace-no-wrap">
-											Paris,France
-										</p>
-									</td>
-									<td className="px-5 py-5 border-b border-gray-200 bg-white text-18">
-										<p className="text-gray-700 whitespace-no-wrap">
-											#Paris1899
-										</p>
-									</td>
-									<td className="px-5 py-5 border-b border-gray-200 bg-white text-18">
-										<p className="text-gray-700 whitespace-no-wrap">
-											22/01/2020
-										</p>
-									</td>
-									<td className="py-5 border-b border-gray-200 bg-white text-18 ">
-										<span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-											<span
-												aria-hidden
-												className="custom-blue px-6 text-18 py-2"
-											>
-												<span className="relative">Create</span>
+										</td>
+										<td className="px-5 py-5 bg-white text-18">
+											<p className="text-gray-700 whitespace-no-wrap">
+												{data["destination"]}
+											</p>
+										</td>
+										<td className="px-5 py-5 bg-white text-18">
+											<p className="text-gray-700 whitespace-no-wrap">
+												{data["tour_id"]}
+											</p>
+										</td>
+										<td className="px-5 py-5bg-white text-18">
+											<p className="text-gray-700 whitespace-no-wrap">
+												{data["date"]}
+											</p>
+										</td>
+										<td className="px-5 py-5 bg-white text-18 ">
+											<div className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+												<span
+													aria-hidden
+													style={{
+														backgroundColor: !data["billing_invoices_created"]
+															? "#084C61"
+															: "#FFFFFF",
+														color: !data["billing_invoices_created"]
+															? ""
+															: "black"
+													}}
+													className={
+														data["billing_invoices_created"]
+															? "agency-btn-custom shadowz cursor-pointer"
+															: "agency-btn-custom create cursor-pointer"
+													}
+												>
+													<span
+														className="relative"
+														data-created={data["billing_invoices_created"]}
+													>
+														{data["billing_invoices_created"]
+															? "Preview"
+															: "Create"}
+													</span>
+												</span>
+											</div>
+										</td>
+										<td className=" px-5 py-5 bg-white text-sm ">
+											<span className=" px-3 py-1 font-semibold text-green-900 leading-tight">
+												<span
+													aria-hidden
+													style={{
+														backgroundColor: data["confirmation"]
+															? "#00F318"
+															: "#FFDD00"
+													}}
+													className={
+														!data["confirmation"]
+															? "agency-btn-custom hold cursor-pointer"
+															: "agency-btn-custom cursor-pointer"
+													}
+												>
+													<span
+														className="relative"
+														data-confirmation={data["confirmation"]}
+													>
+														{data["confirmation"] ? "Confirmed" : "In hold"}
+													</span>
+												</span>
 											</span>
-										</span>
-									</td>
-									<td className=" py-5 border-b border-gray-200 bg-white text-sm">
-										<span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-											<span
-												aria-hidden
-												style={{
-													backgroundColor: "#FFDD00"
-												}}
-												className="custom-blue px-6 text-18 py-2"
+										</td>
+										<td className="px-5 py-5  bg-white text-18">
+											<p
+												className="cursor-pointer float-left px-2"
+												onClick={handleEvent}
+												id="edit"
 											>
-												<span className="relative">In hold</span>
-											</span>
-										</span>
-									</td>
-									<td className="px-5 py-5 flex justify-around border-b border-gray-200 bg-white text-sm">
-										<p
-											className="cursor-pointer"
-											onClick={handleEvent}
-											id="edit"
-										>
-											<img src={Edit} alt="edit" className="w-6 h-6" />
-										</p>
-										<p
-											className="cursor-pointer"
-											onClick={handleEvent}
-											id="delete"
-										>
-											<img src={Delete} alt="edit" className="w-6 h-6" />
-										</p>
-									</td>
-								</tr>
+												<img src={Edit} alt="edit" className="w-6 h-6" />
+											</p>
+											<p
+												className="cursor-pointer float-right px-2"
+												onClick={handleEvent}
+												id="delete"
+											>
+												<img src={Delete} alt="edit" className="w-6 h-6" />
+											</p>
+										</td>
+									</tr>
+								))}
 							</tbody>
 						</table>
-						<div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-end xs:justify-between">
-							<div className="inline-flex mt-2 xs:mt-0 float-right">
-								<button className="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
-									Prev
-								</button>
-								<button className="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r">
-									Next
-								</button>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
