@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+.int-ext {
+	color: #3e3e3e;
+}
+.int-ext.active {
+	text-decoration: underline;
+	color: #ffcc4e;
+}
+.custom-blue {
+	background: #084c61;
+	border-radius: 10px;
+	font-weight: normal;
+	color: white;
+}

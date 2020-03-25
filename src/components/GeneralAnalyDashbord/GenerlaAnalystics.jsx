@@ -14,6 +14,7 @@ import New from "../New/New.jsx";
 import { Link } from "react-router-dom";
 import HeaderPage from "../HeaderPage/HeaderPage";
 import axios from "axios";
+
 const GenerlaAnalystics = ({
 	items = [
 		{
