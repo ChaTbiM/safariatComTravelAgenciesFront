@@ -25,20 +25,17 @@ import ToursManagement from "./scenes/ToursManagement/ToursManagement";
 import ProductsManagement from "./scenes/ProductsManagement/ProductsManagement";
 import EmployeesManagement from "./scenes/EmployeesManagement/EmployeesManagement";
 import TasksManagement from "./scenes/TasksManagement/TasksManagement";
-import FilterDropdown from "./components/FilterDropdown/FilterDropdown.jsx";
-import TableCrm from "./components/TableCrm/TableCrm.jsx";
+import Crm from "./scenes/Crm/Crm.jsx";
 function App() {
 	return (
 		<Router>
 			<Switch>
 				<Route component={Home} exact path="/"></Route>
-				<Route component={TableCrm} path="/filter"></Route>
 				<Route component={SearchBar} path="/search"></Route>
 				<Route component={Services} path="/services"></Route>
 				<Route component={Blog} path="/blog"></Route>
 				<Route component={Contact} path="/contact"></Route>
 				<Route component={About} path="/about"></Route>
-				<Route component={About} path="/crm"></Route>
 				<Route
 					path="/admin/tours"
 					render={props => (
@@ -55,6 +52,10 @@ function App() {
 					render={props => (
 						<Admin active="HR management" content={<EmployeesManagement />} />
 					)}
+				/>
+				<Route
+					path="/admin/crm"
+					render={props => <Admin active="Travel CRM" content={<Crm />} />}
 				/>
 
 				<Route

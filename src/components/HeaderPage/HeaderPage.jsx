@@ -22,8 +22,8 @@ export default class HeaderPage extends Component {
 									key={index}
 									className={
 										btn.active
-											? "agency_active_btn mx-4 p-4"
-											: "agency_secondary_btn mx-4 p-4"
+											? "agency_active_btn mx-4 py-4 px-6"
+											: "agency_secondary_btn mx-4 py-4 px-6"
 									}
 									to={btn.href}
 								>

@@ -7,7 +7,11 @@ const StyledSearchBox = props => {
 			<div className=" items-center flex ">
 				<span className="container_search">
 					<label>
-						<input type="text" placeholder="Search..." />
+						<input
+							type="text"
+							placeholder="Search..."
+							onChange={props.handleChangeSearch}
+						/>
 					</label>
 				</span>
 			</div>

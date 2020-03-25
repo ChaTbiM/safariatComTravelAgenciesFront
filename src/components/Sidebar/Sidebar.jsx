@@ -71,22 +71,21 @@ const Sidebar = props => {
 			]
 		},
 		{
-			title: "Travel and product CRM",
-			href: "#",
+			title: "Travel CRM",
+			href: "/admin/crm",
 			isClicked: false,
 			icon: Crm,
 			options: [
 				{
 					key: 101124110,
-
-					name: "Tours booking & products",
-					scrollchor: "/admin/tours"
+					name: "Tours CRM",
+					scrollchor: "/admin/crm"
 				},
 				{
 					key: 11111122,
 
-					name: "Users interactions",
-					scrollchor: "/admin/users"
+					name: "Products CRM",
+					scrollchor: "/admin/crm"
 				}
 			]
 		},
@@ -110,7 +109,7 @@ const Sidebar = props => {
 		}
 	];
 
-	const [activeItem, setActiveItem] = useState("Analytics and Statistics");
+	const [activeItem, setActiveItem] = useState(props.active);
 	const [itemClicked, setItemClicked] = useState("");
 
 	const handleActiveItem = e => {
