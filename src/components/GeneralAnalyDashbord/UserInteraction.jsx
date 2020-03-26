@@ -15,28 +15,28 @@ const UserInteraction = (
 			{
 				name: "Hour",
 				key: 0,
-				scrollChor: "#"
+				scrollchor: "#"
 			},
 			{
 				name: "Day",
 				key: 1,
 
-				scrollChor: "#"
+				scrollchor: "#"
 			},
 			{
 				name: "Week",
 				key: 2,
-				scrollChor: "#about"
+				scrollchor: "#about"
 			},
 			{
 				name: "Month",
 				key: 3,
-				scrollChor: "#contact"
+				scrollchor: "#contact"
 			}
 		],
 		itemsTours = [
-			{ name: "Tours", key: 0, scrollChor: "#" },
-			{ name: "Products", key: 1, scrollChor: "#" }
+			{ name: "Tours", key: 0, scrollchor: "#" },
+			{ name: "Products", key: 1, scrollchor: "#" }
 		]
 	},
 	props
@@ -128,7 +128,7 @@ const UserInteraction = (
 												<p
 													name={elem["name"]}
 													className={navClass}
-													scrollChor={elem["scrollChor"]}
+													scrollchor={elem["scrollchor"]}
 													key={elem["key"]}
 													onClick={prop =>
 														handleSetActiveTours(

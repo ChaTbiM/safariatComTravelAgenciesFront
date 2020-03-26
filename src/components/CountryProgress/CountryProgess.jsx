@@ -20,7 +20,7 @@ const CountryProgress = props => {
 		<div className="bg-white flex  flex-col text-center scroll-div">
 			{data_regions.map(region => {
 				return (
-					<div className="flex flex-row py-4  justify-between">
+					<div key={region.id} className="flex flex-row py-4  justify-between">
 						<div className="w-2/5">
 							<p className="text-lg font-bold-500 whitespace-no-wrap">
 								{region["place"]}

@@ -192,7 +192,10 @@ const Finance = (
 											<div className="scroling-div">
 												{dataActions.map((action, i) => {
 													return (
-														<div className="py-2 flex flex-col justify-between items-center">
+														<div
+															key={i}
+															className="py-2 flex flex-col justify-between items-center"
+														>
 															<div className="flex justify-center items-center my-2">
 																<div className="float-left flex justify-between items-center">
 																	<div
