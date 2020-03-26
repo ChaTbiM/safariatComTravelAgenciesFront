@@ -25,7 +25,10 @@ const CardTours = () => {
 				<>
 					<div className="w-1/2">
 						{result.slice(0, slicer).map(item => (
-							<div className=" rounded set-top-tour mx-1 my-1 sD:m-4">
+							<div
+								key={item.id}
+								className=" rounded set-top-tour mx-1 my-1 sD:m-4"
+							>
 								<div className="flex flex-col p-2 justify-start set-background-color-v2">
 									<h1 className="text-18">{item["title"]}</h1>
 									<p className="text-11 text-gray-800">{item["body"]}</p>
@@ -35,7 +38,10 @@ const CardTours = () => {
 					</div>
 					<div className="w-1/2">
 						{result.slice(slicer).map(item => (
-							<div className=" rounded set-top-tour mx-1 my-1 sD:m-4">
+							<div
+								key={item.id}
+								className=" rounded set-top-tour mx-1 my-1 sD:m-4"
+							>
 								<div className="flex flex-col p-2 justify-start set-background-color-v2">
 									<h1 className="font-size-res">{item["title"]}</h1>
 									<p>{item["body"]}</p>
@@ -46,7 +52,7 @@ const CardTours = () => {
 				</>
 			) : (
 				<div className="w-full text-center">
-					<div class="lds-ring">
+					<div className="lds-ring">
 						<div></div>
 						<div></div>
 						<div></div>

@@ -23,7 +23,7 @@ const CardActifUser = () => {
 			{isLoading ? (
 				<div className="p-5 pt-8 pt-2 pb-2 bg-white">
 					{data_active_users.map(user => (
-						<div className="py-2">
+						<div className="py-2" key={user.id}>
 							<div
 								style={{
 									backgroundColor: "#f3f3f3"
@@ -74,7 +74,7 @@ const CardActifUser = () => {
 				</div>
 			) : (
 				<div className="flex justify-center items-center bg-white">
-					<div class="lds-ring">
+					<div className="lds-ring">
 						<div></div>
 						<div></div>
 						<div></div>

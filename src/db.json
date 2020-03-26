@@ -43,18 +43,26 @@
 	],
 	"tours": [
 		{
+			"id": 0,
+
 			"title": "Tunis, Tunisia",
 			"body": "Af deel pomp soms tijd veel ad. En voorloopig uitgegeven en nu ad verkochten beschikken"
 		},
 		{
+			"id": 1,
+
 			"title": "Tunis, Tunisia",
 			"body": "Af deel pomp soms tijd veel ad. En voorloopig uitgegeven en nu ad verkochten beschikken"
 		},
 		{
+			"id": 2,
+
 			"title": "Tunis, Tunisia",
 			"body": "Af deel pomp soms tijd veel ad. En voorloopig uitgegeven en nu ad verkochten beschikken"
 		},
 		{
+			"id": 3,
+
 			"title": "Tunis, Tunisia",
 			"body": "Af deel pomp soms tijd veel ad. En voorloopig uitgegeven en nu ad verkochten beschikken"
 		}
@@ -128,57 +136,51 @@
 	],
 	"top_active_users": [
 		{
+			"id": 0,
 			"name": "kevin meklien",
 			"type": "influencer"
 		},
 		{
+			"id": 1,
 			"name": "kevin meklien",
 			"type": "influencer"
 		},
 		{
+			"id": 2,
 			"name": "kevin meklien",
 			"type": "influencer"
 		},
 		{
-			"name": "kevin meklien",
-			"type": "influencer"
-		},
-		{
-			"name": "kevin meklien",
-			"type": "influencer"
-		},
-		{
-			"name": "kevin meklien",
-			"type": "influencer"
-		},
-		{
-			"name": "kevin meklien",
-			"type": "influencer"
-		},
-		{
+			"id": 3,
+
 			"name": "kevin meklien",
 			"type": "influencer"
 		}
 	],
 	"top_regions": [
 		{
-			"place": "Algiers, Algeria",
+			"id": 0,
+			"place": "Algiers,Algeria",
 			"progress": 90
 		},
 		{
-			"place": "Tunis, Tunisia",
+			"id": 1,
+			"place": "Tunis,Tunisia",
 			"progress": 65
 		},
 		{
-			"place": "Reo de janiro, Brazil",
+			"id": 2,
+
+			"place": "Reo de janiro,Brazil",
 			"progress": 65
 		},
 		{
-			"place": "Milan, Italy",
+			"id": 3,
+
+			"place": "Milan,Italy",
 			"progress": 40
 		}
 	],
-	"map_world": ["Algeria", "Tunisia", "Brazil", "Italy"],
 	"employees": [
 		{
 			"key": 5151551151,

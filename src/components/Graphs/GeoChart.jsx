@@ -10,11 +10,12 @@ const MapChart = () => {
 	const countryNames = [];
 	useEffect(() => {
 		axios
-			.get("http://localhost:3000/map_world")
+			.get("http://localhost:3000/top_regions")
 			.then(res => {
 				res.data.map(country => {
+					console.log(country.place.split(",")[1]);
 					let country_filtred = countries.filter(
-						option => option.name === country
+						option => option.name === country.place.split(",")[1]
 					)[0];
 					let country_data = {
 						name: country_filtred.name,
@@ -57,7 +58,7 @@ const MapChart = () => {
 						<p>test</p>
 					</VectorMap>
 				) : (
-					<div class="lds-ring">
+					<div className="lds-ring">
 						<div></div>
 						<div></div>
 						<div></div>

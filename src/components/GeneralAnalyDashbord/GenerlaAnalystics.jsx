@@ -118,7 +118,7 @@ const GenerlaAnalystics = ({
 						</div>
 					</div>
 
-					<div className="flex bg-white">
+					<div className="flex">
 						<div className="px-4 w-full">
 							<div className="mb-3 card">
 								<div className="flex items-center h-16 border-none py-2  px-6 bg-white">
