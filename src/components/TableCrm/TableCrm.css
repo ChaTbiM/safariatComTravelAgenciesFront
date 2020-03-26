@@ -38,6 +38,9 @@
 .agency-btn-custom.shadowz {
 	box-shadow: 0 1px 6px #000000;
 }
+.int-ext p:hover {
+	color: #ffcc4e !important;
+}
 @media (max-width: 1250px) {
 	.agency_crm_tr td {
 		padding: 1em 0 !important;
@@ -57,6 +60,7 @@
 		font-size: 16px !important;
 		text-align: center !important;
 	}
+
 	.select-box__current {
 		width: 150px !important;
 	}
