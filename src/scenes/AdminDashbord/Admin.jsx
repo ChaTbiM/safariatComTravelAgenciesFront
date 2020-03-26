@@ -23,6 +23,7 @@ const Admin = props => {
 				clickToggle={() => {
 					handleToggleClick();
 				}}
+				active={props.active}
 			/>
 			<div
 				className={!toggle ? "padleft" : "padleft-sm"}

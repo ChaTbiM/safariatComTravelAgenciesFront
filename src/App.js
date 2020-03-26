@@ -25,6 +25,7 @@ import ToursManagement from "./scenes/ToursManagement/ToursManagement";
 import ProductsManagement from "./scenes/ProductsManagement/ProductsManagement";
 import EmployeesManagement from "./scenes/EmployeesManagement/EmployeesManagement";
 import TasksManagement from "./scenes/TasksManagement/TasksManagement";
+import Crm from "./scenes/Crm/Crm.jsx";
 function App() {
 	return (
 		<Router>
@@ -51,6 +52,10 @@ function App() {
 					render={props => (
 						<Admin active="HR management" content={<EmployeesManagement />} />
 					)}
+				/>
+				<Route
+					path="/admin/crm"
+					render={props => <Admin active="Travel CRM" content={<Crm />} />}
 				/>
 
 				<Route

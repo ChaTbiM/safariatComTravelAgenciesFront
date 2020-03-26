@@ -71,22 +71,21 @@ const Sidebar = props => {
 			]
 		},
 		{
-			title: "Travel and product CRM",
-			href: "#",
+			title: "Travel CRM",
+			href: "/admin/crm",
 			isClicked: false,
 			icon: Crm,
 			options: [
 				{
 					key: 101124110,
-
-					name: "Tours booking & products",
-					scrollchor: "/admin/tours"
+					name: "Tours CRM",
+					scrollchor: "/admin/crm"
 				},
 				{
 					key: 11111122,
 
-					name: "Users interactions",
-					scrollchor: "/admin/users"
+					name: "Products CRM",
+					scrollchor: "/admin/crm"
 				}
 			]
 		},
@@ -110,7 +109,7 @@ const Sidebar = props => {
 		}
 	];
 
-	const [activeItem, setActiveItem] = useState("Analytics and Statistics");
+	const [activeItem, setActiveItem] = useState(props.active);
 	const [itemClicked, setItemClicked] = useState("");
 
 	const handleActiveItem = e => {
@@ -152,7 +151,7 @@ const Sidebar = props => {
 								: "flex flex-col agency_profile_sidebar ml-2"
 						}
 					>
-						<span className="text-14 text-white"> Oussama Bengoudifa</span>
+						<span className="text-16 text-white"> Oussama Bengoudifa</span>
 						<span className="text-12 text-gray-600">CEO of travel agency</span>
 					</div>
 				</div>
@@ -207,7 +206,11 @@ const Sidebar = props => {
 								{item.options.map(opt => (
 									<li
 										key={opt.key + "545421"}
-										className={itemClicked === item.title ? "flex" : "hidden"}
+										className={
+											itemClicked === item.title
+												? "flex hovy cursor-pointer"
+												: "hidden"
+										}
 										onClick={() => handleActiveFromDown(item.title)}
 									>
 										<Link className="py-1 ml-12" to={opt.scrollchor}>
@@ -220,7 +223,7 @@ const Sidebar = props => {
 												>
 													<div className="absolute w-1 h-1 rounded-full bg-transparent"></div>
 												</div>
-												<span className="text-white">{opt.name}</span>
+												<span className="text-white ">{opt.name}</span>
 											</div>
 										</Link>
 									</li>

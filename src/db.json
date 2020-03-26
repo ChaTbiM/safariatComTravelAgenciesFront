@@ -71,6 +71,13 @@
 			"Title": "Sahara",
 			"Rate": 94,
 			"views": 3
+		},
+
+		{
+			"id": 3,
+			"Title": "Sahara",
+			"Rate": 94,
+			"views": 3
 		}
 	],
 	"booking": [
@@ -171,7 +178,7 @@
 			"progress": 40
 		}
 	],
-	"map_world": ["Algeria", "Tunisia", "Brazil", "Italy", "France"],
+	"map_world": ["Algeria", "Tunisia", "Brazil", "Italy"],
 	"employees": [
 		{
 			"key": 5151551151,
@@ -256,5 +263,54 @@
 	],
 	"donut": {
 		"series": [122.9, 96.785, 35.785, 22.123]
-	}
+	},
+	"internal_crm_orders": [
+		{
+			"id": 0,
+			"name": "bengoudifa oussama",
+			"destination": "Paris, France",
+			"tour_id": "#Paris1899",
+			"date": "10/03/2020",
+			"billing_invoices_created": false,
+			"confirmation": true
+		},
+		{
+			"id": 1,
+			"name": "bazahatbi mustapha",
+			"destination": "Ain temouchent, Algeria",
+			"tour_id": "#DZ1995",
+			"date": "22/01/2020",
+			"billing_invoices_created": true,
+			"confirmation": false
+		},
+		{
+			"id": 2,
+			"name": "kri test",
+			"destination": "Mostaganem, Algeria",
+			"tour_id": "#DZ1995",
+			"date": "22/01/2000",
+			"billing_invoices_created": true,
+			"confirmation": false
+		}
+	],
+	"external_crm_orders": [
+		{
+			"id": 0,
+			"name": "bengoudifa oussama",
+			"destination": "Paris, France",
+			"tour_id": "#Paris1899",
+			"date": "10/03/2020",
+			"billing_invoices_created": true,
+			"confirmation": true
+		},
+		{
+			"id": 1,
+			"name": "chatbi mustapha",
+			"destination": "Oran, Algeria",
+			"tour_id": "#DZ1995",
+			"date": "22/01/2020",
+			"billing_invoices_created": true,
+			"confirmation": false
+		}
+	]
 }

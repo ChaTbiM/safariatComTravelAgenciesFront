@@ -191,7 +191,6 @@ const Finance = (
 										<div className="w-1/2">
 											<div className="scroling-div">
 												{dataActions.map((action, i) => {
-													console.log(i);
 													return (
 														<div className="py-2 flex flex-col justify-between items-center">
 															<div className="flex justify-center items-center my-2">
