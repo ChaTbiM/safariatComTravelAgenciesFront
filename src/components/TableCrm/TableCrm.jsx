@@ -6,6 +6,7 @@ import { ReactComponent as Info } from "../GeneralAnalyDashbord/images/informati
 import Edit from "../../assets/edit.png";
 import Delete from "../../assets/delete.png";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
 const TableCrm = props => {
 	const [orderType, setOrderType] = useState("internal");
@@ -126,7 +127,9 @@ const TableCrm = props => {
 					</span>
 				</div>
 				<div className="flex p-4 justify-between items-center">
-					<span className="agency-btn-custom_v1">Add Billing order</span>
+					<Link to="/admin/billing" className="agency-btn-custom_v1">
+						Add Billing order
+					</Link>
 					<span className="pl-4">
 						<span
 							className="hint--bottom text-center hint--medium"
@@ -144,7 +147,7 @@ const TableCrm = props => {
 					<table className="min-w-full leading-normal">
 						<thead className="agency_crm_thead">
 							<tr className="agency_crm_tr">
-								<th className="px-5 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+								<th className="px-5 py-3 agency_crm_thead text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
 									Client name
 								</th>
 								<th className="px-5 py-3 agency_crm_thead text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -168,29 +171,29 @@ const TableCrm = props => {
 						<tbody>
 							{dataTable.map(data => (
 								<tr key={data.id} className="agency_crm_tr">
-									<td className="px-5 py-5 text-left bg-white text-sm">
+									<td className="px-5 py-5 text-left  text-sm">
 										<div className="flex items-center">
 											<p className="text-gray-900 font-bold whitespace-no-wrap text-18">
 												{data["name"]}
 											</p>
 										</div>
 									</td>
-									<td className="px-5 py-5 bg-white text-18">
+									<td className="px-5 py-5  text-18">
 										<p className="text-gray-700 whitespace-no-wrap">
 											{data["destination"]}
 										</p>
 									</td>
-									<td className="px-5 py-5 bg-white text-18">
+									<td className="px-5 py-5  text-18">
 										<p className="text-gray-700 whitespace-no-wrap">
 											{data["tour_id"]}
 										</p>
 									</td>
-									<td className="px-5 py-5 bg-white text-18">
+									<td className="px-5 py-5 text-18">
 										<p className="text-gray-700 whitespace-no-wrap">
 											{data["date"]}
 										</p>
 									</td>
-									<td className="px-5 py-5 bg-white text-18 ">
+									<td className="px-5 py-5 text-18 ">
 										<div className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
 											<span
 												aria-hidden
@@ -219,7 +222,7 @@ const TableCrm = props => {
 											</span>
 										</div>
 									</td>
-									<td className=" px-5 py-5 bg-white text-sm ">
+									<td className=" px-5 py-5  text-sm ">
 										<span className=" px-3 py-1 font-semibold text-green-900 leading-tight">
 											<span
 												aria-hidden
@@ -243,7 +246,7 @@ const TableCrm = props => {
 											</span>
 										</span>
 									</td>
-									<td className="px-5 py-5  bg-white text-18">
+									<td className="px-5 py-5 text-18">
 										<p
 											className="cursor-pointer float-left px-2"
 											onClick={handleEvent}
