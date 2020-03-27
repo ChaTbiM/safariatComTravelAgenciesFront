@@ -1,11 +1,12 @@
 import TableCrm from "../../components/TableCrm/TableCrm.jsx";
 import HeaderPage from "../../components/HeaderPage/HeaderPage.jsx";
-import React, { useState } from "react";
+import React from "react";
 
 const Crm = () => {
 	return (
-		<div className="z-10 px-4 flex flex-col">
+		<div className="z-10  flex flex-col">
 			<HeaderPage
+				isBad
 				title="Travel CRM"
 				buttons={[
 					{
