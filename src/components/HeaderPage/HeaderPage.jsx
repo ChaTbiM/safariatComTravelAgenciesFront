@@ -10,7 +10,7 @@ export default class HeaderPage extends Component {
 	render() {
 		const { title, buttons } = this.props;
 		return (
-			<Container>
+			<Container className={this.props.isBad ? "px-4" : ""}>
 				<section className="agency_header_section">
 					<div className="flex items-center">
 						<div className="agency_header_text">

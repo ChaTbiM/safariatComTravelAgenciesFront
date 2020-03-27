@@ -93,6 +93,7 @@ const BillingInvoiceOrder = () => {
 	return (
 		<>
 			<HeaderPage
+				isBad
 				title="Travel CRM"
 				buttons={[
 					{
@@ -109,7 +110,7 @@ const BillingInvoiceOrder = () => {
 			/>
 			{/* hna nabdou dok f billing  */}
 			<div className="p-4 pt-0 mx-12">
-				<div className=" px-6 py-4 pt-0 flex flex-col justify-between items-start">
+				<div className=" px-2 py-4 pt-0 flex flex-col justify-between items-start">
 					<BillingHeader />
 					{isPreview ? (
 						<BillingPreview
