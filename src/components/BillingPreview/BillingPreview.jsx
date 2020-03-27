@@ -18,24 +18,24 @@ const BillingPreview = props => {
 				<div className="flex flex-col xchange">
 					<ul className="flex justify-start flex-wrap">
 						<li className="flex flex-col px-6">
-							<span className="my-2 text-18">Destination</span>
-							<p>{destination}</p>
+							<span className="my-2 text-21 ">Destination</span>
+							<p className="text-gray-700 text-16">{destination}</p>
 						</li>
 						<li className="flex flex-col px-6">
-							<span className="my-2 text-18">Tour id</span>
+							<span className="my-2 text-21">Tour id</span>
 							<p>{TourId}</p>
 						</li>
 						<li className="flex flex-col px-6">
-							<span className="my-2 text-18">Price</span>
-							<p>{Price}</p>
+							<span className="my-2 text-21">Price</span>
+							<p className="text-gray-700 text-16">{Price}</p>
 						</li>
 						<li className="flex flex-col px-6">
-							<span className="my-2 text-18">Qty</span>
-							<p>{Qty}</p>
+							<span className="my-2 text-21">Qty</span>
+							<p className="text-gray-700 text-16">{Qty}</p>
 						</li>
 						<li className="flex flex-col px-6">
-							<span className="my-2 text-18">TVA</span>
-							<p>{TVA}</p>
+							<span className="my-2 text-21">TVA</span>
+							<p className="text-gray-700 text-16">{TVA}</p>
 						</li>
 					</ul>
 					<div className="flex flex-col pad-change my-8">
@@ -44,20 +44,27 @@ const BillingPreview = props => {
 								fontSize: "21px",
 								margin: "10px 0"
 							}}
+							className="text-28"
 						>
 							Details
 						</span>
-						<div className="flex justify-around">
+						<div className="flex justify-between w-1/2">
 							<ul className="flex flex-col pad-change my-8">
 								{detailsType.map((elm, index) => (
-									<li key={index} className="flex justify-between my-2">
+									<li
+										key={index}
+										className="flex justify-between my-2 text-gray-700 text-16"
+									>
 										{elm}
 									</li>
 								))}
 							</ul>
 							<ul className="flex flex-col pad-change my-8">
 								{detailsNumber.map((elm, index) => (
-									<li key={index} className="flex justify-between my-2">
+									<li
+										key={index}
+										className="flex justify-between my-2 text-gray-700 text-16"
+									>
 										{elm}
 									</li>
 								))}
@@ -79,12 +86,12 @@ const BillingPreview = props => {
 						</div>
 						<ul className="flex flex-col">
 							<li className="flex flex-col my-6">
-								<label htmlFor="billed" className="m-1">
+								<label htmlFor="billed" className="m-1 text-18">
 									Billed to : {BilledTo}
 								</label>
 							</li>
 							<li className="flex flex-col my-6">
-								<label htmlFor="invoice" className="m-1">
+								<label htmlFor="invoice" className="m-1 text-18">
 									Invoice number : {InvoiceNumber}
 								</label>
 							</li>
