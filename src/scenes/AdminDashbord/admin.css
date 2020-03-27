@@ -13,6 +13,9 @@ body {
 	scrollbar-width: none;
 	max-height: 450px;
 }
+tr:nth-child(even) {
+	background: #f5f5f5;
+}
 
 .padleft {
 	z-index: 5;

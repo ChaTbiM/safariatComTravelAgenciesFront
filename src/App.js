@@ -19,19 +19,19 @@ import Admin from "./scenes/AdminDashbord/Admin";
 import GenerlaAnalystics from "./components/GeneralAnalyDashbord/GenerlaAnalystics";
 import UserInteraction from "./components/GeneralAnalyDashbord/UserInteraction";
 import Finance from "./components/Finance/Finance.jsx";
-import SearchBar from "./components/SearchBar/SearchBar.jsx";
 
 import ToursManagement from "./scenes/ToursManagement/ToursManagement";
 import ProductsManagement from "./scenes/ProductsManagement/ProductsManagement";
 import EmployeesManagement from "./scenes/EmployeesManagement/EmployeesManagement";
 import TasksManagement from "./scenes/TasksManagement/TasksManagement";
 import Crm from "./scenes/Crm/Crm.jsx";
+import Billing from "./components/BillingInvoiceOrder/BillingInvoiceOrder.jsx";
 function App() {
 	return (
 		<Router>
 			<Switch>
 				<Route component={Home} exact path="/"></Route>
-				<Route component={SearchBar} path="/search"></Route>
+				<Route component={Billing} path="/test"></Route>
 				<Route component={Services} path="/services"></Route>
 				<Route component={Blog} path="/blog"></Route>
 				<Route component={Contact} path="/contact"></Route>
@@ -52,6 +52,10 @@ function App() {
 					render={props => (
 						<Admin active="HR management" content={<EmployeesManagement />} />
 					)}
+				/>
+				<Route
+					path="/admin/billing"
+					render={props => <Admin active="Travel CRM" content={<Billing />} />}
 				/>
 				<Route
 					path="/admin/crm"

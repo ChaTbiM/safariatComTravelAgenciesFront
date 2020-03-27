@@ -1,0 +1,53 @@
+.agency_billing_order_header {
+	background-color: #cbcbcb;
+	color: white;
+	font-size: 21px;
+	height: 250px;
+}
+.agency_billing_title {
+	font-size: 33px;
+}
+.agency_billing_input {
+	border: 1px solid #cbcbcb;
+}
+.agency_form_row {
+	justify-content: space-between;
+}
+.wchange {
+	width: 30% !important;
+	justify-content: space-between;
+	align-items: center;
+}
+.xchange {
+	width: 50%;
+}
+.pad-change {
+	padding: 0 1rem;
+}
+@media (max-width: 1300px) {
+	.agency_form_row {
+		justify-content: flex-start !important;
+		align-items: flex-start !important;
+		flex-direction: column-reverse !important;
+	}
+	.wchange {
+		width: 90% !important;
+		justify-content: flex-start !important;
+		align-items: flex-start;
+		margin: 2rem 0.5rem !important;
+	}
+	.wchange ul {
+		flex-direction: row !important;
+		width: 100% !important;
+		justify-content: space-between !important;
+	}
+	.agency_billing_title {
+		font-size: 28px !important;
+	}
+	.agency_billing_input.d {
+		margin: 0 15px;
+	}
+	.pad-change {
+		padding: 0 !important;
+	}
+}
