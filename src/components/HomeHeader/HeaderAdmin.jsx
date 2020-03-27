@@ -4,15 +4,20 @@ import Notification from "./images/notifications.svg";
 import Logo from "./images/logoForWeb.png";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import NotificationBox from "../NotificationsBox/NotificationsBox.jsx";
+
 const HeaderAdmin = props => {
 	const [show, setShow] = useState(false);
 	const [navL, setNavL] = useState(false);
+	const [homeDropdown, setHomeDropdon] = useState(false);
 	const showNotifications = () => {
 		setShow(!show);
 	};
 	const handleLogo = () => {
 		setNavL(!navL);
 		props.clickToggle();
+	};
+	const handleClick = () => {
+		setHomeDropdon(prevState => !prevState);
 	};
 
 	return (
@@ -33,19 +38,163 @@ const HeaderAdmin = props => {
 					<div className="partLeft">
 						<SearchBar />
 						<div className="middlePart">
-							<div className="buttons_nav">
-								<a className="text-18 active" href="#">
-									Home
-								</a>
-								<a className="text-18" href="#">
-									Create+
-								</a>
-								<a className="text-18" href="#">
-									Services
-								</a>
-								<a className="text-18" href="#">
-									Support
-								</a>
+							<div className="buttons_nav flex">
+								<div className="agency_item-nav py-6 relative cursor-pointer">
+									<a
+										href="#"
+										onClick={handleClick}
+										className="text-18 active"
+										name="Home"
+									>
+										Home
+									</a>
+								</div>
+								<div className="agency_item-nav py-6 relative cursor-pointer">
+									<a
+										href="#"
+										onClick={handleClick}
+										className="text-18 "
+										name="Create"
+									>
+										Create+
+									</a>
+									<div className="dropdown-nav hidden bg-white mt-6 py-2 w-56 absolute rounded-lg shadow-xl ">
+										<div className="flex items-center py-2 px-4">
+											<div
+												className="relative mr-2 w-3 h-3 flex justify-center items-center text-center rounded-full"
+												style={{
+													backgroundColor: "#FFB808"
+												}}
+											>
+												<div className="absolute w-1 h-1 rounded-full bg-transparent"></div>
+											</div>
+											<a
+												href="#"
+												className="block text-14 text-drp text-gray-800  m-0 "
+											>
+												Create new Tour
+											</a>
+										</div>
+										<div className="flex items-center py-2 px-4">
+											<div
+												className="relative mr-2 w-3 h-3 flex justify-center items-center text-center rounded-full"
+												style={{
+													backgroundColor: "#FFB808"
+												}}
+											>
+												<div className="absolute w-1 h-1 rounded-full bg-transparent"></div>
+											</div>
+											<a
+												href="#"
+												className="block text-14 text-drp text-gray-800  m-0 "
+											>
+												Create new message
+											</a>
+										</div>
+										<div className="flex items-center py-2 px-4">
+											<div
+												className="relative mr-2 w-3 h-3 flex justify-center items-center text-center rounded-full"
+												style={{
+													backgroundColor: "#FFB808"
+												}}
+											>
+												<div className="absolute w-1 h-1 rounded-full bg-transparent"></div>
+											</div>
+											<a
+												href="#"
+												className="block text-14 text-drp text-gray-800  m-0 "
+											>
+												Create new Product
+											</a>
+										</div>
+										<div className="flex items-center py-2 px-4">
+											<div
+												className="relative mr-2 w-3 h-3 flex justify-center items-center text-center rounded-full"
+												style={{
+													backgroundColor: "#FFB808"
+												}}
+											>
+												<div className="absolute w-1 h-1 rounded-full bg-transparent"></div>
+											</div>
+											<a
+												href="#"
+												className="block text-14 text-drp text-gray-800  m-0 "
+											>
+												Create new Article
+											</a>
+										</div>
+										<div className="flex items-center py-2 px-4">
+											<div
+												className="relative mr-2 w-3 h-3 flex justify-center items-center text-center rounded-full"
+												style={{
+													backgroundColor: "#FFB808"
+												}}
+											>
+												<div className="absolute w-1 h-1 rounded-full bg-transparent"></div>
+											</div>
+											<a
+												href="#"
+												className="block text-14 text-drp text-gray-800  m-0 "
+											>
+												Create new billing
+											</a>
+										</div>
+									</div>
+								</div>
+								<div className="agency_item-nav py-6 relative cursor-pointer">
+									<a
+										href="#"
+										onClick={handleClick}
+										className="text-18 "
+										name="Services"
+									>
+										Sevices
+									</a>
+									<div className="dropdown-nav hidden bg-white mt-6 py-2 w-56 absolute rounded-lg shadow-xl ">
+										<div className="flex items-center py-2 px-4">
+											<div
+												className="relative mr-2 w-3 h-3 flex justify-center items-center text-center rounded-full"
+												style={{
+													backgroundColor: "#FFB808"
+												}}
+											>
+												<div className="absolute w-1 h-1 rounded-full bg-transparent"></div>
+											</div>
+											<a
+												href="#"
+												className="block text-14 text-drp text-gray-800  m-0 "
+											>
+												Registrations services
+											</a>
+										</div>
+										<div className="flex items-center py-2 px-4">
+											<div
+												className="relative mr-2 w-3 h-3 flex justify-center items-center text-center rounded-full"
+												style={{
+													backgroundColor: "#FFB808"
+												}}
+											>
+												<div className="absolute w-1 h-1 rounded-full bg-transparent"></div>
+											</div>
+											<a
+												href="#"
+												className="block text-14 text-drp text-gray-800  m-0 "
+											>
+												Publicity services
+											</a>
+										</div>
+									</div>
+								</div>
+								<div className="agency_item-nav py-6 relative cursor-pointer">
+									<a
+										href="#"
+										onClick={handleClick}
+										className="text-18 "
+										name="Services"
+									>
+										Support
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>

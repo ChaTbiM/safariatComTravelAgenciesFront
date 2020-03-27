@@ -26,12 +26,12 @@ import EmployeesManagement from "./scenes/EmployeesManagement/EmployeesManagemen
 import TasksManagement from "./scenes/TasksManagement/TasksManagement";
 import Crm from "./scenes/Crm/Crm.jsx";
 import Billing from "./components/BillingInvoiceOrder/BillingInvoiceOrder.jsx";
+
 function App() {
 	return (
 		<Router>
 			<Switch>
 				<Route component={Home} exact path="/"></Route>
-				<Route component={Billing} path="/test"></Route>
 				<Route component={Services} path="/services"></Route>
 				<Route component={Blog} path="/blog"></Route>
 				<Route component={Contact} path="/contact"></Route>
@@ -45,7 +45,6 @@ function App() {
 						/>
 					)}
 				/>
-				{/* Mustapha Routes */}
 
 				<Route
 					path="/admin/employees"
@@ -68,6 +67,7 @@ function App() {
 						<Admin active="HR management" content={<TasksManagement />} />
 					)}
 				/>
+				{/* Mustapha Routes */}
 
 				{/* Refactored */}
 				<Route
