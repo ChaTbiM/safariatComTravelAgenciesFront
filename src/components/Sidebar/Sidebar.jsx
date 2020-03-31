@@ -6,7 +6,7 @@ import Finance from "./images/compass.png";
 import Crm from "./images/crm.png";
 import TravelM from "./images/plus.png";
 import Analytics from "./images/report.png";
-import Person from "../../assets/person_girl.jpg";
+import Person from "../../assets/person.png";
 import Logout from "./images/logout@2x.png";
 
 const Sidebar = props => {

@@ -263,83 +263,83 @@
   ],
   "employees": [
     {
-      "id": 5151551151,
+      "id": 1,
       "name": "1 dekly",
       "paying_day": "20/03/2020",
-      "status": "Paid out",
-      "salary": "2500",
+      "status": "Not yet",
+      "salary": 2500000,
       "departement": "HR"
     },
     {
-      "id": 222,
-      "name": "2 dekly",
+      "id": 2,
+      "name": "1 dekly",
       "paying_day": "20/03/2020",
-      "status": "not yet",
-      "salary": "2500",
+      "status": "Not yet",
+      "salary": 25000,
       "departement": "HR"
     },
     {
-      "id": 54544454545111,
-      "name": "alisia 3",
+      "id": 3,
+      "name": "1 dekly",
       "paying_day": "20/03/2020",
-      "status": "paid out",
-      "salary": "2500",
-      "departement": "CRM"
-    },
-    {
-      "id": 11,
-      "name": "4 dekly",
-      "paying_day": "20/03/2020",
-      "status": "not yet",
-      "salary": "2500",
+      "status": "Not yet",
+      "salary": 25000,
       "departement": "HR"
     },
     {
-      "id": 20336656,
-      "name": "5 dekly",
+      "id": 4,
+      "name": "1 dekly",
       "paying_day": "20/03/2020",
-      "status": "not yet",
-      "salary": "2500",
+      "status": "Not yet",
+      "salary": 25000,
       "departement": "HR"
     },
     {
-      "id": 1015887787,
-      "name": "6 dekly",
+      "id": 5,
+      "name": "1 dekly",
       "paying_day": "20/03/2020",
-      "status": "Paid out",
-      "salary": "2500",
+      "status": "Not yet",
+      "salary": 25000,
       "departement": "HR"
     },
     {
-      "id": 1112551211,
-      "name": "7 dekly",
+      "id": 6,
+      "name": "1 dekly",
       "paying_day": "20/03/2020",
-      "status": "not yet",
-      "salary": "2500",
+      "status": "Not yet",
+      "salary": 0,
       "departement": "HR"
     },
     {
-      "id": 2033663222356,
-      "name": "8 dekly",
+      "id": 7,
+      "name": "1 dekly",
       "paying_day": "20/03/2020",
-      "status": "not yet",
-      "salary": "2500",
+      "status": "Not yet",
+      "salary": 25000,
       "departement": "HR"
     },
     {
-      "id": 232899989,
-      "name": "8 dekly",
+      "id": 8,
+      "name": "1 dekly",
       "paying_day": "20/03/2020",
-      "status": "not yet",
-      "salary": "2500",
+      "status": "Not yet",
+      "salary": 25000,
       "departement": "HR"
     },
     {
-      "id": 548512,
-      "name": "8 dekly",
+      "id": 9,
+      "name": "1 dekly",
       "paying_day": "20/03/2020",
-      "status": "not yet",
-      "salary": "2500",
+      "status": "Not yet",
+      "salary": 25000,
+      "departement": "HR"
+    },
+    {
+      "id": 10,
+      "name": "1 dekly",
+      "paying_day": "20/03/2020",
+      "status": "Not yet",
+      "salary": 25000,
       "departement": "HR"
     }
   ],

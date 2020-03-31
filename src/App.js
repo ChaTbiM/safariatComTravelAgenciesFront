@@ -27,8 +27,6 @@ import TasksManagement from "./scenes/TasksManagement/TasksManagement";
 import Crm from "./scenes/Crm/Crm.jsx";
 import Billing from "./components/BillingInvoiceOrder/BillingInvoiceOrder.jsx";
 
-import Learning from "./scenes/Learning/Learning.jsx";
-
 function App() {
   return (
     <Router>
@@ -37,7 +35,6 @@ function App() {
         <Route component={Services} path="/services"></Route>
         <Route component={Blog} path="/blog"></Route>
         <Route component={Contact} path="/contact"></Route>
-        <Route component={Learning} path="/learning"></Route>
         <Route component={About} path="/about"></Route>
         <Route
           path="/admin/tours"

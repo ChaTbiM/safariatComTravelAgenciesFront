@@ -216,3 +216,21 @@ div.dataTables_wrapper div.dataTables_paginate {
 .bot-ok {
   bottom: -52px;
 }
+.check-hover {
+  background-color: white;
+}
+.check-hover > .fas {
+  color: black;
+}
+.check-hover:hover {
+  background-color: #23d535 !important;
+}
+.check-hover:hover > .fas {
+  color: white !important;
+}
+.check-hover.dot {
+  background-color: transparent !important;
+}
+.check-hover.dot:hover > svg {
+  fill: #23d535 !important;
+}
