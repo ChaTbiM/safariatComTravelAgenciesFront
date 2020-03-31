@@ -113,6 +113,7 @@ const BillingInvoiceOrder = () => {
           <BillingHeader />
           {isPreview ? (
             <BillingPreview
+              totalPrice={totalPrice}
               destination={destination}
               TVA={TVA}
               TourId={TourId}
@@ -127,6 +128,7 @@ const BillingInvoiceOrder = () => {
             <BillingContainer
               handleChangeInformationsPrice={handleChangeInformationsPrice}
               handleChangeInformationsTVA={handleChangeInformationsTVA}
+              totalPrice={totalPrice}
               destination={destination}
               TVA={TVA}
               TourId={TourId}
