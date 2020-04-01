@@ -9,6 +9,9 @@ table.dataTable {
 .table-bordered {
   border: 1px solid #e9ecef;
 }
+.bg-arrow {
+  fill: #7f858a91;
+}
 table.dataTable {
   border-collapse: separate !important;
   border-spacing: 0;
@@ -81,6 +84,12 @@ table.table-bordered.dataTable td {
 div.dataTables_wrapper div.dataTables_info {
   padding-top: 0.85em;
   white-space: nowrap;
+}
+tr:nth-child(2n) {
+  background: #f5f5f5;
+}
+tr:nth-child(n) {
+  background: white;
 }
 .col-md-7 {
   flex: 0 0 58.33333%;
@@ -184,4 +193,44 @@ div.dataTables_wrapper div.dataTables_paginate {
 .responsive-icons.rot {
   transform: rotate(90deg);
   cursor: pointer;
+}
+.dropdownStatus {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+  z-index: 90;
+  width: 100%;
+  padding: 4px 16px;
+}
+.hover-tt {
+  color: rgb(245, 60, 86);
+}
+.hover-tt.ok {
+  color: #2dce98;
+}
+.hover-t {
+  background: rgb(245, 60, 86);
+}
+
+.bot-ok {
+  bottom: -52px;
+}
+.check-hover {
+  background-color: white;
+}
+.check-hover > .fas {
+  color: black;
+}
+.check-hover:hover {
+  background-color: #23d535 !important;
+}
+.check-hover:hover > .fas {
+  color: white !important;
+}
+.check-hover.dot {
+  background-color: transparent !important;
+}
+.check-hover.dot:hover > svg {
+  fill: #23d535 !important;
 }

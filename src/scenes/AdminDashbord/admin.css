@@ -1,117 +1,121 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 * {
-	font-family: "Montserrat", sans-serif;
-	box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 body {
-	background: #f5f5f5;
+  background: #f5f5f5;
 }
 .scroll-div {
-	overflow: scroll;
-	overflow-x: hidden;
-	-ms-overflow-style: none; /* Internet Explorer 10+ */
-	scrollbar-width: none;
-	max-height: 450px;
+  overflow: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  max-height: 450px;
 }
 tr:nth-child(even) {
-	background: #f5f5f5;
+  background: #f5f5f5;
 }
 
 .padleft {
-	z-index: 5;
-	padding-left: 0px;
-	transition: padding 0.3s;
-	background-color: #f5f5f5 !important;
+  z-index: 5;
+  padding-left: 0px;
+  transition: padding 0.3s;
+  background-color: #f5f5f5 !important;
 }
 .padleft-sm {
-	z-index: 5;
-	padding-left: 80px;
-	transition: padding 0.5s;
-	background-color: #f5f5f5 !important;
+  z-index: 5;
+  padding-left: 80px;
+  transition: padding 0.5s;
+  background-color: #f5f5f5 !important;
 }
 .card {
-	box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03),
-		0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03),
-		0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05),
-		0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
-	border-width: 0;
-	transition: all 0.2s;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03),
+    0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03),
+    0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05),
+    0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+  border-width: 0;
+  transition: all 0.2s;
 }
 .agency_choice_time_btn {
-	font-size: 0.8rem !important;
-	border: 1px solid #ffcc4e !important;
-	border-right: none;
-	border-left: none;
-	background-color: white;
-	color: #ffcc4e;
-	padding: 4px 10px;
-	border-radius: 5px;
-	margin: 0 5px;
+  font-size: 0.8rem !important;
+  border: 1px solid #ffcc4e !important;
+  border-right: none;
+  border-left: none;
+  background-color: white;
+  color: #ffcc4e;
+  padding: 4px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
 }
 .agency_choice_time_btn.active {
-	background-color: #ffcc4e;
-	color: white;
+  background-color: #ffcc4e;
+  color: white;
 }
 .agency_choice_time_btn:hover {
-	background-color: #ffcc4e;
-	color: white;
+  background-color: #ffcc4e;
+  color: white;
 }
 .agency_col {
-	width: 50%;
+  width: 50%;
 }
 @media (max-width: 1200px) {
-	.agency_row {
-		flex-direction: column-reverse !important;
-		padding: 0 30px !important;
-	}
-	.agency_col {
-		width: 100% !important;
-	}
+  .agency_row {
+    flex-direction: column-reverse !important;
+    padding: 0 30px !important;
+  }
+  .agency_col {
+    width: 100% !important;
+  }
 }
 .set-top-tour {
-	background-image: url("../../components/GeneralAnalyDashbord/images/dubai.jpg");
-	height: 160px;
-	background-position: center;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
-	text-align: left;
+  background-image: url("../../components/GeneralAnalyDashbord/images/dubai.jpg");
+  height: 160px;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: left;
 }
 .lds-ring {
-	display: inline-block;
-	position: relative;
-	width: 80px;
-	height: 80px;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
 }
 .lds-ring div {
-	box-sizing: border-box;
-	display: block;
-	position: absolute;
-	width: 64px;
-	height: 64px;
-	margin: 8px;
-	border: 8px solid #fff;
-	border-radius: 50%;
-	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-	border-color: #ffb808 transparent transparent transparent;
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #ffb808 transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
-	animation-delay: -0.45s;
+  animation-delay: -0.45s;
 }
 .lds-ring div:nth-child(2) {
-	animation-delay: -0.3s;
+  animation-delay: -0.3s;
 }
 .lds-ring div:nth-child(3) {
-	animation-delay: -0.15s;
+  animation-delay: -0.15s;
 }
 @keyframes lds-ring {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .agency_top_tours_slider .slick-slide.slick-active.slick-cloned {
-	display: none !important;
+  display: none !important;
+}
+
+tr:nth-child(2n) {
+  background-color: #f5f5f5 !important;
 }
