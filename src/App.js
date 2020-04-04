@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 // font awessome Fonts
 import "@fortawesome/fontawesome-free/css/all.css";
@@ -27,6 +27,8 @@ import TasksManagement from "./scenes/TasksManagement/TasksManagement";
 import Crm from "./scenes/Crm/Crm.jsx";
 import Billing from "./components/BillingInvoiceOrder/BillingInvoiceOrder.jsx";
 import ProfileEmployee from "./scenes/ProfileEmployee/ProfileEmployee.jsx";
+import PersonalInfo from "./components/PersonalInfo/PersonalInfo.jsx";
+import JobEmployee from "./components/JobEmployee/JobEmployee.jsx";
 
 function App() {
   return (
@@ -40,7 +42,7 @@ function App() {
 
         <Route
           path="/admin/tours"
-          render={props => (
+          render={(props) => (
             <Admin
               active="Analytics and Statistics"
               content={<GenerlaAnalystics />}
@@ -50,28 +52,52 @@ function App() {
 
         <Route
           path="/admin/profileEmployee"
-          render={props => (
-            <Admin active="Travel CRM" content={<ProfileEmployee />} />
+          render={(props) => (
+            <Admin
+              active="Travel CRM"
+              content={
+                <ProfileEmployee
+                  isActive="profile"
+                  childContent={<PersonalInfo />}
+                />
+              }
+            />
+          )}
+        />
+        <Route
+          path="/admin/jobEmployee"
+          render={(props) => (
+            <Admin
+              active="Travel CRM"
+              content={
+                <ProfileEmployee
+                  isActive="job"
+                  childContent={<JobEmployee />}
+                />
+              }
+            />
           )}
         />
         <Route
           path="/admin/employees"
-          render={props => (
+          render={(props) => (
             <Admin active="HR management" content={<EmployeesManagement />} />
           )}
         />
         <Route
           path="/admin/billing"
-          render={props => <Admin active="Travel CRM" content={<Billing />} />}
+          render={(props) => (
+            <Admin active="Travel CRM" content={<Billing />} />
+          )}
         />
         <Route
           path="/admin/crm"
-          render={props => <Admin active="Travel CRM" content={<Crm />} />}
+          render={(props) => <Admin active="Travel CRM" content={<Crm />} />}
         />
 
         <Route
           path="/admin/tasks"
-          render={props => (
+          render={(props) => (
             <Admin active="HR management" content={<TasksManagement />} />
           )}
         />
@@ -80,14 +106,14 @@ function App() {
         {/* Refactored */}
         <Route
           path="/admin/tmanagement"
-          render={props => (
+          render={(props) => (
             <Admin active="HR management" content={<ToursManagement />} />
           )}
         />
 
         <Route
           path="/admin/pmanagement"
-          render={props => (
+          render={(props) => (
             <Admin active="HR management" content={<ProductsManagement />} />
           )}
         />
@@ -95,13 +121,13 @@ function App() {
         {/* --------------------------------------------- */}
         <Route
           path="/admin/finance"
-          render={props => (
+          render={(props) => (
             <Admin active="Finance management" content={<Finance />} />
           )}
         />
         <Route
           path="/admin/users"
-          render={props => (
+          render={(props) => (
             <Admin
               active="Analytics and Statistics"
               content={<UserInteraction />}
