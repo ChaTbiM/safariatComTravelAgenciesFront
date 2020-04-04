@@ -26,6 +26,7 @@ import EmployeesManagement from "./scenes/EmployeesManagement/EmployeesManagemen
 import TasksManagement from "./scenes/TasksManagement/TasksManagement";
 import Crm from "./scenes/Crm/Crm.jsx";
 import Billing from "./components/BillingInvoiceOrder/BillingInvoiceOrder.jsx";
+import ProfileEmployee from "./scenes/ProfileEmployee/ProfileEmployee.jsx";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route component={Blog} path="/blog"></Route>
         <Route component={Contact} path="/contact"></Route>
         <Route component={About} path="/about"></Route>
+
         <Route
           path="/admin/tours"
           render={props => (
@@ -46,6 +48,12 @@ function App() {
           )}
         />
 
+        <Route
+          path="/admin/profileEmployee"
+          render={props => (
+            <Admin active="Travel CRM" content={<ProfileEmployee />} />
+          )}
+        />
         <Route
           path="/admin/employees"
           render={props => (

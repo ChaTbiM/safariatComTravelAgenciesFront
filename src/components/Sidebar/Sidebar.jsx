@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
-import Hr from "./images/business-and-finance.png";
-import Finance from "./images/compass.png";
-import Crm from "./images/crm.png";
-import TravelM from "./images/plus.png";
-import Analytics from "./images/report.png";
+import Hr from "../../assets/business-and-finance.png";
+import Finance from "../../assets/compass.png";
+import Crm from "../../assets/crm.png";
+import TravelM from "../../assets/plus.png";
 import Person from "../../assets/person.png";
-import Logout from "./images/logout@2x.png";
+import Logout from "../../assets/logout.png";
+import Analytics from "../../assets/report.png";
+import styled from "styled-components";
 
 const Sidebar = props => {
   const items = [
@@ -122,7 +123,7 @@ const Sidebar = props => {
     if (newActive !== activeItem) setActiveItem(newActive);
   };
   return (
-    <>
+    <Container>
       <aside
         style={{
           backgroundColor: "#084C61",
@@ -150,7 +151,7 @@ const Sidebar = props => {
                 : "flex flex-col agency_profile_sidebar ml-2"
             }
           >
-            <span className="text-16 text-white"> Oussama Bengoudifa</span>
+            <p className="text-16 text-white"> Oussama Bengoudifa</p>
             <span className="text-12 text-gray-600">CEO of travel agency</span>
           </div>
         </div>
@@ -162,9 +163,9 @@ const Sidebar = props => {
               className={
                 props.toggle
                   ? activeItem === item.title
-                    ? "flex justify-center activeItem my-16 items-center"
-                    : "flex justify-center items-center my-16 ml-1"
-                  : "flex flex-col justify-center my-16"
+                    ? "flex justify-center activeItem my-8 items-center"
+                    : "flex justify-center items-center my-8 ml-1"
+                  : "flex flex-col justify-center my-8 "
               }
               onClick={handleActiveItem}
             >
@@ -198,7 +199,7 @@ const Sidebar = props => {
                   props.toggle
                     ? "hidden"
                     : itemClicked === item.title
-                    ? "flex flex-col h-auto justify-start treeview-menu"
+                    ? "flex flex-col h-auto justify-start m-0 treeview-menu "
                     : "h-0 "
                 }
               >
@@ -212,7 +213,7 @@ const Sidebar = props => {
                     }
                     onClick={() => handleActiveFromDown(item.title)}
                   >
-                    <Link className="py-1 ml-12" to={opt.scrollchor}>
+                    <Link className="py-1 ml-8" to={opt.scrollchor}>
                       <div className="flex items-center">
                         <div
                           className="mr-2 relative w-3 h-3 flex justify-center items-center text-center rounded-full"
@@ -245,15 +246,28 @@ const Sidebar = props => {
             className={
               props.toggle
                 ? "agency_profile_sidebar toggled"
-                : "agency_profile_sidebar ml-1"
+                : "agency_profile_sidebar ml-4"
             }
           >
             Logout
           </p>
         </div>
       </aside>
-    </>
+    </Container>
   );
 };
 
 export default Sidebar;
+
+const Container = styled.div`
+  p,
+  a {
+    font-size: 14px !important;
+  }
+  h1 {
+    font-size: 16px !important;
+  }
+  span {
+    font-size: 12px !important;
+  }
+`;
