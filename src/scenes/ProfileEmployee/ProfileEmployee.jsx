@@ -49,8 +49,8 @@ const ProfileEmployee = (props) => {
               <div
                 style={{
                   transform: `translate(${element.transform}, -100%)`,
-                  borderTopRightRadius: "50%",
-                  borderTopLeftRadius: "50%",
+                  borderTopRightRadius: "5px",
+                  borderTopLeftRadius: "5px",
                   width: "90px",
                   height: "60px",
                 }}

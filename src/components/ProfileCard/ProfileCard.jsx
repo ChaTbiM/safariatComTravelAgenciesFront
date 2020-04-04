@@ -67,15 +67,36 @@ const ProfileCard = (props) => {
           <div className="my-8 flex justify-between">
             <div className="flex flex-col justify-between items-start">
               <div className="flex my-4">
-                <img src={Bag} alt="bg" />
+                <img
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                  }}
+                  src={Bag}
+                  alt="bg"
+                />
                 <p className="ml-2 text-14">Job position</p>
               </div>
               <div className="flex my-4">
-                <img src={Location} alt="bg" />
+                <img
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                  }}
+                  src={Location}
+                  alt="bg"
+                />
                 <p className="ml-2 text-14">From</p>
               </div>
               <div className="flex my-4">
-                <img src={UserIcon} alt="bg" />
+                <img
+                  src={UserIcon}
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                  }}
+                  alt="bg"
+                />
                 <p className="ml-2 text-14">Employee Since</p>
               </div>
             </div>
