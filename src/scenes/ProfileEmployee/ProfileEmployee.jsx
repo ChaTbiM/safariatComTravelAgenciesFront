@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ProfileCard from "../../components/ProfileCard/ProfileCard.jsx";
 import HeaderPage from "../../components/HeaderPage/HeaderPage.jsx";
 import { ReactComponent as UserIcon } from "../../assets/user.svg";
-import { ReactComponent as Messages } from "../../assets/message.svg";
+import { ReactComponent as Messages } from "../../assets/inbox.svg";
 import { ReactComponent as Tasks } from "../../assets/tasks.svg";
 import { ReactComponent as Bags } from "../../assets//bag.svg";
 import styled from "styled-components";
