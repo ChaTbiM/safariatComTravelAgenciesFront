@@ -91,11 +91,11 @@ const Container = styled.div`
     color: #3e3e3e;
   }
   p {
-    font-size: 16px;
+    font-size: 12px;
     color: #3e3e3e;
   }
   h2 {
-    font-size: 18px;
+    font-size: 14px;
     color: rgb(8, 76, 97);
   }
   .button-hover:hover {

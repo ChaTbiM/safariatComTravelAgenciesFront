@@ -24,8 +24,8 @@ const ProfileCard = (props) => {
                 <img
                   style={{
                     borderRadius: "50%",
-                    width: "168px",
-                    height: "168px",
+                    width: "130px",
+                    height: "130px",
                     verticalAlign: "bottom",
                   }}
                   src={Person}
@@ -35,8 +35,8 @@ const ProfileCard = (props) => {
                   style={{
                     borderRadius: "50%",
                     position: "absolute",
-                    bottom: "25px",
-                    right: "25px",
+                    bottom: "20px",
+                    right: "20px",
                     transform: "translate(50%,50%)",
                     zIndex: 5,
                   }}
@@ -45,15 +45,15 @@ const ProfileCard = (props) => {
                   {" "}
                   <div
                     style={{
-                      height: "36px",
-                      width: "36px",
+                      height: "30px",
+                      width: "30px",
                       borderRadius: "50%",
                     }}
                     className="cursor-pointer shadow-md flex justify-center items-center bg-white"
                   >
                     {" "}
                     <i
-                      className="fas fa-pen w-5 h-5"
+                      className="fas fa-pen "
                       style={{
                         color: "#707070",
                       }}
@@ -75,7 +75,7 @@ const ProfileCard = (props) => {
                   src={Bag}
                   alt="bg"
                 />
-                <p className="ml-2 text-14">Job position</p>
+                <p className="ml-2">Job position</p>
               </div>
               <div className="flex my-4">
                 <img
@@ -86,7 +86,7 @@ const ProfileCard = (props) => {
                   src={Location}
                   alt="bg"
                 />
-                <p className="ml-2 text-14">From</p>
+                <p className="ml-2">From</p>
               </div>
               <div className="flex my-4">
                 <img
@@ -97,18 +97,18 @@ const ProfileCard = (props) => {
                   }}
                   alt="bg"
                 />
-                <p className="ml-2 text-14">Employee Since</p>
+                <p className="ml-2">Employee Since</p>
               </div>
             </div>
             <div className="flex flex-col justify-between items-start">
               <div className="flex my-4">
-                <span className="ml-2 text-14">{employee["job"]}</span>
+                <span className="ml-2">{employee["job"]}</span>
               </div>
               <div className="flex my-4">
-                <span className="ml-2 text-14">{employee["from"]}</span>
+                <span className="ml-2">{employee["from"]}</span>
               </div>
               <div className="flex my-4">
-                <span className="ml-2 text-14">{employee["since"]}</span>
+                <span className="ml-2">{employee["since"]}</span>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ const ProfileCard = (props) => {
             <div className="flex justify-between">
               <p>Biography</p>
               <i
-                className="fas fa-pen w-5 h-5 cursor-pointer"
+                className="fas fa-pen cursor-pointer"
                 style={{
                   color: "#707070",
                 }}
@@ -132,7 +132,7 @@ const ProfileCard = (props) => {
               </p>
             </div>
           </div>
-          <div className="my-4 flex justify-between items-center">
+          <div className="my-4 flex row justify-between items-center">
             <div className="flex">
               <p className="bg-black flex items-center justify-center text-center w-5 h-5">
                 <i
@@ -144,7 +144,7 @@ const ProfileCard = (props) => {
               </p>
               <a
                 href={employee["google"]}
-                className="underline ml-3 cursor-pointer"
+                className="underline ml-1 cursor-pointer"
               >
                 Google
               </a>
@@ -160,7 +160,7 @@ const ProfileCard = (props) => {
               </span>
               <a
                 href={employee["instagram"]}
-                className="underline ml-3 cursor-pointer"
+                className="underline ml-1 cursor-pointer"
               >
                 Facebook
               </a>
@@ -176,7 +176,7 @@ const ProfileCard = (props) => {
               </p>
               <a
                 href={employee["instagram"]}
-                className="underline ml-3 cursor-pointer"
+                className="underline ml-1 cursor-pointer"
               >
                 Instagram
               </a>
@@ -191,10 +191,25 @@ export default ProfileCard;
 
 const Container = styled.div`
   p,
+  span {
+    font-size: 12px;
+  }
   a {
     font-size: 14px;
   }
   h1 {
     font-size: 16px;
+  }
+  .row {
+    flex-direction: row;
+  }
+  .fas {
+    font-size: 12px !important;
+  }
+  @media (max-width: 1300px) {
+    .row {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
   }
 `;

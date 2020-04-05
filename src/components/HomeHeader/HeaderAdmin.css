@@ -1,267 +1,256 @@
 .main_header_admin {
-	position: fixed;
-	z-index: 10;
-	background-color: white;
-	width: 100%;
-	-webkit-box-shadow: 0 8px 5px -8px #999;
-	-moz-box-shadow: 0 8px 5px -8px #999;
-	box-shadow: 0 8px 5px -8px #999;
-	left: 0;
-	right: 0;
-	height: 60px;
-	display: flex;
-	align-items: center;
-	align-content: center;
-	position: relative;
-	transition: all 0.5s;
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  -webkit-box-shadow: 0 8px 5px -8px #999;
+  -moz-box-shadow: 0 8px 5px -8px #999;
+  box-shadow: 0 8px 5px -8px #999;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  transition: all 0.5s;
 }
 .logo-navbar {
-	cursor: pointer;
-	background-color: white;
-	height: 100%;
-	padding: 15px 15px;
-	width: 230px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: width 0.5s;
+  cursor: pointer;
+  background-color: white;
+  height: 100%;
+  padding: 15px 15px;
+  width: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.5s;
 }
 .navbar_header_admin {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex: 1;
-	padding-left: 300px;
-	height: 60px;
-	transition: padding 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  padding-left: 300px;
+  height: 60px;
+  transition: padding 0.3s;
 }
 .navbar_header_admin.res {
-	padding-left: 80px;
-	transition: padding 0.5s;
+  padding-left: 80px;
+  transition: padding 0.5s;
 }
 .partLeft {
-	display: flex;
-	align-items: center;
-	margin-left: auto;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 }
 
 .profile_admin a {
-	margin: 0 20px;
+  margin: 0 20px;
 }
 .notification_admin {
-	padding-top: 15px;
-	padding-bottom: 15px;
-	cursor: pointer;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor: pointer;
 }
 .notification_admin img {
-	width: 50px;
-	height: 50px;
+  width: 50px;
+  height: 50px;
 }
 .text-drp:hover {
-	color: #ffb808 !important;
+  color: #ffb808 !important;
 }
 .agency_item-nav:hover .dropdown-nav {
-	display: block !important;
+  display: block !important;
 }
 .nameAdmin img {
-	float: left;
-	width: 42px;
-	border-radius: 50%;
-	border: 0.5 #707070;
-	top: 20%;
+  float: left;
+  width: 42px;
+  border-radius: 50%;
+  border: 0.5 #707070;
+  top: 20%;
 }
 
 .flexCol span {
-	font-size: 14px;
+  font-size: 14px;
 }
 .flexCol h3 {
-	font-size: 10px;
-	color: #717171;
-	white-space: nowrap;
+  font-size: 10px;
+  color: #717171;
+  white-space: nowrap;
 }
 .buttons_nav {
-	margin-right: 50px;
+  margin-right: 50px;
 }
 .buttons_nav a.active {
-	color: #fdb607;
+  color: #fdb607;
 }
 .middlePart {
-	margin: 0 50px;
+  margin: 0 50px;
 }
 .homeButtonAdmin {
-	background-color: #084c61;
-	padding: 10px 26px;
-	border-radius: 38px;
-	color: white !important;
-	text-align: center;
+  background-color: #084c61;
+  padding: 10px 26px;
+  border-radius: 38px;
+  color: white !important;
+  text-align: center;
 }
 .buttons_nav a {
-	margin: 0 50px;
-	font-weight: 600;
-	font-size: 17px;
-	color: #707070;
+  margin: 0 50px;
+  font-weight: 600;
+  font-size: 17px;
+  color: #707070;
 }
 .search_admin-v {
-	background-color: white;
-	-webkit-box-shadow: 0px 0px 20px -9px #999;
-	-moz-box-shadow: 0px 0px 20px -9px #999;
-	box-shadow: 0px 0px 20px -9px #999;
-	padding: 8px 6px;
-	border-radius: 26px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 20px -9px #999;
+  -moz-box-shadow: 0px 0px 20px -9px #999;
+  box-shadow: 0px 0px 20px -9px #999;
+  padding: 8px 6px;
+  border-radius: 26px;
 }
 .search_admin-v input {
-	background-color: rgba(0, 0, 0, 0);
-	font-size: 17px;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 17px;
 }
 .fontSearch.fa {
-	color: #000;
+  color: #000;
 }
 .form-control.inputSearch {
-	color: #555555;
-	border: none !important;
-	background-color: white;
-	padding: 0 10px;
+  color: #555555;
+  border: none !important;
+  background-color: white;
+  padding: 0 10px;
 }
 
 .form-control.inputSearch:focus {
-	border: none !important;
-	background-color: white !important;
-	box-shadow: none !important;
+  border: none !important;
+  background-color: white !important;
+  box-shadow: none !important;
 }
 .form-control.inputSearch:active {
-	border: none !important;
-	background-color: white !important;
+  border: none !important;
+  background-color: white !important;
 }
 
 @media (max-width: 1300px) {
-	p {
-		font-size: 14px !important;
-	}
-	span {
-		font-size: 14px !important;
-	}
-	.main_header_admin h1 {
-		font-size: 20px !important;
-	}
-	h3 {
-		font-size: 12px !important;
-	}
-	a {
-		font-size: 16px !important;
-	}
-	.search_admin-v {
-		padding: 6px 8px;
-		font-size: 16px;
-	}
-	.search_admin-v input {
-		font-size: 16px;
-	}
-	.buttons_nav a {
-		margin: 0 25px;
-	}
+  .main_header_admin h1 {
+    font-size: 20px !important;
+  }
+
+  .search_admin-v {
+    padding: 6px 8px;
+    font-size: 16px;
+  }
+  .search_admin-v input {
+    font-size: 16px;
+  }
+  .buttons_nav a {
+    margin: 0 25px;
+  }
 }
 @media (max-width: 1130px) {
-	.search_admin-v {
-		font-size: 14px !important;
-	}
-	.search_admin-v input {
-		font-size: 14px;
-	}
-	.buttons_nav a {
-		margin: 0 15px;
-	}
-	.middlePart {
-		margin: 0 25px !important;
-	}
+  .search_admin-v {
+    font-size: 14px !important;
+  }
+  .search_admin-v input {
+    font-size: 14px;
+  }
+  .buttons_nav a {
+    margin: 0 15px;
+  }
+  .middlePart {
+    margin: 0 25px !important;
+  }
 }
 
 @media (max-width: 1172px) {
-	.responsive-rate {
-		display: flex !important;
-		font-size: 14px !important;
-	}
-	.responsive-rate h1 {
-		font-size: 14px !important;
-	}
-	.responsive-rate p {
-		font-size: 13px !important;
-	}
+  .responsive-rate {
+    display: flex !important;
+    font-size: 14px !important;
+  }
+  .responsive-rate h1 {
+    font-size: 14px !important;
+  }
+  .responsive-rate p {
+    font-size: 13px !important;
+  }
 }
 
 @media (max-width: 1050px) {
-	.arrowProduct {
-		margin: 0 2px !important;
-	}
+  .arrowProduct {
+    margin: 0 2px !important;
+  }
 }
 .notification-box {
-	position: absolute;
-	top: 54px;
-	height: auto;
-	display: flex;
+  position: absolute;
+  top: 54px;
+  height: auto;
+  display: flex;
 }
 .notification-box.hidden {
-	max-height: 0 !important;
+  max-height: 0 !important;
 }
 
 .sidebar-toggle {
-	color: #000;
-	float: left;
-	background-color: transparent;
-	background-image: none;
-	padding: 15px 15px;
-	font-family: fontAwesome;
-	font-size: 20px;
+  color: #000;
+  float: left;
+  background-color: transparent;
+  background-image: none;
+  padding: 15px 15px;
+  font-family: fontAwesome;
+  font-size: 20px;
 }
 .sidebar-toggle::before {
-	content: "\f0c9";
+  content: "\f0c9";
 }
 .sr-only {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 @media (max-width: 1550px) {
-	.buttons_nav a {
-		margin: 0 25px;
-	}
+  .buttons_nav a {
+    margin: 0 25px;
+  }
 }
 @media (max-width: 1360px) {
-	.buttons_nav {
-		margin-right: 0 !important;
-	}
+  .buttons_nav {
+    margin-right: 0 !important;
+  }
 }
 @media (max-width: 1252px) {
-	.buttons_nav a {
-		margin: 0 15px !important;
-	}
+  .buttons_nav a {
+    margin: 0 15px !important;
+  }
 }
 @media (max-width: 1173px) {
-	.middlePart {
-		margin: 0 15px !important;
-	}
+  .middlePart {
+    margin: 0 15px !important;
+  }
 }
 @media (max-width: 1073px) {
-	.buttons_nav a {
-		font-size: 14px !important;
-		margin: 0 10px !important;
-	}
-	.nav-h a {
-		width: 60% !important;
-	}
-	.notification_admin img {
-		width: 45px !important;
-		height: 45px !important;
-	}
-	.partLeft {
-		margin-left: 0 !important;
-	}
-	.form-control.inputSearch {
-		padding: 0 5px;
-	}
+  .buttons_nav a {
+    font-size: 14px !important;
+    margin: 0 10px !important;
+  }
+  .nav-h a {
+    width: 60% !important;
+  }
+  .notification_admin img {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  .partLeft {
+    margin-left: 0 !important;
+  }
+  .form-control.inputSearch {
+    padding: 0 5px;
+  }
 }
