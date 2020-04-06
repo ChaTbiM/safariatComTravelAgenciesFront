@@ -6,8 +6,11 @@ import FinanceLineChart from "../Graphs/FinanceLineGraph.jsx";
 import FinanceBarChart from "../Graphs/FinanceBarGraph.jsx";
 import FinanceCard from "../FinanceCard/FinanceCard.jsx";
 import FinanceDonut from "../Graphs/FinanceDonut.jsx";
-import Task from "../Task/Task.jsx";
+//import Task from "../Task/Task.jsx";
 import FinanceTable from "../FinanceTable/FinanceTable";
+import TransportationTable from "../TransportationTable/TransportationTable.jsx";
+import AccommondationTable from "../AccommodationTable/AccommodationTabe.jsx";
+import CostsTable from "../CostsTable/CostsTable.jsx";
 import HeaderPage from "../HeaderPage/HeaderPage";
 import Axios from "axios";
 const Finance = (
@@ -16,13 +19,13 @@ const Finance = (
       {
         name: "Week",
         key: 21,
-        scrollchor: "#about"
+        scrollchor: "#about",
       },
       {
         name: "Month",
         key: 31,
-        scrollchor: "#contact"
-      }
+        scrollchor: "#contact",
+      },
     ],
     actions_data = [
       "#2DCE98",
@@ -34,8 +37,8 @@ const Finance = (
       "#FAA154",
       "#21A0A0",
       "#946846",
-      "#6D213C"
-    ]
+      "#6D213C",
+    ],
   },
   props
 ) => {
@@ -43,13 +46,13 @@ const Finance = (
   const [dataTasks, setDataTasks] = useState([]);
   const [dataActions, setAcionsData] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:3000/donut").then(res => {
+    Axios.get("http://localhost:3000/donut").then((res) => {
       setAcionsData(res.data.series);
     });
   }, []);
 
   useEffect(() => {}, []);
-  const setActive = link => {
+  const setActive = (link) => {
     setActiveLink(link);
   };
 
@@ -61,85 +64,73 @@ const Finance = (
           {
             title: "Finance management",
             active: true,
-            href: "/admin/finance"
-          }
+            href: "/admin/finance",
+          },
         ]}
       />
-      <div className="flex finance-row">
-        <div className="finance-part1 px-2">
-          <div className="flex">
-            <div className="w-3/5 px-4">
-              <div className="card">
-                <div className="flex items-center h-16 border-none py-2  px-6 bg-white">
-                  <div className="flex items-center whitespace-no-wrap text-21">
-                    Tour sales value
-                  </div>
-                  <div className="mx-4 flex ml-auto justify-center items-center">
-                    {items.map(elem => {
-                      let isActive = activeLink === elem.name;
-                      let navClass = isActive
-                        ? "agency_choice_time_btn active border-none cursor-pointer "
-                        : " agency_choice_time_btn border-none cursor-pointer ";
-                      return (
-                        <Link
-                          to="#"
-                          name={elem["name"]}
-                          className={navClass}
-                          scrollchor={elem["scrollchor"]}
-                          key={elem["key"]}
-                          onClick={props =>
-                            setActive(
-                              props.currentTarget.attributes[0].nodeValue
-                            )
-                          }
-                        >
-                          {elem["name"]}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                  <span
-                    className="hint--bottom text-center  hint--medium"
-                    aria-label="this is a hint"
-                  >
-                    <button className="btn-icon btn-icon-only btn btn-link">
-                      <Info fill="#b3b8bd" className="w-4 h-4" />
-                    </button>
-                  </span>
-                </div>
-                <div className="p-5 pr-0 pt-0 pb-0 bg-white flex justify-center items-center">
-                  <FinanceLineChart filter={activeLink} />
-                </div>
+      <div className="flex">
+        <div className="w-3/5 px-4">
+          <div className="w-full flex card flex-col  h-full justify-between  bg-white ">
+            <div className="flex items-center h-16 border-none py-2  px-6 bg-white">
+              <div className="flex items-center whitespace-no-wrap text-21">
+                Tour sales value
               </div>
+              <div className="mx-4 flex ml-auto justify-center items-center">
+                {items.map((elem) => {
+                  let isActive = activeLink === elem.name;
+                  let navClass = isActive
+                    ? "agency_choice_time_btn active border-none cursor-pointer "
+                    : " agency_choice_time_btn border-none cursor-pointer ";
+                  return (
+                    <Link
+                      to="#"
+                      name={elem["name"]}
+                      className={navClass}
+                      scrollchor={elem["scrollchor"]}
+                      key={elem["key"]}
+                      onClick={(props) =>
+                        setActive(props.currentTarget.attributes[0].nodeValue)
+                      }
+                    >
+                      {elem["name"]}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              <span
+                className="hint--bottom text-center  hint--medium"
+                aria-label="this is a hint"
+              >
+                <button className="btn-icon btn-icon-only btn btn-link">
+                  <Info fill="#b3b8bd" className="w-4 h-4" />
+                </button>
+              </span>
             </div>
-            <div className="w-2/5 ">
-              <div className="w-full flex card flex-col justify-center h-full bg-white ">
-                <div className="flex items-center h-16 border-none py-2  px-6 bg-white">
-                  <div className="flex items-center whitespace-no-wrap text-21">
-                    Tour sales value
-                  </div>
-                  <span
-                    className="hint--bottom text-center ml-auto  hint--medium"
-                    aria-label="this is a hint"
-                  >
-                    <button className="btn-icon btn-icon-only btn btn-link">
-                      <Info fill="#b3b8bd" className="w-4 h-4" />
-                    </button>
-                  </span>
-                </div>
-                <FinanceBarChart />
-              </div>
-              {/* Product sales value */}
+            <div className="flex justify-center items-center">
+              <FinanceLineChart filter={activeLink} />
             </div>
           </div>
-          <div className="flex  ">
-            <div className="w-full border-none finance-part1">
-              <div className="w-full h-full px-4 pr-0 my-4  ">
-                <FinanceTable />
+          {/* Product sales value */}
+        </div>
+        <div className="w-2/5">
+          <div className="w-full flex card flex-col justify-center h-full bg-white ">
+            <div className="flex items-center h-16 border-none py-2  px-6 bg-white">
+              <div className="flex items-center whitespace-no-wrap text-21">
+                Tour sales value
               </div>
-              {/* tableau */}
+              <span
+                className="hint--bottom text-center ml-auto  hint--medium"
+                aria-label="this is a hint"
+              >
+                <button className="btn-icon btn-icon-only btn btn-link">
+                  <Info fill="#b3b8bd" className="w-4 h-4" />
+                </button>
+              </span>
             </div>
+            <FinanceBarChart />
           </div>
+          {/* Product sales value */}
         </div>
         <div className="fin-part1  px-2">
           <div className="flex ">
@@ -185,7 +176,7 @@ const Finance = (
                                   <div
                                     className="mr-2 relative w-3 h-3 flex justify-center items-center text-center rounded-full"
                                     style={{
-                                      backgroundColor: actions_data[i]
+                                      backgroundColor: actions_data[i],
                                     }}
                                   >
                                     <div className="absolute w-1 h-1 rounded-full bg-white"></div>
@@ -205,16 +196,45 @@ const Finance = (
                       </div>
                     </div>
                   </div>
-
-                  <div className="flex p-4 flex-col justify-between items-start  ">
-                    <div className="my-4 text-md font-size-lg">
-                      Travel agency need
-                    </div>
-                    <Task />
-                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex">
+        <div className="w-1/2">
+          <div className="w-full border-none finance-part1">
+            <div className="w-full h-full px-4 pr-0 my-4  ">
+              <FinanceTable />
+            </div>
+            {/* tableau */}
+          </div>
+        </div>
+        <div className="w-1/2 px-4">
+          <div className="w-full border-none finance-part1">
+            <div className="w-full h-full px-4 pr-0 my-4  ">
+              <TransportationTable />
+            </div>
+            {/* tableau */}
+          </div>
+        </div>
+      </div>
+      <div className="flex">
+        <div className="w-1/2">
+          <div className="w-full border-none finance-part1">
+            <div className="w-full h-full px-4 pr-0 my-4  ">
+              <AccommondationTable />
+            </div>
+            {/* tableau */}
+          </div>
+        </div>
+        <div className="w-1/2 px-4">
+          <div className="w-full border-none finance-part1">
+            <div className="w-full h-full px-4 pr-0 my-4  ">
+              <CostsTable />
+            </div>
+            {/* tableau */}
           </div>
         </div>
       </div>

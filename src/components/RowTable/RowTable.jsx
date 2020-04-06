@@ -5,23 +5,23 @@ import { ReactComponent as Dots } from "../GeneralAnalyDashbord/images/ellipsis.
 import axios from "axios";
 import CurrencyInput from "react-currency-input";
 
-const TreeDots = props => {
+const TreeDots = (props) => {
   const { id, dotClicked } = props;
   const [isDotDropdown, setIsDotDropdown] = useState(false);
   const [isDot, setIsDot] = useState(true);
 
   const handleUpdate = () => {
-    setIsDotDropdown(prevState => !prevState);
-    setIsDot(prevState => !prevState);
+    setIsDotDropdown((prevState) => !prevState);
+    setIsDot((prevState) => !prevState);
     dotClicked();
   };
   const handleDotDropdown = () => {
-    setIsDotDropdown(prevState => !prevState);
+    setIsDotDropdown((prevState) => !prevState);
   };
   const handleCheck = () => {
     //when user click the check icon
     dotClicked();
-    setIsDot(prevState => !prevState);
+    setIsDot((prevState) => !prevState);
   };
   return (
     <>
@@ -35,7 +35,7 @@ const TreeDots = props => {
             />
             <div
               style={{
-                display: isDotDropdown ? "block" : "none"
+                display: isDotDropdown ? "block" : "none",
               }}
               className={
                 isDotDropdown
@@ -69,14 +69,14 @@ const TreeDots = props => {
           <div
             className="bg-white check-hover flex justify-center items-center w-12 h-12 cursor-pointer"
             style={{
-              borderRadius: "50%"
+              borderRadius: "50%",
             }}
             onClick={handleCheck}
           >
             <i
               className="fas fa-check"
               style={{
-                fontSize: "25px"
+                fontSize: "25px",
               }}
             ></i>
           </div>
@@ -85,7 +85,7 @@ const TreeDots = props => {
     </>
   );
 };
-const StatusDropdown = props => {
+const StatusDropdown = (props) => {
   const { element, setUpdate, update, isDot, sudo } = props;
   const [status, setStatus] = useState("");
   const [isDropdown, setIsDropdown] = useState(false);
@@ -94,12 +94,12 @@ const StatusDropdown = props => {
     setStatus(element.status);
   }, []);
   const handleStatusChange = () => {
-    setIsDropdown(prevState => !prevState);
+    setIsDropdown((prevState) => !prevState);
   };
-  const handleStatusEvent = e => {
+  const handleStatusEvent = (e) => {
     let key = e.currentTarget.attributes["data-id"].nodeValue;
     setStatus(e.currentTarget.attributes["data-status"].nodeValue);
-    setIsDropdown(prevState => !prevState);
+    setIsDropdown((prevState) => !prevState);
     //put request to backend
   };
 
@@ -140,7 +140,7 @@ const StatusDropdown = props => {
             >
               <div
                 style={{
-                  backgroundColor: "#2dce98"
+                  backgroundColor: "#2dce98",
                 }}
                 className=" w-2 h-2  rounded-full flex text-center px-1 sD:text-12 mD:text-16 lD:text-16 rounded-full"
               ></div>
@@ -163,7 +163,7 @@ const StatusDropdown = props => {
   );
 };
 
-const Span = props => {
+const Span = (props) => {
   const { element, sudo, isDot, update, setUpdate } = props;
   const [data, setData] = useState(0);
   useEffect(() => {
@@ -182,11 +182,11 @@ const Span = props => {
         paying_day: element.paying_day,
         status: element.status,
         salary: data,
-        departement: element.departement
+        departement: element.departement,
       })
-      .then(res => {
+      .then((res) => {
         console.log(res);
-        setUpdate(prevState => !prevState);
+        setUpdate((prevState) => !prevState);
         sudo();
       });
   }
@@ -211,7 +211,7 @@ const Span = props => {
   );
 };
 
-const RowTable = props => {
+const RowTable = (props) => {
   const { data, sudo } = props;
   const [isDot, setIsDot] = useState(true);
   const [update, setUpdate] = useState(true);
@@ -223,7 +223,7 @@ const RowTable = props => {
 
   const dotClicked = () => {
     //for data show or data update
-    setIsDot(prevState => {
+    setIsDot((prevState) => {
       if (!prevState) {
         setUpdate(false);
       } else {
@@ -239,6 +239,7 @@ const RowTable = props => {
         <td tabIndex="0" className="sorting_1">
           <div className="justify-center items-center flex">
             <div className="flex p-0 responsive-rate flex-row lg:justify-center items-center sm:flex sm:justify-end sm:flex sm:justify-end">
+              {/* test if image kyna bayna */}
               <img src={Img} alt="img" width="40" />
               <p className="text-center px-2 sD:text-12 mD:text-16 lD:text-16 px-2">
                 {element.name}
