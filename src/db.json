@@ -508,5 +508,31 @@
       "facebook": "www.facebook.com",
       "google": "www.google.com"
     }
+  ],
+  "messages": [
+    {
+      "id": 0,
+      "name": "Oussama Bengoudifa",
+      "isChecked": false,
+      "isStarred": false,
+      "description": "Dit streken dan talrijk ver taiping vrouwen met",
+      "time": "03:11 AM"
+    },
+    {
+      "id": 2,
+      "name": "Cristiano Ronaldo",
+      "isChecked": false,
+      "isStarred": true,
+      "description": "The best in the world",
+      "time": "13:11 AM"
+    },
+    {
+      "id": 1,
+      "name": "Bouchafa xxxxxxxxxxxxxx el amine",
+      "isChecked": false,
+      "isStarred": false,
+      "description": "The best in the world",
+      "time": "13:11 AM"
+    }
   ]
 }
