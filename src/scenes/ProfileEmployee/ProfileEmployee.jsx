@@ -29,10 +29,10 @@ const ProfileEmployee = (props) => {
       isActive: false,
     },
     {
-      href: "/admin/jobEmployee",
+      href: "/admin/messages",
       transform: "300px",
       icon: <Messages />,
-      isActive: false,
+      isActive: props.isActive === "messages",
     },
   ];
   return (
