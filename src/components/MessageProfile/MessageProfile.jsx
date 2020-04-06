@@ -6,7 +6,36 @@ import { ReactComponent as ArrowLeft } from "../../assets/left-arrow.svg";
 import { ReactComponent as ArrowRight } from "../../assets/right-arrow.svg";
 import User from "../../assets/user.jpg";
 import RowMessage from "../RowMessage/RowMessage.jsx";
+import axios from "axios";
+
 const MessageProfile = () => {
+  const [isChecked, setIsChecked] = useState(false);
+  const [dataMessages, setDataMessages] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const [deleteItem, setDeleteItem] = useState(false);
+
+  const handleUpdate = () => {
+    axios
+      .get("http://localhost:3000/messages")
+      .then((res) => setDataMessages(res.data));
+  };
+
+  const handleDelete = () => {
+    setDeleteItem((prevState) => !prevState);
+  };
+
+  const handleInputValue = (e) => {
+    setInputValue(e.currentTarget.value);
+  };
+
+  const handleCheckBox = () => {
+    setIsChecked((prevState) => !prevState);
+  };
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/messages")
+      .then((res) => setDataMessages(res.data));
+  }, []);
   return (
     <Container>
       <div className="flex flex-col bg-white">
@@ -62,7 +91,7 @@ const MessageProfile = () => {
                   </li>
                   <li className="flex justify-between px-4 py-4">
                     <div className="flex items-center">
-                      <p>icon</p>
+                      <i class="fas fa-email"></i>
                       <h2 className="ml-2">Sent Mail</h2>
                     </div>
                     {/* <h2
@@ -78,7 +107,7 @@ const MessageProfile = () => {
                   </li>
                   <li className="flex justify-between px-4 py-4">
                     <div className="flex items-center">
-                      <i class="fas fa-trash"></i>
+                      <i class="fas fa-trash "></i>
                       <h2 className="ml-2">Trash</h2>
                     </div>
                     <h2
@@ -222,7 +251,11 @@ const MessageProfile = () => {
             >
               <div className="flex justify-between">
                 <label class="container">
-                  <input type="checkbox" />
+                  <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onClick={handleCheckBox}
+                  />
                   <span class="checkmark mt-1"></span>
                 </label>
                 <span>
@@ -235,13 +268,15 @@ const MessageProfile = () => {
                 </span>
                 <div className="flex justify-between ml-8">
                   <i
-                    class="fas fa-redo-alt px-2 flex items-center"
+                    className="fas fa-redo-alt px-2 flex items-center cursor-pointer"
+                    onClick={handleUpdate}
                     style={{
                       fontSize: "20px",
                     }}
                   ></i>
                   <i
-                    class="fas fa-trash px-2 flex items-center"
+                    className="fas fa-trash px-2 flex cursor-pointer items-center"
+                    onClick={handleDelete}
                     style={{
                       fontSize: "20px",
                     }}
@@ -250,7 +285,13 @@ const MessageProfile = () => {
               </div>
               <div className="flex justify-center items-center">
                 <div className="agency-search-bar">
-                  <input className="text-18" type="text" placeholder="Search" />
+                  <input
+                    className="text-18"
+                    type="text"
+                    placeholder="Search"
+                    value={inputValue}
+                    onChange={handleInputValue}
+                  />
                   <div className="glass-icon">
                     <div className=" glass-icon-c">
                       <span className="glass-icon__circle"></span>
@@ -272,8 +313,16 @@ const MessageProfile = () => {
                 }}
               ></i>
             </div>
-            <RowMessage />
-            <RowMessage />
+            {dataMessages.map((elm) => (
+              <RowMessage
+                setDeleteItem={setDeleteItem}
+                delete={deleteItem}
+                filter={inputValue}
+                isFull={isChecked}
+                id={elm.id}
+                data={elm}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -307,8 +356,12 @@ const Container = styled.div`
     color: #4c4c4c;
   }
   p {
-    font-size: 12px;
+    font-size: 12px !important;
     color: #3e3e3e;
+  }
+
+  input {
+    font-size: 12px !important;
   }
   h2 {
     font-size: 14px;
