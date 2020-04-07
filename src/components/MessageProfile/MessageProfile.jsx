@@ -13,11 +13,19 @@ const MessageProfile = () => {
   const [dataMessages, setDataMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [deleteItem, setDeleteItem] = useState(false);
+  const [rowNumberMin, setRowNumberMin] = useState(0);
+  const [rowNumberMax, setRowNumberMax] = useState(6);
+  const [isMax, setIsMax] = useState(false);
+  const [isMin, setIsMin] = useState(true);
+  const [maxLength, setMaxLength] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const handleUpdate = () => {
     axios
       .get("http://localhost:3000/messages")
-      .then((res) => setDataMessages(res.data));
+      .then((res) =>
+        setDataMessages(res.data.slice(rowNumberMin, rowNumberMax))
+      );
   };
 
   const handleDelete = () => {
@@ -31,15 +39,57 @@ const MessageProfile = () => {
   const handleCheckBox = () => {
     setIsChecked((prevState) => !prevState);
   };
+  const handleRowChange = (e) => {
+    if (e.currentTarget.attributes["data-go"].nodeValue === "true") {
+      if (rowNumberMax < maxLength) {
+        setRowNumberMin(rowNumberMax);
+        setRowNumberMax((prevState) => prevState + 6);
+      }
+    } else {
+      if (rowNumberMin > 0) {
+        setRowNumberMax(rowNumberMin);
+        setRowNumberMin((prevState) => prevState - 6);
+      }
+    }
+  };
   useEffect(() => {
+    if (!rowNumberMin) {
+      setRowNumberMin(0);
+    }
     axios
       .get("http://localhost:3000/messages")
-      .then((res) => setDataMessages(res.data));
-  }, []);
+      .then((res) => {
+        if (!maxLength) setMaxLength(res.data.length);
+        if (rowNumberMin === 0) {
+          setIsMin(true);
+        } else {
+          if (isMin == true) {
+            setIsMin(false);
+          }
+        }
+        if (maxLength) {
+          if (rowNumberMax >= maxLength) {
+            setIsMax(true);
+          } else {
+            if (isMax == true) {
+              setIsMax(false);
+            }
+          }
+        }
+
+        if (res.data.slice(rowNumberMin, rowNumberMax).length > 0) {
+          setDataMessages(res.data.slice(rowNumberMin, rowNumberMax));
+          setIsLoaded((prevState) => !prevState);
+        }
+      })
+      .catch((err) => {
+        alert("error fetching data");
+      });
+  }, [rowNumberMin, rowNumberMax]);
   return (
     <Container>
       <div className="flex flex-col bg-white">
-        <div className="flex pt-4 px-8 items-center">
+        <div className="flex py-4 px-8 items-center">
           <h1
             style={{
               color: "#fdb810",
@@ -48,7 +98,7 @@ const MessageProfile = () => {
             Messages
           </h1>
         </div>
-        <div className="flex px-8 py-4">
+        <div className="flex px-8 py-0">
           <div className="w-1/4 pr-4">
             <div className="flex flex-col">
               <div className="button-edit flex flex-col justify-between items-center ">
@@ -133,7 +183,7 @@ const MessageProfile = () => {
                   New Message
                 </button>
               </div>
-              <div className="flex button-edit flex-col my-6">
+              <div className="flex button-edit flex-col mt-6">
                 <div className="px-4 py-6">
                   <h2>Online users</h2>
                   <ul className="w-full scroll-div my-6">
@@ -303,8 +353,24 @@ const MessageProfile = () => {
 
               <p>1-100 of 100</p>
               <div className="flex justify-between">
-                <ArrowLeft className="w-6 h-6" />
-                <ArrowRight className="w-6 h-6" />
+                <ArrowLeft
+                  className={
+                    isMin
+                      ? "cursor-pointer bg-arrow w-8 h-8 px-1"
+                      : "cursor-pointer  w-8 h-8 px-1"
+                  }
+                  data-go={false}
+                  onClick={handleRowChange}
+                />
+                <ArrowRight
+                  data-go={true}
+                  className={
+                    isMax
+                      ? "cursor-pointer bg-arrow w-8 h-8 px-1"
+                      : "cursor-pointer  w-8 h-8 px-1"
+                  }
+                  onClick={handleRowChange}
+                />
               </div>
               <i
                 class="fas fa-cog"
@@ -313,16 +379,35 @@ const MessageProfile = () => {
                 }}
               ></i>
             </div>
-            {dataMessages.map((elm) => (
-              <RowMessage
-                setDeleteItem={setDeleteItem}
-                delete={deleteItem}
-                filter={inputValue}
-                isFull={isChecked}
-                id={elm.id}
-                data={elm}
-              />
-            ))}
+            <div
+              className={
+                isLoaded
+                  ? "flex flex-col"
+                  : "flex justify-center text-center h-full"
+              }
+            >
+              {isLoaded ? (
+                dataMessages.map((elm) => (
+                  <RowMessage
+                    setDeleteItem={setDeleteItem}
+                    delete={deleteItem}
+                    filter={inputValue}
+                    isFull={isChecked}
+                    id={elm.id}
+                    data={elm}
+                  />
+                ))
+              ) : (
+                <div className="slider-spinner flex justify-center items-center">
+                  <div className="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -366,6 +451,9 @@ const Container = styled.div`
   h2 {
     font-size: 14px;
     color: rgb(8, 76, 97);
+  }
+  .bg-arrow {
+    fill: #7f858a91;
   }
   .container {
     display: block;
