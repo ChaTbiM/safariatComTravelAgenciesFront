@@ -4,6 +4,8 @@ import { ReactComponent as MailOpen } from "../../assets/mail_open.svg";
 import { ReactComponent as ArrowDown } from "../../assets/arrow_down.svg";
 import { ReactComponent as ArrowLeft } from "../../assets/left-arrow.svg";
 import { ReactComponent as ArrowRight } from "../../assets/right-arrow.svg";
+import { ReactComponent as SentMail } from "../../assets/sent mail.svg";
+
 import User from "../../assets/user.jpg";
 import RowMessage from "../RowMessage/RowMessage.jsx";
 import axios from "axios";
@@ -19,13 +21,15 @@ const MessageProfile = () => {
   const [isMin, setIsMin] = useState(true);
   const [maxLength, setMaxLength] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [min, setMin] = useState(1);
+  const [max, setMax] = useState(null);
 
   const handleUpdate = () => {
-    axios
-      .get("http://localhost:3000/messages")
-      .then((res) =>
-        setDataMessages(res.data.slice(rowNumberMin, rowNumberMax))
-      );
+    setIsLoaded(false);
+    axios.get("http://localhost:3000/messages").then((res) => {
+      setDataMessages(res.data.slice(rowNumberMin, rowNumberMax));
+      setIsLoaded(true);
+    });
   };
 
   const handleDelete = () => {
@@ -44,11 +48,13 @@ const MessageProfile = () => {
       if (rowNumberMax < maxLength) {
         setRowNumberMin(rowNumberMax);
         setRowNumberMax((prevState) => prevState + 6);
+        setMin((prevState) => prevState + 1);
       }
     } else {
       if (rowNumberMin > 0) {
         setRowNumberMax(rowNumberMin);
         setRowNumberMin((prevState) => prevState - 6);
+        setMin((prevState) => prevState - 1);
       }
     }
   };
@@ -59,7 +65,14 @@ const MessageProfile = () => {
     axios
       .get("http://localhost:3000/messages")
       .then((res) => {
-        if (!maxLength) setMaxLength(res.data.length);
+        if (!maxLength) {
+          setMaxLength(res.data.length);
+          if (res.data.length % 6 !== 0) {
+            setMax(Math.floor(res.data.length / 6) + 1);
+          } else {
+            setMax(Math.floor(res.data.length) / 6);
+          }
+        }
         if (rowNumberMin === 0) {
           setIsMin(true);
         } else {
@@ -79,7 +92,7 @@ const MessageProfile = () => {
 
         if (res.data.slice(rowNumberMin, rowNumberMax).length > 0) {
           setDataMessages(res.data.slice(rowNumberMin, rowNumberMax));
-          setIsLoaded((prevState) => !prevState);
+          setIsLoaded(true);
         }
       })
       .catch((err) => {
@@ -101,7 +114,7 @@ const MessageProfile = () => {
         <div className="flex px-8 py-0">
           <div className="w-1/4 pr-4">
             <div className="flex flex-col">
-              <div className="button-edit flex flex-col justify-between items-center ">
+              <div className="button-edit cursor-default flex flex-col justify-between items-center ">
                 <ul className="w-full my-6">
                   <li className="flex justify-between px-4 py-4">
                     <div className="flex items-center">
@@ -141,7 +154,7 @@ const MessageProfile = () => {
                   </li>
                   <li className="flex justify-between px-4 py-4">
                     <div className="flex items-center">
-                      <i class="fas fa-email"></i>
+                      <SentMail className="w-5 h-5" />
                       <h2 className="ml-2">Sent Mail</h2>
                     </div>
                     {/* <h2
@@ -351,7 +364,9 @@ const MessageProfile = () => {
                 </div>
               </div>
 
-              <p>1-100 of 100</p>
+              <p>
+                {min} of {max}
+              </p>
               <div className="flex justify-between">
                 <ArrowLeft
                   className={
@@ -430,6 +445,12 @@ const Container = styled.div`
   }
   .hovered-text {
     color: #707070;
+  }
+  .sentMail {
+    background-image: url("../../assets/sent mail.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
   }
   h1 {
     font-size: 20px;
