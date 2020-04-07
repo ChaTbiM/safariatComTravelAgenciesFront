@@ -94,12 +94,17 @@ const Container = styled.div`
     font-size: 12px;
     color: #3e3e3e;
   }
-  h2 {
+  h2,
+  button {
     font-size: 14px;
     color: rgb(8, 76, 97);
   }
   .button-hover:hover {
     background: #414141;
     color: white;
+  }
+  .button-hover {
+    border: 2px solid black;
+    box-shadow: none !important;
   }
 `;

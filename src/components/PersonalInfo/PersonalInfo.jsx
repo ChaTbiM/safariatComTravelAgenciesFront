@@ -8,14 +8,86 @@ const PersonalInfo = (props) => {
   const [isPreview, setIsPreview] = useState(true);
   const [country, setCountry] = useState("");
   const [region, setRegion] = useState("");
+  const [isNameError, setISNameError] = useState(false);
+  const [isUsernameError, setISUsernameError] = useState(false);
+  const [isAdrError, setISAdrError] = useState(false);
+  const [isFacebookError, setISFacebookError] = useState(false);
+  const [isInstaError, setISInstaError] = useState(false);
+  const [isPhoneError, setISPhoneError] = useState(false);
+  const [isEmailError, setISEmailError] = useState(false);
+
+  const validURL = (str) => {
+    var pattern = new RegExp(
+      "^(https?:\\/\\/)?" + // protocol
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    ); // fragment locator
+    return !!pattern.test(str);
+  };
+  const validateEmail = (email) => {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+  const validatePhone = (phone) => {
+    return (phone.length <= 12 || phone.length >= 8) && !isNaN(Number(phone));
+  };
+
+  const handleCancel = () => {
+    setIsPreview((prevState) => !prevState);
+  };
 
   const handlePreview = () => {
+    if (isNameError) setISNameError(false);
+    if (isUsernameError) setISUsernameError(false);
+    if (isAdrError) setISAdrError(false);
+    if (isInstaError) setISInstaError(false);
+    if (isFacebookError) setISFacebookError(false);
+    if (isPhoneError) setISPhoneError(false);
+    if (isEmailError) setISEmailError(false);
+    let bool = true;
+
     if (!isPreview) {
-      axios
-        .put("http://localhost:3000/user/0", profile)
-        .then((res) => console.log(res));
+      if (profile.name.length <= 4) {
+        bool = false;
+        setISNameError(true);
+      }
+      if (profile.username.length <= 4) {
+        bool = false;
+        setISUsernameError(true);
+      }
+      if (!validURL(profile.facebook)) {
+        bool = false;
+        setISFacebookError(true);
+      }
+      if (!validatePhone(profile.phone)) {
+        bool = false;
+        setISPhoneError(true);
+      }
+      if (!validURL(profile.google)) {
+        bool = false;
+        setISInstaError(true);
+      }
+      if (profile.adr.length <= 4) {
+        bool = false;
+        setISAdrError(true);
+      }
+      if (!validateEmail(profile.email)) {
+        bool = false;
+        setISEmailError(true);
+      }
+      if (bool) {
+        axios
+          .put("http://localhost:3000/user/0", profile)
+          .then((res) => console.log(res));
+        setIsPreview((prevState) => !prevState);
+      }
+    } else {
+      setIsPreview((prevState) => !prevState);
     }
-    setIsPreview((prevState) => !prevState);
   };
   const handleChangeInput = (e) => {
     const target = e.currentTarget.id;
@@ -82,16 +154,28 @@ const PersonalInfo = (props) => {
           >
             Personal Informations
           </h1>
-          <button
-            className={
-              isPreview
-                ? "py-2 px-8 button-edit button-hover"
-                : "py-2 px-8 button-edit button-hover-active"
-            }
-            onClick={handlePreview}
-          >
-            {isPreview ? "Edit" : "Save"}
-          </button>
+          <div className="flex justify-between">
+            <button
+              className={
+                isPreview
+                  ? "hidden"
+                  : "py-2 px-6 mr-4 button-edit button-hover-active"
+              }
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
+            <button
+              className={
+                isPreview
+                  ? "py-2 px-8 button-edit button-hover-active"
+                  : "py-2 px-8 button-edit button-hover-active inverse"
+              }
+              onClick={handlePreview}
+            >
+              {isPreview ? "Edit" : "Save"}
+            </button>
+          </div>
         </div>
         <div className="flex py-8 justify-between px-8">
           <div className="flex w-5/12 flex-col">
@@ -117,6 +201,30 @@ const PersonalInfo = (props) => {
                 id="name"
                 className="button-edit cursor-text p-4 "
               />
+              <div
+                className={
+                  isNameError
+                    ? "bg-red-100 border border-red-400 text-red-700 px-2 py-1 my-4 flex items-center rounded relative"
+                    : "hidden"
+                }
+                role="alert"
+              >
+                <strong className="font-bold">Error !</strong>
+                <span className="block sm:inline ml-2">
+                  names cannot be too short
+                </span>
+                <span className="ml-auto" onClick={() => setISNameError(false)}>
+                  <svg
+                    className="fill-current h-4 w-4 text-red-500"
+                    role="button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <title>Close</title>
+                    <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                  </svg>
+                </span>
+              </div>
             </div>
             <div
               className={
@@ -189,7 +297,7 @@ const PersonalInfo = (props) => {
               <div
                 className={
                   !isPreview
-                    ? "flex flex-col w-full ml-4 align-center"
+                    ? "flex flex-col w-full mar-l align-center"
                     : "hidden"
                 }
               >
@@ -233,6 +341,30 @@ const PersonalInfo = (props) => {
                 id="adr"
                 className="button-edit cursor-text p-4 "
               />
+              <div
+                className={
+                  isAdrError
+                    ? "bg-red-100 border border-red-400 text-red-700 px-2 py-1 my-4 flex items-center rounded relative"
+                    : "hidden"
+                }
+                role="alert"
+              >
+                <strong className="font-bold">Error !</strong>
+                <span className="block sm:inline ml-2">
+                  address cannot be too short
+                </span>
+                <span className="ml-auto" onClick={() => setISAdrError(false)}>
+                  <svg
+                    className="fill-current h-4 w-4 text-red-500"
+                    role="button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <title>Close</title>
+                    <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                  </svg>
+                </span>
+              </div>
             </div>
             <div className="row my-4 justify-between">
               <div
@@ -322,6 +454,29 @@ const PersonalInfo = (props) => {
             </div>
             <div
               className={
+                isEmailError
+                  ? "bg-red-100 border border-red-400 text-red-700 px-2 py-1 my-4 flex items-center rounded relative"
+                  : "hidden"
+              }
+              role="alert"
+            >
+              <strong className="font-bold">Error !</strong>
+              <span className="block sm:inline ml-2">add a valid email</span>
+              <span className="ml-auto" onClick={() => setISEmailError(false)}>
+                <svg
+                  className="fill-current h-4 w-4 text-red-500"
+                  role="button"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <title>Close</title>
+                  <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                </svg>
+              </span>
+            </div>
+
+            <div
+              className={
                 isPreview
                   ? "flex p-4 my-4 justify-between button-edit"
                   : "hidden"
@@ -343,6 +498,33 @@ const PersonalInfo = (props) => {
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                 className="button-edit cursor-text p-4 "
               />
+              <div
+                className={
+                  isPhoneError
+                    ? "bg-red-100 border border-red-400 text-red-700 px-2 py-1 my-4 flex items-center rounded relative"
+                    : "hidden"
+                }
+                role="alert"
+              >
+                <strong className="font-bold">Error !</strong>
+                <span className="block sm:inline ml-2">
+                  aadd a valid phone number
+                </span>
+                <span
+                  className="ml-auto"
+                  onClick={() => setISPhoneError(false)}
+                >
+                  <svg
+                    className="fill-current h-4 w-4 text-red-500"
+                    role="button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <title>Close</title>
+                    <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                  </svg>
+                </span>
+              </div>
             </div>
           </div>
           <div className="flex w-5/12 flex-col">
@@ -369,6 +551,33 @@ const PersonalInfo = (props) => {
                 id="username"
                 className="button-edit cursor-text p-4 "
               />
+              <div
+                className={
+                  isUsernameError
+                    ? "bg-red-100 border border-red-400 text-red-700 px-2 py-1 my-4 flex items-center rounded relative"
+                    : "hidden"
+                }
+                role="alert"
+              >
+                <strong className="font-bold">Error !</strong>
+                <span className="block sm:inline ml-2">
+                  username cannot be too short
+                </span>
+                <span
+                  className="ml-auto"
+                  onClick={() => setISUsernameError(false)}
+                >
+                  <svg
+                    className="fill-current h-4 w-4 text-red-500"
+                    role="button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <title>Close</title>
+                    <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                  </svg>
+                </span>
+              </div>
             </div>
             <div
               className={
@@ -386,12 +595,12 @@ const PersonalInfo = (props) => {
             <div
               className={
                 isPreview
-                  ? "flex p-4 my-4 justify-between button-edit"
+                  ? "flex row p-4 my-4 justify-between button-edit"
                   : "hidden"
               }
             >
               {" "}
-              <p>{profile.facebook}</p>
+              <p className="scroll-text">{profile.facebook}</p>
               <p className="hovered-text">Facebook link</p>
             </div>
             <div className={!isPreview ? "flex flex-col" : "hidden"}>
@@ -405,16 +614,41 @@ const PersonalInfo = (props) => {
                 id="facebook"
                 className="button-edit cursor-text p-4"
               />
+              <div
+                className={
+                  isFacebookError
+                    ? "bg-red-100 border border-red-400 text-red-700 px-2 py-1 my-4 flex items-center rounded relative"
+                    : "hidden"
+                }
+                role="alert"
+              >
+                <strong className="font-bold">Error !</strong>
+                <span className="block sm:inline ml-2">add a valid url</span>
+                <span
+                  className="ml-auto"
+                  onClick={() => setISFacebookError(false)}
+                >
+                  <svg
+                    className="fill-current h-4 w-4 text-red-500"
+                    role="button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <title>Close</title>
+                    <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                  </svg>
+                </span>
+              </div>
             </div>
             <div
               className={
                 isPreview
-                  ? "flex p-4 my-4 justify-between button-edit"
+                  ? "flex row p-4 my-4 justify-between button-edit"
                   : "hidden"
               }
             >
               {" "}
-              <p>{profile.google}</p>
+              <p className="scroll-text">{profile.google}</p>
               <p className="hovered-text">Google link</p>
             </div>
             <div className={!isPreview ? "flex flex-col" : "hidden"}>
@@ -428,6 +662,31 @@ const PersonalInfo = (props) => {
                 id="google"
                 className="button-edit cursor-text p-4 "
               />
+              <div
+                className={
+                  isInstaError
+                    ? "bg-red-100 border border-red-400 text-red-700 px-2 py-1 my-4 flex items-center rounded relative"
+                    : "hidden"
+                }
+                role="alert"
+              >
+                <strong className="font-bold">Error !</strong>
+                <span className="block sm:inline ml-2">add a valid url</span>
+                <span
+                  className="ml-auto"
+                  onClick={() => setISInstaError(false)}
+                >
+                  <svg
+                    className="fill-current h-4 w-4 text-red-500"
+                    role="button"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <title>Close</title>
+                    <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                  </svg>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -444,11 +703,28 @@ const Container = styled.div`
     cursor: pointer;
   }
   .button-hover-active {
+    background: white;
+    color: black;
+    border: 2px solid black;
+    box-shadow: none !important;
+  }
+  .button-hover-active.inverse {
+    background: white;
+    color: #fdb810;
+    border: 2px solid #fdb810;
+    box-shadow: none !important;
+  }
+  .button-hover-active.inverse:hover {
     background: #fdb810;
     color: white;
   }
   .button-hover-active:hover {
-    background: #e4a000;
+    background: black;
+    color: white;
+  }
+  .scroll-text {
+    overflow: hidden;
+    padding-bottom: 0px;
   }
   .custom-dropdown {
     position: relative;
@@ -481,7 +757,15 @@ const Container = styled.div`
     font-size: 12px;
     color: #3e3e3e;
   }
-  h2 {
+  strong,
+  span {
+    font-size: 12px;
+  }
+  .mar-l {
+    margin-left: 1rem;
+  }
+  h2,
+  button {
     font-size: 14px;
     color: rgb(8, 76, 97);
   }
@@ -515,6 +799,13 @@ const Container = styled.div`
   @media (max-width: 1200px) {
     .row-interne {
       flex-direction: column !important;
+    }
+    .mar-l {
+      margin-left: 0rem !important;
+    }
+    .scroll-text {
+      overflow: scroll !important;
+      padding-bottom: 5px !important;
     }
   }
 `;
