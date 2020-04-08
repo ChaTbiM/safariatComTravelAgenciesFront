@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const ProfileEmployee = (props) => {
+  const isTask = props.isActive === "task";
   const items = [
     {
       href: "/admin/profileEmployee",
@@ -23,10 +24,10 @@ const ProfileEmployee = (props) => {
       isActive: props.isActive === "job",
     },
     {
-      href: "/admin/jobEmployee",
+      href: "/admin/profileTasks",
       transform: "200px",
       icon: <Tasks />,
-      isActive: false,
+      isActive: props.isActive === "task",
     },
     {
       href: "/admin/messages",
@@ -38,12 +39,18 @@ const ProfileEmployee = (props) => {
   return (
     <Container>
       <HeaderPage isBad title="Employee Profile" buttons={[]} />
-      <div className="flex px-10 justify-between items-start">
+      <div
+        className={
+          isTask
+            ? "flex px-10 justify-between items-start tyu"
+            : "flex px-10 justify-between items-start"
+        }
+      >
         <div className="w-1/4 mx-2 bg-white">
           <ProfileCard id={0} />
         </div>
 
-        <div className="w-3/4 mx-2 h-64 relative card">
+        <div className="w-3/4 mx-2 h-64 relative card bg-white">
           {items.map((element) => (
             <Link to={element.href}>
               <div
@@ -79,5 +86,10 @@ const Container = styled.div`
   }
   .active-icon svg {
     fill: #fdb810 !important;
+  }
+  @media (max-width: 1100px) {
+    .tyu {
+      padding: 0.25rem !important;
+    }
   }
 `;

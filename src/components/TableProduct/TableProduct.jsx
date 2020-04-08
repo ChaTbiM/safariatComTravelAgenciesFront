@@ -11,11 +11,11 @@ const TableProduct = () => {
   useEffect(() => {
     axios
       .get("http://localhost:3000/products")
-      .then(res => {
+      .then((res) => {
         setProductData(res.data);
         setIsLoaded(true);
       })
-      .catch(err => {
+      .catch((err) => {
         setIsLoaded(false);
         alert("error on fetching the data");
       });
@@ -34,7 +34,7 @@ const TableProduct = () => {
               </tr>
             </thead>
             <tbody>
-              {top_product_data.map(product => {
+              {top_product_data.map((product) => {
                 return (
                   <tr key={product["id"]} className="hover:bg-gray-100  ">
                     <td className="w-full flex justify-start items-center p-3 border border-b">
