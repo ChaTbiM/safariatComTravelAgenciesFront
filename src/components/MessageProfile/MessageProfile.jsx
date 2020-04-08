@@ -23,6 +23,10 @@ const MessageProfile = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(null);
+  const [inbox, setInbox] = useState(4);
+  const [draft, setDraft] = useState(15);
+  const [sentMail, setSentMail] = useState(null);
+  const [trash, setTrash] = useState(84);
 
   const handleUpdate = () => {
     setIsLoaded(false);
@@ -116,7 +120,7 @@ const MessageProfile = () => {
             <div className="flex flex-col">
               <div className="button-edit cursor-default flex flex-col justify-between items-center ">
                 <ul className="w-full my-6">
-                  <li className="flex justify-between px-4 py-4">
+                  <li className="flex justify-between px-4 py-4 padding-less padding-less">
                     <div className="flex items-center">
                       <i class="fas fa-inbox"></i>
                       <h2 className="ml-2">Inbox</h2>
@@ -125,14 +129,14 @@ const MessageProfile = () => {
                       className="px-2 py-1"
                       style={{
                         borderRadius: "5px",
-                        background: "#084C61",
+                        background: inbox === null ? "transparent" : "#084C61",
                         color: "white",
                       }}
                     >
-                      4
+                      {inbox}
                     </h2>
                   </li>
-                  <li className="flex justify-between px-4 py-4">
+                  <li className="flex justify-between px-4 py-4 padding-less">
                     <div className="flex justify-center items-center">
                       <MailOpen
                         style={{
@@ -149,26 +153,27 @@ const MessageProfile = () => {
                         color: "white",
                       }}
                     >
-                      1
+                      {draft}
                     </h2>
                   </li>
-                  <li className="flex justify-between px-4 py-4">
+                  <li className="flex justify-between px-4 py-4 padding-less">
                     <div className="flex items-center">
                       <SentMail className="w-5 h-5" />
                       <h2 className="ml-2">Sent Mail</h2>
                     </div>
-                    {/* <h2
+                    <h2
                       className="px-2 py-1"
                       style={{
                         borderRadius: "5px",
-                        background: "#084C61",
+                        background:
+                          sentMail === null ? "transparent" : "#084C61",
                         color: "white",
                       }}
                     >
-                      4
-                    </h2> */}
+                      {sentMail}
+                    </h2>
                   </li>
-                  <li className="flex justify-between px-4 py-4">
+                  <li className="flex justify-between px-4 py-4 padding-less">
                     <div className="flex items-center">
                       <i class="fas fa-trash "></i>
                       <h2 className="ml-2">Trash</h2>
@@ -181,7 +186,7 @@ const MessageProfile = () => {
                         color: "white",
                       }}
                     >
-                      21
+                      {trash}
                     </h2>
                   </li>
                 </ul>
@@ -191,7 +196,7 @@ const MessageProfile = () => {
                     background: "#084C61",
                     color: "white",
                   }}
-                  className="px-4 py-2 my-8"
+                  className="px-4 py-2 my-8 changement"
                 >
                   New Message
                 </button>
@@ -329,7 +334,7 @@ const MessageProfile = () => {
                     }}
                   />
                 </span>
-                <div className="flex justify-between ml-8">
+                <div className="flex justify-between ml-8 small-no-margin">
                   <i
                     className="fas fa-redo-alt px-2 flex items-center cursor-pointer"
                     onClick={handleUpdate}
@@ -349,13 +354,13 @@ const MessageProfile = () => {
               <div className="flex justify-center items-center">
                 <div className="agency-search-bar">
                   <input
-                    className="text-18"
+                    className="text-18 small-width"
                     type="text"
                     placeholder="Search"
                     value={inputValue}
                     onChange={handleInputValue}
                   />
-                  <div className="glass-icon">
+                  <div className="glass-icon small-no-margin">
                     <div className=" glass-icon-c">
                       <span className="glass-icon__circle"></span>
                       <span className="glass-icon__stick"></span>
@@ -621,5 +626,41 @@ const Container = styled.div`
     bottom: 0;
     left: calc(50% - 0.1433333333rem);
     background: #a7a7a7;
+  }
+  @media (max-width: 1250px) {
+    .small-width {
+      width: 140px !important;
+    }
+  }
+  @media (max-width: 1345px) {
+    .changement {
+      padding: 0.25rem 0.5rem !important;
+      margin: 2rem 0.5rem !important;
+    }
+  }
+  @media (max-width: 1200px) {
+    .small-no-margin {
+      margin-left: 1rem !important;
+    }
+    .padding-less {
+      padding-right: 0.5rem !important;
+      padding-left: 0.5rem !important;
+    }
+    .small-width {
+      width: 120px !important;
+    }
+    .small-no-margin {
+      margin: 0 !important;
+    }
+  }
+  @media (max-width: 1100px) {
+    .small-width {
+      width: 100px !important;
+    }
+  }
+  @media (max-width: 1050px) {
+    .small-width {
+      width: 80px !important;
+    }
   }
 `;
