@@ -488,5 +488,117 @@
       "description": "The best in the world",
       "time": "13:11 AM"
     }
+  ],
+  "tasksProfileNew": [
+    {
+      "id": 0,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    },
+    {
+      "id": 1,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    },
+    {
+      "id": 2,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    },
+    {
+      "id": 3,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    },
+    {
+      "id": 4,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    },
+    {
+      "id": 5,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    },
+    {
+      "id": 6,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    },
+    {
+      "id": 7,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    },
+    {
+      "id": 8,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    },
+    {
+      "id": 9,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    }
+  ],
+  "tasksProfileInProg": [
+    {
+      "id": 0,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    }
+  ],
+  "tasksProfileFinish": [
+    {
+      "id": 0,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "100%"
+    }
+  ],
+  "tasksProfileCancel": [
+    {
+      "id": 0,
+      "name": "Task name",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    }
   ]
 }
