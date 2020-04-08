@@ -574,7 +574,7 @@
   "tasksProfileInProg": [
     {
       "id": 0,
-      "name": "Task name",
+      "name": "Task name of progress",
       "type": "Task type",
       "date": "22 Jul - 27 Jul",
       "supervisor": "Supervisor name",
@@ -584,7 +584,7 @@
   "tasksProfileFinish": [
     {
       "id": 0,
-      "name": "Task name",
+      "name": "Task name of finish",
       "type": "Task type",
       "date": "22 Jul - 27 Jul",
       "supervisor": "Supervisor name",
@@ -594,7 +594,7 @@
   "tasksProfileCancel": [
     {
       "id": 0,
-      "name": "Task name",
+      "name": "Task name of finsih",
       "type": "Task type",
       "date": "22 Jul - 27 Jul",
       "supervisor": "Supervisor name",

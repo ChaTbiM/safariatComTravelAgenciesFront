@@ -2,7 +2,38 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import TableTasks from "./TableTasks.jsx";
 
-const ProfileTasks = (props) => {
+const ProfileTasks = (
+  props,
+  {
+    items = [
+      {
+        id: 0,
+        name: "New Tasks",
+        isActive: "new",
+      },
+      {
+        id: 1,
+        name: "In Progress",
+        isActive: "prog",
+      },
+      {
+        id: 2,
+        name: "Finished",
+        isActive: "finish",
+      },
+      {
+        id: 3,
+        name: "Canceled",
+        isActive: "cancel",
+      },
+    ],
+  }
+) => {
+  const [active, setActive] = useState("new");
+  const handleActive = (e) => {
+    const id = e.currentTarget.id;
+    setActive(items.filter((e) => e.id == id)[0].isActive);
+  };
   return (
     <Container>
       <div className="flex flex-col bg-white">
@@ -16,25 +47,26 @@ const ProfileTasks = (props) => {
           </h1>
         </div>
         <div className="flex items-center mx-24 my-4">
-          <div className="px-6 py-2">
-            {" "}
-            <h2 className="underline active-text cursor-pointer"> New Tasks</h2>
-          </div>
-          <div className="px-6 py-2">
-            {" "}
-            <h2 className=" cursor-pointer">In Progress</h2>
-          </div>
-          <div className="px-6 py-2">
-            {" "}
-            <h2 className=" cursor-pointer">Finished</h2>
-          </div>
-          <div className="px-6 py-2">
-            {" "}
-            <h2 className=" cursor-pointer">Canceled</h2>
-          </div>
+          {items.map((elm) => (
+            <div key={elm.id} className="px-6 py-2">
+              {" "}
+              <h2
+                id={elm.id}
+                className={
+                  elm.isActive === active
+                    ? "underline active-text cursor-pointer"
+                    : "cursor-pointer"
+                }
+                onClick={handleActive}
+              >
+                {" "}
+                {elm.name}
+              </h2>
+            </div>
+          ))}
         </div>
         <div className="mx-8 my-5  relative xyd">
-          <TableTasks className="absolute" />
+          <TableTasks active={active} className="absolute" />
         </div>
       </div>
     </Container>

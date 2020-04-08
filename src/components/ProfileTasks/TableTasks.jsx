@@ -7,10 +7,25 @@ const TableTasks = (props) => {
   const {} = props;
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/tasksProfileNew")
-      .then((res) => setData(res.data));
-  }, []);
+    if (props.active === "new") {
+      axios
+        .get("http://localhost:3000/tasksProfileNew")
+        .then((res) => setData(res.data));
+    } else if (props.active === "prog") {
+      axios
+        .get(" http://localhost:3000/tasksProfileInProg")
+        .then((res) => setData(res.data));
+    } else if (props.active === "finish") {
+      axios
+        .get("http://localhost:3000/tasksProfileFinish")
+        .then((res) => setData(res.data));
+    } else if (props.active === "cancel") {
+      axios
+        .get("http://localhost:3000/tasksProfileCancel")
+        .then((res) => setData(res.data));
+    }
+  }, [props.active]);
+
   return (
     <Container>
       <div
@@ -100,7 +115,7 @@ const TableTasks = (props) => {
               </thead>
               <tbody>
                 {data.map((elm) => (
-                  <RowTasks data={elm} />
+                  <RowTasks active={props.active} data={elm} />
                 ))}
               </tbody>
             </table>

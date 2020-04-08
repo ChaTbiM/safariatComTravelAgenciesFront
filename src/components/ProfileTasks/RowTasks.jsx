@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ReactComponent as I } from "../../assets/i.svg";
 
 const RowTasks = (props) => {
-  const { data } = props;
+  const { data, active } = props;
   const Prog = styled.div`
     #progress {
       border-radius: 13px;
@@ -43,33 +43,67 @@ const RowTasks = (props) => {
         </Prog>
       </td>
       <td className="px-5 py-6 text-left  text-sm">
-        <p className="text-gray-700 whitespace-no-wrap">
-          <div className="flex justify-between items-center">
-            <span
-              className="w-8 h-8 flex justify-center items-center shadow-md"
-              style={{ background: "white" }}
-            >
-              {" "}
-              <I />
-            </span>
-            <span
-              className="w-8 h-8 flex justify-center items-center shadow-md"
-              style={{ background: "#FCE06D" }}
-            >
-              {" "}
-              <i className="fas fa-sync" style={{ color: "white" }}></i>
-            </span>
-            <span
-              className="w-8 h-8 flex justify-center items-center shadow-md"
-              style={{ background: "#DF4A4A" }}
-            >
-              {" "}
-              <i class="fas fa-times" style={{ color: "white" }}></i>
-            </span>
-          </div>
-        </p>
+        <Container className="flex justify-center items-center">
+          <span
+            className="w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
+            style={{ background: "white" }}
+          >
+            {" "}
+            <I className="icon-tab" />
+          </span>
+          <span
+            className={
+              active === "prog"
+                ? "w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
+                : "hidden"
+            }
+            style={{ background: "#23D535" }}
+          >
+            {" "}
+            <i className="fas fa-check icon-tab" style={{ color: "white" }}></i>
+          </span>
+          <span
+            className={
+              active === "new" || active === "cancel"
+                ? "w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
+                : "hidden"
+            }
+            style={{ background: "#FCE06D" }}
+          >
+            {" "}
+            <i className="fas fa-sync icon-tab" style={{ color: "white" }}></i>
+          </span>
+          <span
+            className={
+              active === "new" || active === "prog"
+                ? "w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
+                : "hidden"
+            }
+            style={{ background: "#DF4A4A" }}
+          >
+            {" "}
+            <i className="fas fa-times icon-tab" style={{ color: "white" }}></i>
+          </span>
+        </Container>
       </td>
     </tr>
   );
 };
 export default RowTasks;
+
+const Container = styled.div`
+  .icon-tab {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px !important;
+  }
+  @media (max-width: 1366px) {
+    .icon-tab {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+`;
