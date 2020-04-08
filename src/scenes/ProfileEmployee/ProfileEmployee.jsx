@@ -24,7 +24,7 @@ const ProfileEmployee = (props) => {
       isActive: props.isActive === "job",
     },
     {
-      href: "/admin/profileTasks",
+      href: "/admin/profileTasks/new",
       transform: "200px",
       icon: <Tasks />,
       isActive: props.isActive === "task",

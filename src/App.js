@@ -31,7 +31,7 @@ import PersonalInfo from "./components/PersonalInfo/PersonalInfo.jsx";
 import JobEmployee from "./components/JobEmployee/JobEmployee.jsx";
 import MessageProfile from "./components/MessageProfile/MessageProfile.jsx";
 import ProfileTasks from "./components/ProfileTasks/ProfileTasks.jsx";
-
+import TableTasks from "./components/ProfileTasks/TableTasks.jsx";
 function App() {
   return (
     <Router>
@@ -67,14 +67,83 @@ function App() {
           )}
         />
         <Route
-          path="/admin/profileTasks"
+          path="/admin/profileTasks/new"
           render={(props) => (
             <Admin
               active="Travel CRM"
               content={
                 <ProfileEmployee
                   isActive="task"
-                  childContent={<ProfileTasks />}
+                  childContent={
+                    <ProfileTasks
+                      active="new"
+                      childContent={
+                        <TableTasks active="new" className="absolute" />
+                      }
+                    />
+                  }
+                />
+              }
+            />
+          )}
+        />
+        <Route
+          path="/admin/profileTasks/prog"
+          render={(props) => (
+            <Admin
+              active="Travel CRM"
+              content={
+                <ProfileEmployee
+                  isActive="task"
+                  childContent={
+                    <ProfileTasks
+                      active="prog"
+                      childContent={
+                        <TableTasks active="prog" className="absolute" />
+                      }
+                    />
+                  }
+                />
+              }
+            />
+          )}
+        />
+        <Route
+          path="/admin/profileTasks/finish"
+          render={(props) => (
+            <Admin
+              active="Travel CRM"
+              content={
+                <ProfileEmployee
+                  isActive="task"
+                  childContent={
+                    <ProfileTasks
+                      active="finish"
+                      childContent={
+                        <TableTasks active="finish" className="absolute" />
+                      }
+                    />
+                  }
+                />
+              }
+            />
+          )}
+        />
+        <Route
+          path="/admin/profileTasks/cancel"
+          render={(props) => (
+            <Admin
+              active="Travel CRM"
+              content={
+                <ProfileEmployee
+                  childContent={
+                    <ProfileTasks
+                      active="cancel"
+                      childContent={
+                        <TableTasks active="cancel" className="absolute" />
+                      }
+                    />
+                  }
                 />
               }
             />
