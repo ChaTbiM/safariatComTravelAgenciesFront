@@ -37,7 +37,7 @@ const RowMessage = (props) => {
       visible ? (
         <Container>
           <div
-            className="flex justify-between items-center p-4 m-4"
+            className="flex justify-between items-center p-4 m-4 small-no-margin"
             style={{
               background: isChecked ? "#084C61" : "white",
               borderRadius: "5px",
@@ -62,7 +62,7 @@ const RowMessage = (props) => {
                       style={{
                         fill: isChecked ? "white" : "black",
                       }}
-                      className="w-6 h-6 ml-6 cursor-pointer"
+                      className="w-6 h-6 ml-6 small-padding-less cursor-pointer"
                     />
                   </span>
                 ) : (
@@ -71,8 +71,8 @@ const RowMessage = (props) => {
                   </span>
                 )}
 
-                <div className="flex items-center pl-4">
-                  <span className="ml-8">
+                <div className="flex items-center pl-4 small-no-padding">
+                  <span className="small-margin-left">
                     <img
                       src={Person}
                       alt="img"
@@ -86,6 +86,9 @@ const RowMessage = (props) => {
                     className="ml-2"
                     style={{
                       color: isChecked ? "white" : "black",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
                     }}
                   >
                     {data.name}
@@ -96,6 +99,9 @@ const RowMessage = (props) => {
             <p
               style={{
                 color: isChecked ? "white" : "black",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
               }}
             >
               {data.description}
@@ -129,5 +135,21 @@ export default RowMessage;
 const Container = styled.div`
   p {
     font-size: 12px;
+  }
+
+  @media (max-width: 1200px) {
+    .small-no-padding {
+      padding: 0 !important;
+    }
+    .small-no-margin {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+    .small-margin-left {
+      padding-left: 1rem !important;
+    }
+    .small-padding-less {
+      margin-left: 0.5rem !important;
+    }
   }
 `;
