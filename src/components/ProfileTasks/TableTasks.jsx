@@ -20,12 +20,13 @@ const TableTasks = (props) => {
         .get("http://localhost:3000/tasksProfileFinish")
         .then((res) => setData(res.data));
     } else if (props.active === "cancel") {
-      axios
-        .get("http://localhost:3000/tasksProfileCancel")
-        .then((res) => setData(res.data));
+      axios.get("http://localhost:3000/tasksProfileCancel").then((res) => {
+        console.log(res);
+        setData(res.data);
+      });
     }
   }, [props.active]);
-
+  console.log("render");
   return (
     <Container>
       <div

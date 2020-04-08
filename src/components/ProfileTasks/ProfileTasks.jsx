@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import TableTasks from "./TableTasks.jsx";
-
+import { Link } from "react-router-dom";
 const ProfileTasks = (
   props,
   {
@@ -9,27 +8,31 @@ const ProfileTasks = (
       {
         id: 0,
         name: "New Tasks",
-        isActive: "new",
+        isActive: "/admin/profileTasks/new",
+        active: "new",
       },
       {
         id: 1,
         name: "In Progress",
-        isActive: "prog",
+        isActive: "/admin/profileTasks/prog",
+        active: "prog",
       },
       {
         id: 2,
         name: "Finished",
-        isActive: "finish",
+        isActive: "/admin/profileTasks/finish",
+        active: "finish",
       },
       {
         id: 3,
         name: "Canceled",
-        isActive: "cancel",
+        isActive: "/admin/profileTasks/cancel",
+        active: "cancel",
       },
     ],
   }
 ) => {
-  const [active, setActive] = useState("new");
+  const [active, setActive] = useState(props.active);
   const handleActive = (e) => {
     const id = e.currentTarget.id;
     setActive(items.filter((e) => e.id == id)[0].isActive);
@@ -48,26 +51,24 @@ const ProfileTasks = (
         </div>
         <div className="flex items-center mx-24 my-4">
           {items.map((elm) => (
-            <div key={elm.id} className="px-6 py-2">
+            <div key={elm.id} className="px-6 py-2" onClick={handleActive}>
               {" "}
-              <h2
+              <Link
+                to={elm.isActive}
                 id={elm.id}
                 className={
-                  elm.isActive === active
+                  elm.active === props.active
                     ? "underline active-text cursor-pointer"
                     : "cursor-pointer"
                 }
-                onClick={handleActive}
               >
                 {" "}
                 {elm.name}
-              </h2>
+              </Link>
             </div>
           ))}
         </div>
-        <div className="mx-8 my-5  relative xyd">
-          <TableTasks active={active} className="absolute" />
-        </div>
+        <div className="mx-8 my-5  relative xyd">{props.childContent}</div>
       </div>
     </Container>
   );
