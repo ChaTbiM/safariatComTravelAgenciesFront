@@ -82,6 +82,9 @@ const Container = styled.div`
   .active-text {
     color: #084c61;
   }
+  a {
+    font-size: 14px;
+  }
   h2 {
     font-size: 14px;
     color: #6a6a6a;

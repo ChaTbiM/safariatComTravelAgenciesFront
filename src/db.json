@@ -596,28 +596,11 @@
       "time": "13:11 AM"
     }
   ],
-  "tasksProfileNew": [
-    {
-      "id": 9,
-      "name": "Task name",
-      "type": "Task type",
-      "date": "22 Jul - 27 Jul",
-      "supervisor": "Supervisor name",
-      "progress": "40%"
-    }
-  ],
+  "tasksProfileNew": [],
   "tasksProfileInProg": [
     {
       "id": 5,
       "name": "Task name 4",
-      "type": "Task type",
-      "date": "22 Jul - 27 Jul",
-      "supervisor": "Supervisor name",
-      "progress": "40%"
-    },
-    {
-      "id": 2,
-      "name": "Task name 1",
       "type": "Task type",
       "date": "22 Jul - 27 Jul",
       "supervisor": "Supervisor name",
@@ -648,8 +631,8 @@
       "progress": "40%"
     },
     {
-      "id": 1,
-      "name": "Task xx",
+      "id": 6,
+      "name": "Task name 5",
       "type": "Task type",
       "date": "22 Jul - 27 Jul",
       "supervisor": "Supervisor name",
@@ -680,19 +663,35 @@
       "date": "22 Jul - 27 Jul",
       "supervisor": "Supervisor name",
       "progress": "40%"
+    },
+    {
+      "id": 1,
+      "name": "Task xx",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
     }
   ],
   "tasksProfileCancel": [
     {
-      "id": 6,
-      "name": "Task name 5",
+      "id": 7,
+      "name": "Task name",
       "type": "Task type",
       "date": "22 Jul - 27 Jul",
       "supervisor": "Supervisor name",
       "progress": "40%"
     },
     {
-      "id": 7,
+      "id": 2,
+      "name": "Task name 1",
+      "type": "Task type",
+      "date": "22 Jul - 27 Jul",
+      "supervisor": "Supervisor name",
+      "progress": "40%"
+    },
+    {
+      "id": 9,
       "name": "Task name",
       "type": "Task type",
       "date": "22 Jul - 27 Jul",
