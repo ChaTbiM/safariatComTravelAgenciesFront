@@ -58,7 +58,6 @@ export default class HrManagement extends Component {
   }
 
   filterEmployees(name = "", department = "all") {
-    // DEEP COPY ( need refactor later)
     let employees = JSON.parse(JSON.stringify(this.state.initialEmployees));
     let filteredEmployees;
     if (name === "" || department === "all") {

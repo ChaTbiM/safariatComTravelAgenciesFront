@@ -68,16 +68,17 @@ export const tasks = [
     task: "sales , publicity",
     Responsible: "Employee Name",
     creationDate: "25/05/2019",
-    deliveryDate: "27/05/2019"
+    deliveryDate: "27/05/2019",
+    type: "type1"
   },
   {
     status: "completed",
     role: "role role",
-
     task: "search for tour guide",
     Responsible: "Employee Name",
     creationDate: "25/05/2019",
-    deliveryDate: "27/05/2019"
+    deliveryDate: "27/05/2019",
+    type: "type2"
   },
   {
     status: "in progress",
@@ -86,7 +87,8 @@ export const tasks = [
     task: "prepare tour #1444 papers",
     Responsible: "Employee Name",
     creationDate: "25/05/2019",
-    deliveryDate: "27/05/2019"
+    deliveryDate: "27/05/2019",
+    type: "type2"
   },
   {
     role: "role role",
@@ -94,7 +96,8 @@ export const tasks = [
     task: "database",
     Responsible: "Employee Name",
     creationDate: "25/05/2019",
-    deliveryDate: "27/05/2019"
+    deliveryDate: "27/05/2019",
+    type: "type2"
   },
   {
     status: "in progress",
@@ -103,7 +106,8 @@ export const tasks = [
     task: "program for tour #44",
     Responsible: "Employee Name",
     creationDate: "25/05/2019",
-    deliveryDate: "27/05/2019"
+    deliveryDate: "27/05/2019",
+    type: "type2"
   },
   {
     status: "in progress",
@@ -112,6 +116,7 @@ export const tasks = [
     task: "manage PRoducts",
     Responsible: "Employee Name",
     creationDate: "25/05/2019",
-    deliveryDate: "27/05/2019"
+    deliveryDate: "27/05/2019",
+    type: "type2"
   }
 ];

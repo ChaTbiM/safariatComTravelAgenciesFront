@@ -22,27 +22,6 @@ export default class ToursManagement extends Component {
     this.setState({ tours, toursDetails });
   }
 
-  // toggleViewHandler = (e, value) => {
-  //   switch (value) {
-  //     case "toursView":
-  //       this.setState({
-  //         isToursView: true,
-  //         isProductsView: false
-  //       });
-  //       break;
-  //     case "productsView":
-  //       this.setState({
-  //         isToursView: false,
-  //         isProductsView: true
-  //       });
-
-  //       break;
-  //     default:
-  //       console.log("view Toggle Error");
-  //       break;
-  //   }
-  // };
-
   showTourModal = tourId => {
     const tours = this.state.tours;
     const toursDetails = this.state.toursDetails;

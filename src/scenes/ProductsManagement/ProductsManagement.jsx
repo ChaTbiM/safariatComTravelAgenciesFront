@@ -16,37 +16,19 @@ export default class ToursAndProducts extends Component {
     productsTypes: ["typpe 1", "typpe 2", "marketing"],
     isProductDetailsShown: false,
 
-    products: null,
+    initialProducts: null,
+    filteredProducts: null,
     productDetails: null
   };
 
   componentDidMount() {
-    this.setState({ products });
+    this.setState({ initialProducts: products });
   }
 
-  // toggleViewHandler = (e, value) => {
-  //   switch (value) {
-  //     case "toursView":
-  //       this.setState({
-  //         isToursView: true,
-  //         isProductsView: false
-  //       });
-  //       break;
-  //     case "productsView":
-  //       this.setState({
-  //         isToursView: false,
-  //         isProductsView: true
-  //       });
-
-  //       break;
-  //     default:
-  //       console.log("view Toggle Error");
-  //       break;
-  //   }
-  // };
+  // filter Logic
 
   showProductModal = productId => {
-    const products = this.state.products;
+    const products = this.state.initialProducts;
     const productDetails = products.find(
       el => Number(el.id) === Number(productId)
     );
@@ -58,7 +40,12 @@ export default class ToursAndProducts extends Component {
   };
 
   renderTable() {
-    const products = this.state.products ? this.state.products : null;
+    const filteredProducts = this.state.filteredProducts
+      ? this.state.filteredProducts
+      : this.state.initialProducts;
+    // const products = this.state.initialProducts
+    //   ? this.state.initialProducts
+    //   : null;
 
     if (products) {
       return (

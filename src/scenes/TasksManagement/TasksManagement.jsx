@@ -19,7 +19,7 @@ export default class HrManagement extends Component {
 
     isAddTask: false,
 
-    tasksTypes: ["type1", "type2"]
+    tasksTypes: ["all", "type1", "type2"]
   };
 
   componentDidMount() {
@@ -38,7 +38,7 @@ export default class HrManagement extends Component {
 
   changeSearchedTaskType(taskType) {
     this.setState(
-      { searchedTask: taskType },
+      { searchedTaskType: taskType },
       this.filterTasks(this.state.searchedTask, taskType)
     );
   }
@@ -52,24 +52,23 @@ export default class HrManagement extends Component {
 
   tasksByType(taskType, tasks) {
     const filteredTasks = tasks.filter((el, index) => {
-      return el.taskType.toLowerCase().includes(taskType);
+      return el.type.toLowerCase().includes(taskType);
     });
     return filteredTasks;
   }
 
   filterTasks(task = "", taskType = "all") {
-    // DEEP COPY ( need refactor later)
     let tasks = JSON.parse(JSON.stringify(this.state.initialTasks));
     let filteredTasks;
     if (task === "" || taskType === "all") {
       if (task !== "") {
-        filteredTasks = this.employeesByName(task, tasks);
+        filteredTasks = this.tasksByName(task, tasks);
       } else if (taskType !== "all") {
-        filteredTasks = this.employeesByDepartment(taskType, tasks);
+        filteredTasks = this.tasksByType(taskType, tasks);
       }
     } else if (task !== "" && taskType !== "all") {
-      const tempData = this.employeesByName(task, tasks);
-      filteredTasks = this.employeesByDepartment(taskType, tempData);
+      const tempData = this.tasksByName(task, tasks);
+      filteredTasks = this.tasksByType(taskType, tempData);
     }
 
     this.setState({ filteredTasks });
@@ -97,6 +96,8 @@ export default class HrManagement extends Component {
     if (isTasksView) {
       return (
         <TableActions
+          searchedTask={task => this.changeSearchedTasks(task)}
+          searchedTaskType={taskType => this.changeSearchedTaskType(taskType)}
           // addHandler={this.addTasksHandler}
           addTask={this.showAddTaskModal}
           add="add Task"
