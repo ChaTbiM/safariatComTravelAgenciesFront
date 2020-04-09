@@ -177,8 +177,11 @@ const Container = styled.div`
     background: white !important;
   }
   p {
-    font-size: 14px;
+    font-size: 14px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
+
   .agencx {
     padding: 0.35rem 0 !important;
   }
