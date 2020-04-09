@@ -4,8 +4,7 @@ import { ReactComponent as I } from "../../assets/i.svg";
 import axios from "axios";
 
 const RowTasks = (props) => {
-  const { data, active, setData } = props;
-  const [isDestroyed, setIsDestroyed] = useState(false);
+  const { data, active, HandleRender } = props;
   const handleCheck = () => {
     if (active === "prog") {
       axios
@@ -14,7 +13,7 @@ const RowTasks = (props) => {
           axios
             .delete("http://localhost:3000/tasksProfileInProg/" + data.id)
             .then((res) => {
-              setIsDestroyed(true);
+              HandleRender();
             });
         });
     }
@@ -27,7 +26,7 @@ const RowTasks = (props) => {
           axios
             .delete(" http://localhost:3000/tasksProfileNew/" + data.id)
             .then((res) => {
-              setIsDestroyed(true);
+              HandleRender();
             });
         });
     } else if (active === "prog") {
@@ -37,7 +36,7 @@ const RowTasks = (props) => {
           axios
             .delete("http://localhost:3000/tasksProfileInProg/" + data.id)
             .then((res) => {
-              setIsDestroyed(true);
+              HandleRender();
             });
         });
     }
@@ -50,7 +49,7 @@ const RowTasks = (props) => {
           axios
             .delete(" http://localhost:3000/tasksProfileNew/" + data.id)
             .then((res) => {
-              setIsDestroyed(true);
+              HandleRender();
             });
         });
     } else if (active === "cancel") {
@@ -60,14 +59,12 @@ const RowTasks = (props) => {
           axios
             .delete("http://localhost:3000/tasksProfileCancel/" + data.id)
             .then((res) => {
-              setIsDestroyed(true);
+              HandleRender();
             });
         });
     }
   };
-  useEffect(() => {
-    if (isDestroyed) setIsDestroyed(false);
-  }, []);
+
   const Prog = styled.div`
     #progress {
       border-radius: 13px;
@@ -86,89 +83,85 @@ const RowTasks = (props) => {
   `;
   return (
     <>
-      {!isDestroyed ? (
-        <tr key={data.id} className="agencx">
-          <td className="px-5 py-6 text-left  text-sm">
-            <p className="text-gray-900 font-bold whitespace-no-wrap text-18">
-              {data["name"]}
-            </p>
-          </td>
-          <td className="px-5 py-6 text-left  text-sm">
-            <p className="text-gray-700 whitespace-no-wrap">{data["type"]}</p>
-          </td>
-          <td className="px-5 py-6 text-left  text-sm">
-            <p className="text-gray-700 whitespace-no-wrap">{data["date"]}</p>
-          </td>
-          <td className="px-5 py-6 text-left  text-sm">
-            <p className="text-gray-700 whitespace-no-wrap">
-              {data["supervisor"]}
-            </p>
-          </td>
-          <td className="px-5 py-6 text-left  text-sm">
-            <Prog>
-              <div id="progress"></div>
-            </Prog>
-          </td>
-          <td className="px-5 py-6 text-left  text-sm">
-            <Container className="flex justify-center items-center">
-              <span
-                className="w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
-                style={{ background: "white" }}
-              >
-                {" "}
-                <I className="icon-tab" />
-              </span>
-              <span
-                className={
-                  active === "prog"
-                    ? "w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
-                    : "hidden"
-                }
-                style={{ background: "#23D535" }}
-                onClick={handleCheck}
-              >
-                {" "}
-                <i
-                  className="fas fa-check icon-tab"
-                  style={{ color: "white" }}
-                ></i>
-              </span>
-              <span
-                className={
-                  active === "new" || active === "cancel"
-                    ? "w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
-                    : "hidden"
-                }
-                style={{ background: "#FCE06D" }}
-                onClick={handleProgress}
-              >
-                {" "}
-                <i
-                  className="fas fa-sync icon-tab"
-                  style={{ color: "white" }}
-                ></i>
-              </span>
-              <span
-                className={
-                  active === "new" || active === "prog"
-                    ? "w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
-                    : "hidden"
-                }
-                style={{ background: "#DF4A4A" }}
-                onClick={handleCancel}
-              >
-                {" "}
-                <i
-                  className="fas fa-times icon-tab"
-                  style={{ color: "white" }}
-                ></i>
-              </span>
-            </Container>
-          </td>
-        </tr>
-      ) : (
-        <></>
-      )}
+      <tr key={data.id} className="agencx">
+        <td className="px-5 py-6 text-left  text-sm">
+          <p className="text-gray-900 font-bold whitespace-no-wrap text-18">
+            {data["name"]}
+          </p>
+        </td>
+        <td className="px-5 py-6 text-left  text-sm">
+          <p className="text-gray-700 whitespace-no-wrap">{data["type"]}</p>
+        </td>
+        <td className="px-5 py-6 text-left  text-sm">
+          <p className="text-gray-700 whitespace-no-wrap">{data["date"]}</p>
+        </td>
+        <td className="px-5 py-6 text-left  text-sm">
+          <p className="text-gray-700 whitespace-no-wrap">
+            {data["supervisor"]}
+          </p>
+        </td>
+        <td className="px-5 py-6 text-left  text-sm">
+          <Prog>
+            <div id="progress"></div>
+          </Prog>
+        </td>
+        <td className="px-5 py-6 text-left  text-sm">
+          <Container className="flex justify-center items-center">
+            <span
+              className="w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
+              style={{ background: "white" }}
+            >
+              {" "}
+              <I className="icon-tab" />
+            </span>
+            <span
+              className={
+                active === "prog"
+                  ? "w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
+                  : "hidden"
+              }
+              style={{ background: "#23D535" }}
+              onClick={handleCheck}
+            >
+              {" "}
+              <i
+                className="fas fa-check icon-tab"
+                style={{ color: "white" }}
+              ></i>
+            </span>
+            <span
+              className={
+                active === "new" || active === "cancel"
+                  ? "w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
+                  : "hidden"
+              }
+              style={{ background: "#FCE06D" }}
+              onClick={handleProgress}
+            >
+              {" "}
+              <i
+                className="fas fa-sync icon-tab"
+                style={{ color: "white" }}
+              ></i>
+            </span>
+            <span
+              className={
+                active === "new" || active === "prog"
+                  ? "w-8 h-8 flex justify-center items-center shadow-md mx-2 cursor-pointer"
+                  : "hidden"
+              }
+              style={{ background: "#DF4A4A" }}
+              onClick={handleCancel}
+            >
+              {" "}
+              <i
+                className="fas fa-times icon-tab"
+                style={{ color: "white" }}
+              ></i>
+            </span>
+          </Container>
+        </td>
+      </tr>
     </>
   );
 };

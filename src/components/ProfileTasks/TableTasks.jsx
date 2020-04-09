@@ -6,6 +6,11 @@ import RowTasks from "./RowTasks.jsx";
 const TableTasks = (props) => {
   const {} = props;
   const [data, setData] = useState([]);
+  const [render, isRender] = useState(false);
+
+  const HandleRender = () => {
+    isRender((prevState) => !prevState);
+  };
   useEffect(() => {
     if (props.active === "new") {
       axios
@@ -25,8 +30,7 @@ const TableTasks = (props) => {
         setData(res.data);
       });
     }
-  }, [props.active]);
-  console.log("render");
+  }, [props.active, render]);
   return (
     <Container>
       <div
@@ -116,7 +120,11 @@ const TableTasks = (props) => {
               </thead>
               <tbody>
                 {data.map((elm) => (
-                  <RowTasks active={props.active} data={elm} />
+                  <RowTasks
+                    active={props.active}
+                    data={elm}
+                    HandleRender={HandleRender}
+                  />
                 ))}
               </tbody>
             </table>
