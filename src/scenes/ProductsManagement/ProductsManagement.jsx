@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { products } from "./data";
 import styled from "styled-components";
 import Modal from "../../components/Modal/Modal";
-import TPTable from "../../components/TPTable/TPTable";
+import TPBTable from "../../components/TPBTable/TPBTable";
 
 import TableActions from "../../components/HrTable/components/TableActions";
 
@@ -49,12 +49,12 @@ export default class ToursAndProducts extends Component {
 
     if (products) {
       return (
-        <TPTable
+        <TPBTable
           showProductDetails={details => this.showProductModal(details)}
           products={products}
         >
           products DAta
-        </TPTable>
+        </TPBTable>
       );
     } else {
       return null;

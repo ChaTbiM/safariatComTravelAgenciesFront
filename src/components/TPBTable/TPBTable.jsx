@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function TPTable(props) {
+export default function TPBTable(props) {
   const previewTour = e => {
     e.preventDefault();
     props.showTourDetails(e.currentTarget.dataset.id);

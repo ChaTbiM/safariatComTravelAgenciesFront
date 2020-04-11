@@ -4,8 +4,8 @@ export const tours = [
     tour: "tour of europe",
     type: "Culture ,Tourism International",
     destination: "europe",
-    date: "17/06/2020",
-    price: "680-700",
+    date: "17/03/2020",
+    price: "640-700",
     description: "Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en."
   },
   {
@@ -14,7 +14,7 @@ export const tours = [
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/06/2020",
-    price: "680-700",
+    price: "480-710",
 
     description: "Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en."
   },
@@ -24,9 +24,8 @@ export const tours = [
     tour: "tour of usa",
     type: "Culture ,Tourism International",
     destination: "europe",
-    date: "17/06/2020",
-    price: "680-700",
-
+    date: "17/04/2020",
+    price: "65-70",
     description: "Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en."
   },
 
@@ -34,7 +33,7 @@ export const tours = [
     id: 4,
     tour: "tour of europe",
     type: "Culture ,Tourism International",
-    destination: "europe",
+    destination: "usa",
     date: "17/06/2020",
     price: "680-700",
 
@@ -44,7 +43,7 @@ export const tours = [
   {
     id: 5,
     tour: "tour of europe",
-    type: "Culture ,Tourism International",
+    type: "Culture ,Tourism ",
     destination: "europe",
     date: "17/06/2020",
     price: "680-700",
@@ -88,10 +87,10 @@ export const tours = [
   {
     id: 9,
     tour: "tour of europe",
-    type: "Culture ,Tourism International",
+    type: "Culture",
     destination: "europe",
-    date: "17/06/2020",
-    price: "680-700",
+    date: "17/06/2028",
+    price: "80-700",
 
     description: "Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en."
   },
@@ -99,7 +98,7 @@ export const tours = [
   {
     id: 10,
     tour: "tour of europe",
-    type: "Culture ,Tourism International",
+    type: "International",
     destination: "europe",
     date: "17/06/2020",
     price: "680-700",

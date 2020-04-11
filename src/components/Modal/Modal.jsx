@@ -8,7 +8,7 @@ import BigImg from "./images/01.png";
 import SmallImg from "./images/02.png";
 
 import productBig from "./images/productBig.png";
-import product from "./images/product.png";
+// import product from "./images/product.png";
 
 export default function Modal(props) {
   const [fileName, setFileName] = useState("cv");
