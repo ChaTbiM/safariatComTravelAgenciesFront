@@ -32,7 +32,7 @@ export default function TPBTable(props) {
                 key={`row-${index}`}
                 className="tr text-9 sD:text-11 mD:text-13 lD:text-18"
               >
-                <td className="td ">{el.tour}</td>
+                <td className="td ">{el.name}</td>
                 <td className="td ">{el.type}</td>
                 <td className="td ">{el.destination}</td>
                 <td className="td ">{el.date}</td>

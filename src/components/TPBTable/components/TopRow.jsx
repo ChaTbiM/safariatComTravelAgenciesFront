@@ -54,7 +54,7 @@ const Container = styled.div`
 
     max-height: 38px;
 
-    margin-right: 1.3em;
+    margin-right: 1.3rem;
     color: grey;
     border: solid 0.5px #707070;
     appearance: none;
@@ -77,6 +77,6 @@ const Container = styled.div`
     display: inline-block;
     width: 1em;
     cursoir: pointer;
-    margin-left: 0.5rem;
+    // margin-left: 0.5rem;
   }
 `;

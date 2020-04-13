@@ -20,7 +20,14 @@ export default function TableHeader(props) {
         selectType={selectedType => props.selectType(selectedType)}
         selectData={selectData}
       />
-      <BottomRow priceRanges={props.priceRanges} />
+      <BottomRow
+        searchByName={searchedTourName => props.searchByName(searchedTourName)}
+        searchByPriceRange={priceRangeFilter =>
+          props.searchByPriceRange(priceRangeFilter)
+        }
+        view={props.view}
+        priceRanges={props.priceRanges}
+      />
     </Container>
   );
   // }

@@ -1,7 +1,7 @@
 export const tours = [
   {
     id: 1,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/03/2020",
@@ -10,7 +10,7 @@ export const tours = [
   },
   {
     id: 2,
-    tour: "tour of africa",
+    name: "tour of africa",
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/06/2020",
@@ -21,7 +21,7 @@ export const tours = [
 
   {
     id: 3,
-    tour: "tour of usa",
+    name: "tour of usa",
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/04/2020",
@@ -31,7 +31,7 @@ export const tours = [
 
   {
     id: 4,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism International",
     destination: "usa",
     date: "17/06/2020",
@@ -42,7 +42,7 @@ export const tours = [
 
   {
     id: 5,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism ",
     destination: "europe",
     date: "17/06/2020",
@@ -53,7 +53,7 @@ export const tours = [
 
   {
     id: 6,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/06/2020",
@@ -64,7 +64,7 @@ export const tours = [
 
   {
     id: 7,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/06/2020",
@@ -75,7 +75,7 @@ export const tours = [
 
   {
     id: 8,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/06/2020",
@@ -86,7 +86,7 @@ export const tours = [
 
   {
     id: 9,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture",
     destination: "europe",
     date: "17/06/2028",
@@ -97,7 +97,7 @@ export const tours = [
 
   {
     id: 10,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "International",
     destination: "europe",
     date: "17/06/2020",

@@ -21,6 +21,11 @@ export default class ToursManagement extends Component {
     selectedMonth: "all",
     selectedDestination: "all",
     selectedType: "all",
+    searchedTourName: "",
+    priceRangeFilter: {
+      min: null,
+      max: null
+    },
 
     toursDetails: null,
     tourDetails: null
@@ -116,6 +121,11 @@ export default class ToursManagement extends Component {
           }
           selectType={selectedType => this.selectType(selectedType)}
           filtersData={this.filtersData()}
+          searchByName={searchedTourName => this.searchByName(searchedTourName)}
+          searchByPriceRange={priceRangeFilter =>
+            this.searchByPriceRange(priceRangeFilter)
+          }
+          view="tours"
         />
       );
     }
@@ -124,16 +134,14 @@ export default class ToursManagement extends Component {
   // Filtering logic
 
   ApplyfilterTours(
+    searchedTourName = "",
     selectedMonth = "all",
     selectedDestination = "all",
-    selectedType = "all"
+    selectedType = "all",
+    priceRangeFilter = { min: null, max: null }
   ) {
     let tours = JSON.parse(JSON.stringify(this.state.initialTours));
     let filteredTours;
-
-    // const selectedMonth = this.state.selectedMonth;
-    // const selectedDestination = this.state.selectedDestination;
-    // const selectedType = this.state.selectedType;
 
     const selectedOptions = {};
 
@@ -148,6 +156,19 @@ export default class ToursManagement extends Component {
     if (selectedType !== "all") {
       selectedOptions.type = selectedType;
     }
+
+    if (searchedTourName !== "") {
+      selectedOptions.name = searchedTourName;
+    }
+
+    if (priceRangeFilter.min !== null && priceRangeFilter.min >= 0) {
+      selectedOptions.minPrice = priceRangeFilter.min;
+    }
+
+    if (priceRangeFilter.max !== null) {
+      selectedOptions.maxPrice = priceRangeFilter.max;
+    }
+
     filteredTours = tours.filter((el, index) => {
       return this.filterTours(selectedOptions, el);
     });
@@ -156,11 +177,14 @@ export default class ToursManagement extends Component {
       this.setState({ filteredTours });
     }
   }
-
   filterTours = (selectedOptions, el) => {
     return Object.keys(selectedOptions).every(key => {
       if (key === "month") {
         return Number(el.date.split("/")[1]) == selectedOptions[key];
+      } else if (key === "minPrice") {
+        return Number(el.price.split("-")[0]) >= Number(selectedOptions[key]);
+      } else if (key === "maxPrice") {
+        return Number(el.price.split("-")[0]) <= Number(selectedOptions[key]);
       } else
         return el[key]
           .toLowerCase()
@@ -172,6 +196,7 @@ export default class ToursManagement extends Component {
     this.setState(
       { selectedMonth },
       this.ApplyfilterTours(
+        this.state.searchedTourName,
         selectedMonth,
         this.state.selectedDestination,
         this.state.selectedType
@@ -183,6 +208,7 @@ export default class ToursManagement extends Component {
     this.setState(
       { selectedDestination },
       this.ApplyfilterTours(
+        this.state.searchedTourName,
         this.state.selectedMonth,
         selectedDestination,
         this.state.selectedType
@@ -196,9 +222,35 @@ export default class ToursManagement extends Component {
     this.setState(
       { selectedType },
       this.ApplyfilterTours(
+        this.state.searchedTourName,
         this.state.selectedMonth,
         this.state.selectedDestination,
         selectedType
+      )
+    );
+  }
+
+  searchByName(searchedTourName) {
+    this.setState(
+      { searchedTourName },
+      this.ApplyfilterTours(
+        searchedTourName,
+        this.state.selectedMonth,
+        this.state.selectedDestination,
+        this.state.selectedType
+      )
+    );
+  }
+
+  searchByPriceRange(priceRangeFilter) {
+    this.setState(
+      { priceRangeFilter },
+      this.ApplyfilterTours(
+        this.state.searchedTourName,
+        this.state.selectedMonth,
+        this.state.selectedDestination,
+        this.state.selectedType,
+        priceRangeFilter
       )
     );
   }
