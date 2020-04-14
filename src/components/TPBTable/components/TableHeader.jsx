@@ -63,6 +63,7 @@ export default function TableHeader(props) {
     } else if (props.view === "products") {
       return (
         <BottomRow
+          searchByName={searchedProduct => props.searchByName(searchedProduct)}
           searchByPriceRange={priceRangeFilter =>
             props.searchByPriceRange(priceRangeFilter)
           }

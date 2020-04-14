@@ -21,7 +21,19 @@ export default function BottomRow(props) {
         </label>
       );
     } else if (props.view === "products") {
-      return <div>bottom products</div>;
+      return (
+        <label className=" left searchLabel" htmlFor="search">
+          <img src={search} className="search__icon " alt="" />
+          <input
+            className="search font-montserrat text-9 sD:text-11 mD:text-13 lD:text-18"
+            onChange={e => props.searchByName(e.target.value)}
+            type="search"
+            name="search"
+            id="search"
+            placeholder={`search ${props.view}`}
+          />
+        </label>
+      );
     } else if (props.view === "bookings") {
       return <div>bottom bookings</div>;
     } else {

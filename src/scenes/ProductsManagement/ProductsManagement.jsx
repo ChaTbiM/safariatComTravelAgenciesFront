@@ -23,6 +23,7 @@ export default class ToursAndProducts extends Component {
 
     selectedTourType: "all",
     selectedServiceType: "all",
+    searchedProduct: "",
     priceRangeFilter: { min: null, max: null }
   };
 
@@ -63,6 +64,7 @@ export default class ToursAndProducts extends Component {
 
   // filter Logic -----------------------
   ApplyfilterTours(
+    searchedProduct = "",
     selectedTourType = "all",
     selectedServiceType = "all",
     priceRangeFilter = { min: null, max: null }
@@ -71,6 +73,10 @@ export default class ToursAndProducts extends Component {
     let filteredProducts;
 
     const selectedOptions = {};
+
+    if (searchedProduct !== "all") {
+      selectedOptions.product = searchedProduct;
+    }
 
     if (selectedServiceType !== "all") {
       selectedOptions.serviceType = selectedServiceType;
@@ -107,6 +113,10 @@ export default class ToursAndProducts extends Component {
         return el.typeOfService
           .toLowerCase()
           .includes(selectedOptions[key].toLowerCase());
+      } else if (key === "product") {
+        return el.product
+          .toLowerCase()
+          .includes(selectedOptions[key].toLowerCase());
       } else if (key === "minPrice") {
         return Number(el.price.split("-")[0]) >= Number(selectedOptions[key]);
       } else if (key === "maxPrice") {
@@ -119,6 +129,7 @@ export default class ToursAndProducts extends Component {
     this.setState(
       { selectedTourType },
       this.ApplyfilterTours(
+        this.state.searchedProduct,
         selectedTourType,
         this.state.selectedServiceType,
         this.state.priceRangeFilter
@@ -130,6 +141,7 @@ export default class ToursAndProducts extends Component {
     this.setState(
       { selectedServiceType },
       this.ApplyfilterTours(
+        this.state.searchedProduct,
         this.state.selectedTourType,
         selectedServiceType,
         this.state.priceRangeFilter
@@ -141,6 +153,7 @@ export default class ToursAndProducts extends Component {
     this.setState(
       { priceRangeFilter },
       this.ApplyfilterTours(
+        this.state.searchedProduct,
         this.state.selectedTourType,
         this.state.selectedServiceType,
         priceRangeFilter
@@ -148,6 +161,17 @@ export default class ToursAndProducts extends Component {
     );
   }
 
+  searchByName(searchedProduct) {
+    this.setState(
+      { searchedProduct },
+      this.ApplyfilterTours(
+        searchedProduct,
+        this.state.selectedTourType,
+        this.state.selectedServiceType,
+        this.state.priceRangeFilter
+      )
+    );
+  }
   // ----------------
 
   renderTableHeader() {
@@ -164,6 +188,7 @@ export default class ToursAndProducts extends Component {
           searchByPriceRange={priceRangeFilter =>
             this.searchByPriceRange(priceRangeFilter)
           }
+          searchByName={searchedProduct => this.searchByName(searchedProduct)}
           view="products"
           filtersData={this.filtersData()}
         />

@@ -496,7 +496,7 @@ export const products = [
   {
     id: 6,
 
-    product: "medical Kit",
+    product: "Kit2",
     type: "Shelter",
     typeOfService: "Sell",
     price: "50-90",
@@ -504,7 +504,7 @@ export const products = [
   },
   {
     id: 7,
-    product: "medical Kit",
+    product: "medical2",
     type: "House",
     typeOfService: "Sell",
     price: "50-90",
