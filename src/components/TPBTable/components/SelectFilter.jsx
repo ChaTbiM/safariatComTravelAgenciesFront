@@ -59,8 +59,8 @@ export default function SelectFilter(props) {
       </select>
     );
     selectItem = selectDestinations;
-  } else if (props.types) {
-    const uniqueTypesSet = new Set(props.types);
+  } else if (props.tourTypes) {
+    const uniqueTypesSet = new Set(props.tourTypes);
     const uniqueTypes = [...uniqueTypesSet];
 
     const selectTypes = (
@@ -84,6 +84,32 @@ export default function SelectFilter(props) {
     );
 
     selectItem = selectTypes;
+  } else if (props.serviceTypes) {
+    const uniqueServiceTypesSet = new Set(props.serviceTypes);
+    const uniqueServiceTypes = [...uniqueServiceTypesSet];
+
+    const selectTypes = (
+      <select
+        className="select text-9 sD:text-12 mD:text-14 lD:text-16"
+        style={selectImg}
+        name="month"
+        id="month"
+        defaultValue="all"
+        onChange={e => props.selectServiceType(e.target.value)}
+      >
+        <option value="all">all types</option>
+        {uniqueServiceTypes.map((el, i) => {
+          return (
+            <option key={`option${i}-el`} value={el}>
+              {el}
+            </option>
+          );
+        })}
+      </select>
+    );
+
+    selectItem = selectTypes;
   } else return null;
+
   return <>{selectItem}</>;
 }

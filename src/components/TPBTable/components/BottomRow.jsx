@@ -20,6 +20,34 @@ export default function BottomRow(props) {
           />
         </label>
       );
+    } else if (props.view === "products") {
+      return <div>bottom products</div>;
+    } else if (props.view === "bookings") {
+      return <div>bottom bookings</div>;
+    } else {
+      return null;
+    }
+  };
+
+  const renderPriceRange = () => {
+    if (props.view === "tours") {
+      return (
+        <PriceRange
+          searchByPriceRange={priceRangeFilter =>
+            props.searchByPriceRange(priceRangeFilter)
+          }
+        />
+      );
+    } else if (props.view === "products") {
+      return (
+        <PriceRange
+          searchByPriceRange={priceRangeFilter =>
+            props.searchByPriceRange(priceRangeFilter)
+          }
+        />
+      );
+    } else if (props.view === "bookings") {
+      return <div>bookigns price range</div>;
     } else {
       return null;
     }
@@ -27,11 +55,7 @@ export default function BottomRow(props) {
   return (
     <Container>
       {renderSearch()}
-      <PriceRange
-        searchByPriceRange={priceRangeFilter =>
-          props.searchByPriceRange(priceRangeFilter)
-        }
-      />
+      {renderPriceRange()}
     </Container>
   );
 }

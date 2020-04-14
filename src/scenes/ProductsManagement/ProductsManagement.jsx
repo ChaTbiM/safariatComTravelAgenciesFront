@@ -5,7 +5,8 @@ import styled from "styled-components";
 import Modal from "../../components/Modal/Modal";
 import TPBTable from "../../components/TPBTable/TPBTable";
 
-import TableActions from "../../components/HrTable/components/TableActions";
+// import TableActions from "../../components/HrTable/components/TableActions";
+import TableHeader from "../../components/TPBTable/components/TableHeader";
 
 import { Link } from "react-router-dom";
 
@@ -18,14 +19,16 @@ export default class ToursAndProducts extends Component {
 
     initialProducts: null,
     filteredProducts: null,
-    productDetails: null
+    productDetails: null,
+
+    selectedTourType: "all",
+    selectedServiceType: "all",
+    priceRangeFilter: { min: null, max: null }
   };
 
   componentDidMount() {
     this.setState({ initialProducts: products });
   }
-
-  // filter Logic
 
   showProductModal = productId => {
     const products = this.state.initialProducts;
@@ -38,14 +41,140 @@ export default class ToursAndProducts extends Component {
   hideProductModal = () => {
     this.setState({ productDetails: null, isProductDetailsShown: false });
   };
+  // Header
+
+  // component
+
+  filtersData() {
+    if (this.state.initialProducts) {
+      const tourTypes = this.state.initialProducts.map(el => el.type);
+      tourTypes.sort();
+      const serviceTypes = this.state.initialProducts.map(
+        el => el.typeOfService
+      );
+      serviceTypes.sort();
+      const priceRanges = this.state.initialProducts.map(el => ({
+        min: el.price.split("-")[0],
+        max: el.price.split("-")[1]
+      }));
+      return { serviceTypes, priceRanges, tourTypes };
+    }
+  }
+
+  // filter Logic -----------------------
+  ApplyfilterTours(
+    selectedTourType = "all",
+    selectedServiceType = "all",
+    priceRangeFilter = { min: null, max: null }
+  ) {
+    let products = JSON.parse(JSON.stringify(this.state.initialProducts));
+    let filteredProducts;
+
+    const selectedOptions = {};
+
+    if (selectedServiceType !== "all") {
+      selectedOptions.serviceType = selectedServiceType;
+    }
+
+    if (selectedTourType !== "all") {
+      selectedOptions.tourType = selectedTourType;
+    }
+
+    if (priceRangeFilter.min !== null && priceRangeFilter.min >= 0) {
+      selectedOptions.minPrice = priceRangeFilter.min;
+    }
+
+    if (priceRangeFilter.max !== null) {
+      selectedOptions.maxPrice = priceRangeFilter.max;
+    }
+
+    filteredProducts = products.filter((el, index) => {
+      return this.filterTours(selectedOptions, el);
+    });
+
+    if (filteredProducts) {
+      this.setState({ filteredProducts });
+    }
+  }
+
+  filterTours = (selectedOptions, el) => {
+    return Object.keys(selectedOptions).every(key => {
+      if (key === "tourType") {
+        return el.type
+          .toLowerCase()
+          .includes(selectedOptions[key].toLowerCase());
+      } else if (key === "serviceType") {
+        return el.typeOfService
+          .toLowerCase()
+          .includes(selectedOptions[key].toLowerCase());
+      } else if (key === "minPrice") {
+        return Number(el.price.split("-")[0]) >= Number(selectedOptions[key]);
+      } else if (key === "maxPrice") {
+        return Number(el.price.split("-")[1]) <= Number(selectedOptions[key]);
+      }
+    });
+  };
+
+  selectTourType(selectedTourType) {
+    this.setState(
+      { selectedTourType },
+      this.ApplyfilterTours(
+        selectedTourType,
+        this.state.selectedServiceType,
+        this.state.priceRangeFilter
+      )
+    );
+  }
+
+  selectServiceType(selectedServiceType) {
+    this.setState(
+      { selectedServiceType },
+      this.ApplyfilterTours(
+        this.state.selectedTourType,
+        selectedServiceType,
+        this.state.priceRangeFilter
+      )
+    );
+  }
+
+  searchByPriceRange(priceRangeFilter) {
+    this.setState(
+      { priceRangeFilter },
+      this.ApplyfilterTours(
+        this.state.selectedTourType,
+        this.state.selectedServiceType,
+        priceRangeFilter
+      )
+    );
+  }
+
+  // ----------------
+
+  renderTableHeader() {
+    console.log("filtersDate ", this.filtersData());
+    if (this.state.initialProducts) {
+      return (
+        <TableHeader
+          selectTourType={selectedTourType =>
+            this.selectTourType(selectedTourType)
+          }
+          selectServiceType={selectServiceType =>
+            this.selectServiceType(selectServiceType)
+          }
+          searchByPriceRange={priceRangeFilter =>
+            this.searchByPriceRange(priceRangeFilter)
+          }
+          view="products"
+          filtersData={this.filtersData()}
+        />
+      );
+    }
+  }
 
   renderTable() {
-    const filteredProducts = this.state.filteredProducts
+    const products = this.state.filteredProducts
       ? this.state.filteredProducts
       : this.state.initialProducts;
-    // const products = this.state.initialProducts
-    //   ? this.state.initialProducts
-    //   : null;
 
     if (products) {
       return (
@@ -79,59 +208,13 @@ export default class ToursAndProducts extends Component {
     }
   };
 
-  renderTableActions() {
-    const isProductsView = this.state.isProductsView;
-
-    if (isProductsView) {
-      return (
-        <TableActions
-          search="search products"
-          view="products"
-          selectOptions={this.state.productsTypes}
-        />
-      );
-    } else {
-      return null;
-    }
-  }
-
   render() {
     return (
       <Container>
-        <div className="main">
-          <main className="toursAndProducts">
-            <div className="toursAndProducts__top">
-              <h3 className="toursAndProducts__top__title font-montserrat text-14 sD:text-17 mD:text-19 lD:text-28">
-                Tours And Products Management
-              </h3>
-              <hr className="toursAndProducts__top__hr"></hr>
-              <div className="toursAndProducts__top__buttons font-montserrat text-11 sD:text-13 mD:text-15 lD:text-21">
-                <button
-                  className="toursAndProducts__top__button toursViewBTN text-11 sD:text-13 mD:text-15 lD:text-21"
-                  onClick={e => e.preventDefault}
-                >
-                  <Link
-                    to="/admin/tmanagement"
-                    className="text-11 sD:text-13 mD:text-15 lD:text-21"
-                  >
-                    Tours Management
-                  </Link>
-                </button>
-                <button
-                  className="toursAndProducts__top__button productsViewBTN text-11 sD:text-13 mD:text-15 lD:text-21"
-                  onClick={e => e.preventDefault}
-                >
-                  Products Management
-                </button>
-              </div>
-            </div>
-            <div className="toursAndProducts__content">
-              {this.renderTableActions()}
-
-              {this.renderTable()}
-              {this.renderModal()}
-            </div>
-          </main>
+        <div className="toursAndProducts__content">
+          {this.renderTableHeader()}
+          {this.renderTable()}
+          {this.renderModal()}
         </div>
       </Container>
     );

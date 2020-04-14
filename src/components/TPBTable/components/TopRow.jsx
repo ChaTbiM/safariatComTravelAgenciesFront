@@ -4,39 +4,54 @@ import info from "../../../assets/info.svg";
 import SelectFilter from "./SelectFilter.jsx";
 
 export default function TopRow(props) {
-  // const dates = props.tours.map(el => {
-  //   return el.date;
-  // });
-
-  // selectDestination={selectedDestination =>
-  //   this.selectDestination(selectedDestination)
-  // }
-  // selectType={selectedType => this.selectType(selectedType)}
-
   const renderSelectFilters = () => {
-    return (
-      <div className="selectContainer">
-        <SelectFilter
-          selectMonth={selectedMonth => props.selectMonth(selectedMonth)}
-          months={props.selectData.months}
-        />
-        <SelectFilter
-          selectDestination={selectedDestination =>
-            props.selectDestination(selectedDestination)
-          }
-          destinations={props.selectData.destinations}
-        />
-        <SelectFilter
-          selectType={selectedType => props.selectType(selectedType)}
-          types={props.selectData.types}
-        />
-        <img src={info} className="info__icon" alt="" />
-      </div>
-    );
+    if (props.view === "tours") {
+      return (
+        <div className="selectContainer">
+          <SelectFilter
+            selectMonth={selectedMonth => props.selectMonth(selectedMonth)}
+            months={props.selectData.months}
+          />
+          <SelectFilter
+            selectDestination={selectedDestination =>
+              props.selectDestination(selectedDestination)
+            }
+            destinations={props.selectData.destinations}
+          />
+          <SelectFilter
+            selectType={selectedType => props.selectType(selectedType)}
+            tourTypes={props.selectData.tourTypes}
+          />
+          <img src={info} className="info__icon" alt="" />
+        </div>
+      );
+    } else if (props.view === "products") {
+      return (
+        <div className="selectContainer">
+          <SelectFilter
+            selectServiceType={selectedServiceType =>
+              props.selectServiceType(selectedServiceType)
+            }
+            serviceTypes={props.selectData.serviceTypes}
+          />
+          <SelectFilter
+            selectType={selectedTourType =>
+              props.selectTourType(selectedTourType)
+            }
+            tourTypes={props.selectData.tourTypes}
+          />
+          <img src={info} className="info__icon" alt="" />
+        </div>
+      );
+    } else if (props.view === "bookings") {
+      return <h2>hohohoho</h2>;
+    } else {
+      return null;
+    }
   };
   return (
     <Container>
-      <h5>Tours</h5>
+      <h5>{props.view}</h5>
       {renderSelectFilters()}
     </Container>
   );

@@ -101,6 +101,7 @@ export default function TPBTable(props) {
       </table>
     );
   };
+
   return props.tours ? (
     <Container>{toursTable(props.tours)} </Container>
   ) : (

@@ -20,6 +20,8 @@ import GenerlaAnalystics from "./components/GeneralAnalyDashbord/GenerlaAnalysti
 import UserInteraction from "./components/GeneralAnalyDashbord/UserInteraction";
 import Finance from "./components/Finance/Finance.jsx";
 
+import PManagement from "./scenes/PManagement/PManagement";
+
 import ToursManagement from "./scenes/ToursManagement/ToursManagement";
 import ProductsManagement from "./scenes/ProductsManagement/ProductsManagement";
 import EmployeesManagement from "./scenes/EmployeesManagement/EmployeesManagement";
@@ -81,6 +83,13 @@ function App() {
           path="/admin/pmanagement"
           render={props => (
             <Admin active="HR management" content={<ProductsManagement />} />
+          )}
+        />
+
+        <Route
+          path="/admin/management"
+          render={props => (
+            <Admin active="HR management" content={<PManagement />} />
           )}
         />
 
