@@ -8,6 +8,7 @@ import BigImg from "./images/01.png";
 import SmallImg from "./images/02.png";
 
 import productBig from "./images/productBig.png";
+import dotImg from "../../assets/dot.png";
 // import product from "./images/product.png";
 
 export default function Modal(props) {
@@ -36,7 +37,7 @@ export default function Modal(props) {
           <div className="details__text">
             <div className="details__buttons">
               <button className="edit">edit</button>
-              <button className="delete">delete</button>
+              {/* <button className="delete">delete</button> */}
             </div>
             <div className="details__info">
               <div className="details__info__row">
@@ -104,11 +105,12 @@ export default function Modal(props) {
           <div className="bottom__package">
             <div className="bottom__package__includes">
               <p className="bottom__package__includes__title">
-                {" "}
                 <i class="far fa-check-circle checked"></i> Includes
               </p>
               {tourDetails.includes.map((el, index) => {
-                return <p className="bottom__package__includes__text">{el}</p>;
+                return (
+                  <li className="bottom__package__includes__text">{el}</li>
+                );
               })}
             </div>
             <div className="bottom__package__excludes">
@@ -116,7 +118,9 @@ export default function Modal(props) {
                 <i class="far fa-times-circle unchecked"></i> Excludes
               </p>
               {tourDetails.excludes.map((el, index) => {
-                return <p className="bottom__package__excludes__text">{el}</p>;
+                return (
+                  <li className="bottom__package__excludes__text">{el}</li>
+                );
               })}
             </div>
           </div>
@@ -382,13 +386,13 @@ export default function Modal(props) {
   const renderOneModal = () => {
     if (props.modal === "tour") {
       return (
-        <ProductsModal className="modal">
+        <ProductsModal dotImg={dotImg} className="modal">
           {renderTourDetails(props.tourDetails)}
         </ProductsModal>
       );
     } else if (props.modal === "product") {
       return (
-        <ProductsModal className="modal">
+        <ProductsModal dotImg={dotImg} className="modal">
           {renderProductsDetails(props.productDetails)}
         </ProductsModal>
       );
@@ -409,4 +413,10 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+
+  .bottom__package__includes__text,
+  .bottom__package__excludes__text {
+    list-style-image: url(${dotImg});
+    margin-right: 1rem;
+  }
 `;

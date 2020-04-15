@@ -175,7 +175,6 @@ export default class ToursAndProducts extends Component {
   // ----------------
 
   renderTableHeader() {
-    console.log("filtersDate ", this.filtersData());
     if (this.state.initialProducts) {
       return (
         <TableHeader

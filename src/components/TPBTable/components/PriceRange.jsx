@@ -26,7 +26,6 @@ export default function PriceRange(props) {
         <input
           onChange={e => filterPrice(e, "minPrice")}
           type="text"
-          id="minPrice"
           className="minPrice__input"
           placeholder="From"
         />
@@ -38,7 +37,6 @@ export default function PriceRange(props) {
         <input
           onChange={e => filterPrice(e, "maxPrice")}
           type="text"
-          id="maxPrice"
           className="maxPrice__input"
           placeholder="To"
         />

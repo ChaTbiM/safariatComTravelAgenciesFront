@@ -122,10 +122,10 @@ export const toursDetails = [
       "A blend of tours fashioned by local guides and self-guided tours to simply enjoy"
     ],
     excludes: [
-      "-All entry fees for group activities",
-      "-All entry fees for group activities",
-      "-All entry fees for group activities",
-      "-All entry fees for group activities"
+      "All entry fees for group activities",
+      "All entry fees for group activities",
+      "All entry fees for group activities",
+      "All entry fees for group activities"
     ],
     itinerary: `Each tour is unique. We will visit a selection of exquisite gardens and intriguing
         historic places according to the composition of the group, location of the lodgings,
