@@ -1,27 +1,26 @@
 import React, { Component } from "react";
 
-import { tours, toursDetails } from "./data";
+import { bookings } from "./data";
 import styled from "styled-components";
-import Modal from "../../components/Modal/Modal";
-import TPBTable from "../../components/TPBTable/TPBTable";
-// import TableActions from "../../components/HrTable/components/TableActions";
-import TableHeader from "../../components/TPBTable/components/TableHeader";
+import Modal from "../Modal/Modal";
+import TPBTable from "../TPBTable/TPBTable";
+import TableHeader from "../TPBTable/components/TableHeader";
+
 import { Link } from "react-router-dom";
 
 export default class ToursManagement extends Component {
   state = {
-    isToursView: true,
+    isBookingDetailsShown: false,
+    bookingDetails: null,
 
-    isTourDetailsShown: false,
-
-    tours: null,
-    initialTours: null,
-    filteredTours: null,
+    bookings: null,
+    initialBookings: null,
+    filteredBookings: null,
 
     selectedMonth: "all",
     selectedDestination: "all",
     selectedType: "all",
-    searchedTourName: "",
+    searchedBookingName: "",
     priceRangeFilter: {
       min: null,
       max: null
@@ -32,7 +31,7 @@ export default class ToursManagement extends Component {
   };
 
   componentDidMount() {
-    this.setState({ initialTours: tours, toursDetails });
+    this.setState({ initialBookings: bookings });
   }
   // Modal
   showTourModal = tourId => {
@@ -53,7 +52,7 @@ export default class ToursManagement extends Component {
   };
 
   hideTourModal = () => {
-    this.setState({ tourDetails: null, isTourDetailsShown: false });
+    this.setState({ bookingDetails: null, isBookingDetailsShown: false });
   };
 
   renderModal = () => {
@@ -76,14 +75,14 @@ export default class ToursManagement extends Component {
   // Table ---------------------------------
   // table filter logic
   renderTable() {
-    const tours = this.state.filteredTours
-      ? this.state.filteredTours
-      : this.state.initialTours;
-    if (tours) {
+    const bookings = this.state.filteredBookings
+      ? this.state.filteredBookings
+      : this.state.initialBookings;
+    if (bookings) {
       return (
         <TPBTable
           showTourDetails={details => this.showTourModal(details)}
-          tours={tours}
+          bookings={bookings}
         />
       );
     } else {
@@ -94,16 +93,16 @@ export default class ToursManagement extends Component {
   //  table header ---
   // data
   filtersData() {
-    if (this.state.initialTours) {
-      const months = this.state.initialTours.map(el =>
-        Number(el.date.split("/")[1])
+    if (this.state.initialBookings) {
+      const months = this.state.initialBookings.map(el =>
+        Number(el.departDate.split("/")[1])
       );
       months.sort((x, y) => x - y);
-      const destinations = this.state.initialTours.map(el => el.destination);
+      const destinations = this.state.initialBookings.map(el => el.destination);
       destinations.sort();
-      const types = this.state.initialTours.map(el => el.type);
+      const types = this.state.initialBookings.map(el => el.type);
       types.sort();
-      const priceRanges = this.state.initialTours.map(el => ({
+      const priceRanges = this.state.initialBookings.map(el => ({
         min: el.price.split("-")[0],
         max: el.price.split("-")[1]
       }));
@@ -112,7 +111,7 @@ export default class ToursManagement extends Component {
   }
   // component
   renderTableHeader() {
-    if (this.state.initialTours) {
+    if (this.state.initialBookings) {
       return (
         <TableHeader
           selectMonth={selectedMonth => this.selectMonth(selectedMonth)}
@@ -271,62 +270,4 @@ const Container = styled.div`
     display: flex;
     background-color: #f6f6f6;
   }
-
-  // .toursAndProducts {
-  //   width: 88%;
-  //   // padding: 1rem 1.6rem;
-  //   margin: 0 auto;
-  //   // padding: 0 40px 0 120px;
-  // }
-
-  // .toursAndProducts__top {
-  //   margin-top: 2rem;
-  //   // padding: 0 1.6rem;
-  //   display: flex;
-  //   justify-content: flex-start;
-  //   align-items: center;
-  //   flex-wrap: wrap;
-  // }
-
-  // .toursAndProducts__top__title {
-  //   vertical-align: middle;
-  //   color: #171717;
-  // }
-
-  // .toursAndProducts__top__hr {
-  //   background: #707070;
-  //   border: 0;
-  //   color: #707070;
-  //   height: 1px;
-  //   flex-shrink: 1;
-  //   flex-grow: 1;
-  //   margin: 0 10px;
-  //   flex-basis: auto;
-  //   opacity: 0.5;
-  // }
-
-  // .toursAndProducts__top__button {
-  //   display: inline-block;
-  //   vertical-align: middle;
-  //   border-radius: 4px;
-  //   padding: 0.3em 0.7em;
-  // }
-
-  // .toursViewBTN {
-  //   color: white;
-  //   background-color: #ffcc4e;
-  //   margin-right: 1em;
-  // }
-
-  // .productsViewBTN {
-  //   color: #4d4d4d;
-  //   background-color: white;
-  // }
-
-  // .toursAndProducts__content {
-  //   background-color: #ffffff;
-  //   padding: 1rem 1.6rem;
-  //   margin-top: 2rem;
-  //   border-radius: 4px;
-  // }
 `;

@@ -20,10 +20,8 @@ import GenerlaAnalystics from "./components/GeneralAnalyDashbord/GenerlaAnalysti
 import UserInteraction from "./components/GeneralAnalyDashbord/UserInteraction";
 import Finance from "./components/Finance/Finance.jsx";
 
-import PManagement from "./scenes/PManagement/PManagement";
+import HRManagement from "./scenes/TPBManagement/TPBManagement";
 
-import ToursManagement from "./scenes/ToursManagement/ToursManagement";
-import ProductsManagement from "./scenes/ProductsManagement/ProductsManagement";
 import EmployeesManagement from "./scenes/EmployeesManagement/EmployeesManagement";
 import TasksManagement from "./scenes/TasksManagement/TasksManagement";
 import Crm from "./scenes/Crm/Crm.jsx";
@@ -72,24 +70,11 @@ function App() {
         {/* Mustapha Routes */}
 
         {/* Refactored */}
-        <Route
-          path="/admin/tmanagement"
-          render={props => (
-            <Admin active="HR management" content={<ToursManagement />} />
-          )}
-        />
 
         <Route
-          path="/admin/pmanagement"
+          path="/admin/tpb"
           render={props => (
-            <Admin active="HR management" content={<ProductsManagement />} />
-          )}
-        />
-
-        <Route
-          path="/admin/management"
-          render={props => (
-            <Admin active="HR management" content={<PManagement />} />
+            <Admin active="HR management" content={<HRManagement />} />
           )}
         />
 

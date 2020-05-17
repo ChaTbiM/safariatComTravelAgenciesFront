@@ -2,13 +2,12 @@ import React, { Component } from "react";
 
 import { products } from "./data";
 import styled from "styled-components";
-import Modal from "../../components/Modal/Modal";
-import TPBTable from "../../components/TPBTable/TPBTable";
+import Modal from "../Modal/Modal";
+import TPBTable from "../TPBTable/TPBTable";
 
 // import TableActions from "../../components/HrTable/components/TableActions";
-import TableHeader from "../../components/TPBTable/components/TableHeader";
+import TableHeader from "../TPBTable/components/TableHeader";
 
-import { Link } from "react-router-dom";
 
 export default class ToursAndProducts extends Component {
   state = {
@@ -249,63 +248,5 @@ const Container = styled.div`
   .main {
     display: flex;
     background-color: #f6f6f6;
-  }
-
-  .toursAndProducts {
-    width: 88%;
-    // padding: 1rem 1.6rem;
-    margin: 0 auto;
-    // padding: 0 40px 0 120px;
-  }
-
-  .toursAndProducts__top {
-    margin-top: 2rem;
-    // padding: 0 1.6rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .toursAndProducts__top__title {
-    vertical-align: middle;
-    color: #171717;
-  }
-
-  .toursAndProducts__top__hr {
-    background: #707070;
-    border: 0;
-    color: #707070;
-    height: 1px;
-    flex-shrink: 1;
-    flex-grow: 1;
-    margin: 0 10px;
-    flex-basis: auto;
-    opacity: 0.5;
-  }
-
-  .toursAndProducts__top__button {
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 4px;
-    padding: 0.3em 0.7em;
-  }
-
-  .toursViewBTN {
-    color: white;
-    background-color: #ffcc4e;
-    margin-right: 1em;
-  }
-
-  .productsViewBTN {
-    color: #4d4d4d;
-    background-color: white;
-  }
-
-  .toursAndProducts__content {
-    background-color: #ffffff;
-    padding: 1rem 1.6rem;
-    margin-top: 2rem;
-    border-radius: 4px;
   }
 `;
