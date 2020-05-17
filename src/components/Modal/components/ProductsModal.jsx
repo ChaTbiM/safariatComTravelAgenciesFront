@@ -46,7 +46,8 @@ const Container = styled.div`
       display:flex;
       justify-content:center;
       align-items:center;
-      margin:0 2rem;
+      width:85%;
+      margin:0 auto;
   }
   // text -------------
   .details__text {
@@ -72,8 +73,8 @@ const Container = styled.div`
   }
 
   .edit , .delete {
-      padding:.5rem 1rem; 
-      border: solid 1px #707070;
+      padding:.25rem 1rem; 
+      // border: solid 1px #707070;
       border-radius:4px;
   }
 
@@ -146,10 +147,15 @@ const Container = styled.div`
 
   .bottom__package__includes {
     flex-basis:27rem;
+    border: solid 1px #f5f5f5;
+    border-radius: 4px;
   }
 
   .bottom__package__includes__title {
-
+    text-align: center;
+      background-color: #f5f5f5;
+      padding: 0.5rem 0;
+      margin-bottom: 0.5rem;
   }
 
   .bottom__package__includes__text {
@@ -158,11 +164,15 @@ const Container = styled.div`
 
 .bottom__package__excludes {
     flex-basis:27rem;
-
+    border: solid 1px #f5f5f5;
+    border-radius: 4px;
 }
 
 .bottom__package__excludes__title {
-
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
 }
 
 .bottom__package__excludes__text {
@@ -170,14 +180,11 @@ const Container = styled.div`
     
 }
 
-
-
+// Bottom Extra
 
 .bottom__extra {
     padding:1.5rem 0;
-    background-color:#F6F6F6;
-    margin-top:1.5rem;
-
+    
 }
 
 .bottom__itinerary {
@@ -186,7 +193,17 @@ const Container = styled.div`
 
 .bottom__itinerary {
     margin-top:1rem;
+    border:solid 1px #f5f5f5;
+    border-radius:4px;
+    margin-top:2rem;
+}
 
+.bottom__itinerary__title {
+  margin:0 auto;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
 }
 
 
@@ -195,23 +212,32 @@ const Container = styled.div`
     margin: 0 8rem;
     
     margin-top:1rem;
+    margin-bottom:1rem;
+
 }
 
 .bottom__accomedation{
-    
+    border:solid 1px #f5f5f5;
+    border-radius:4px;
     text-align:center;
+    margin-top:2rem;
+
 }
 
 .bottom__accomedation__title{
     margin:0 auto;
-    margin-top:2rem;
-
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
 }
 
 .bottom__accomedation__text{
     text-align:left;
     padding: 0 4rem;
     margin-top:1rem;
+    margin-bottom:1rem;
+
 }
 
   .checked{

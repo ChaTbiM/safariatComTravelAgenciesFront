@@ -77,22 +77,42 @@ export default function TableActions(props) {
   };
 
   const renderSelect = () => {
-    return (
-      <select
-        style={selectImg}
-        // onChange={e => props.searchedDepartment(e.target.value)}
-        // url={downArrow}
-        className="select text-9 sD:text-11 mD:text-13 lD:text-18"
-        defaultValue="all"
-        name="departments"
-      >
-        {props.selectOptions.map((el, index) => (
-          <option key={`option-${index}`} value={el}>
-            {el}
-          </option>
-        ))}
-      </select>
-    );
+    if (props.view === "employees") {
+      return (
+        <select
+          style={selectImg}
+          onChange={e => props.searchedDepartment(e.target.value)}
+          // url={downArrow}
+          className="select text-9 sD:text-11 mD:text-13 lD:text-18"
+          defaultValue="all"
+          name="departments"
+        >
+          {props.selectOptions.map((el, index) => (
+            <option key={`option-${index}`} value={el}>
+              {el}
+            </option>
+          ))}
+        </select>
+      );
+    } else if (props.view === "tasks") {
+      return (
+        <select
+          style={selectImg}
+          onChange={e => props.searchedTaskType(e.target.value)}
+          // url={downArrow}
+          className="select text-9 sD:text-11 mD:text-13 lD:text-18"
+          defaultValue="all"
+          name="types"
+        >
+          {props.selectOptions.map((el, index) => (
+            <option key={`option-${index}`} value={el}>
+              {el}
+            </option>
+          ))}
+        </select>
+      );
+    }
+
     // return props.view === "employees" ? (
     //   <select
     //     onChange={e => props.searchedDepartment(e.target.value)}

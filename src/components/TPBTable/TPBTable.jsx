@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function TPTable(props) {
+export default function TPBTable(props) {
   const previewTour = e => {
     e.preventDefault();
     props.showTourDetails(e.currentTarget.dataset.id);
@@ -32,7 +32,7 @@ export default function TPTable(props) {
                 key={`row-${index}`}
                 className="tr text-9 sD:text-11 mD:text-13 lD:text-18"
               >
-                <td className="td ">{el.tour}</td>
+                <td className="td ">{el.name}</td>
                 <td className="td ">{el.type}</td>
                 <td className="td ">{el.destination}</td>
                 <td className="td ">{el.date}</td>
@@ -101,11 +101,63 @@ export default function TPTable(props) {
       </table>
     );
   };
-  return props.tours ? (
-    <Container>{toursTable(props.tours)} </Container>
-  ) : (
-    <Container> {productsTable(props.products)}</Container>
-  );
+
+  const bookingsTable = bookings => {
+    return (
+      <table className="table font-montserrat">
+        <thead className="thead">
+          <tr className="tr text-11 sD:text-13 mD:text-15 lD:text-21">
+            <th className="th tour">BookingId</th>
+            <th className="th type">tour</th>
+            <th className="th price">tour price</th>
+            <th className="th destination">tour groups</th>
+            <th className="th date">depart date</th>
+            <th className="th description">number of reservations</th>
+          </tr>
+        </thead>
+        <tbody className="tbody">
+          {bookings.map((el, index) => {
+            return (
+              <tr
+                key={`row-${index}`}
+                className="tr text-9 sD:text-11 mD:text-13 lD:text-18"
+              >
+                <td className="td ">{el.bookingID}</td>
+                <td className="td ">{el.tour}</td>
+                <td className="td ">{el.price}</td>
+                <td className="td ">{el.tourGroups}</td>
+                <td className="td ">{el.departDate}</td>
+                <td className="td">
+                  {el.numberOfReservations}
+                  <div className="td__preview ">
+                    <a
+                      data-id={el.id}
+                      onClick={previewTour}
+                      className="td__preview__link text-8 sD:text-10 mD:text-12 lD:text-16"
+                      href="#"
+                    >
+                      Preview
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    );
+  };
+
+  const renderTable = () => {
+    if (props.tours) {
+      return <Container>{toursTable(props.tours)} </Container>;
+    } else if (props.products) {
+      return <Container> {productsTable(props.products)}</Container>;
+    } else if (props.bookings) {
+      return <Container> {bookingsTable(props.bookings)}</Container>;
+    }
+  };
+  return <>{renderTable()}</>;
 }
 
 const Container = styled.div`

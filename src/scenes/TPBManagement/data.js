@@ -1,40 +1,39 @@
 export const tours = [
   {
     id: 1,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism International",
     destination: "europe",
-    date: "17/06/2020",
-    price: "680-700",
+    date: "17/03/2020",
+    price: "640-700",
     description: "Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en."
   },
   {
     id: 2,
-    tour: "tour of africa",
+    name: "tour of africa",
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/06/2020",
-    price: "680-700",
+    price: "480-710",
 
     description: "Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en."
   },
 
   {
     id: 3,
-    tour: "tour of usa",
+    name: "tour of usa",
     type: "Culture ,Tourism International",
     destination: "europe",
-    date: "17/06/2020",
-    price: "680-700",
-
+    date: "17/04/2020",
+    price: "65-70",
     description: "Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en."
   },
 
   {
     id: 4,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism International",
-    destination: "europe",
+    destination: "usa",
     date: "17/06/2020",
     price: "680-700",
 
@@ -43,8 +42,8 @@ export const tours = [
 
   {
     id: 5,
-    tour: "tour of europe",
-    type: "Culture ,Tourism International",
+    name: "tour of europe",
+    type: "Culture ,Tourism ",
     destination: "europe",
     date: "17/06/2020",
     price: "680-700",
@@ -54,7 +53,7 @@ export const tours = [
 
   {
     id: 6,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/06/2020",
@@ -65,7 +64,7 @@ export const tours = [
 
   {
     id: 7,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/06/2020",
@@ -76,7 +75,7 @@ export const tours = [
 
   {
     id: 8,
-    tour: "tour of europe",
+    name: "tour of europe",
     type: "Culture ,Tourism International",
     destination: "europe",
     date: "17/06/2020",
@@ -87,19 +86,19 @@ export const tours = [
 
   {
     id: 9,
-    tour: "tour of europe",
-    type: "Culture ,Tourism International",
+    name: "tour of europe",
+    type: "Culture",
     destination: "europe",
-    date: "17/06/2020",
-    price: "680-700",
+    date: "17/06/2028",
+    price: "80-700",
 
     description: "Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en."
   },
 
   {
     id: 10,
-    tour: "tour of europe",
-    type: "Culture ,Tourism International",
+    name: "tour of europe",
+    type: "International",
     destination: "europe",
     date: "17/06/2020",
     price: "680-700",
@@ -454,7 +453,7 @@ export const products = [
     product: "medical Kit",
     type: "Shelter, House",
     typeOfService: "Sell",
-    price: "50$-90$",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
@@ -463,7 +462,7 @@ export const products = [
     product: "medical Kit",
     type: "Shelter, House",
     typeOfService: "Sell",
-    price: "50$-90$",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
@@ -472,7 +471,7 @@ export const products = [
     product: "medical Kit",
     type: "Shelter, House",
     typeOfService: "Sell",
-    price: "50$-90$",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
@@ -480,8 +479,8 @@ export const products = [
 
     product: "medical Kit",
     type: "Shelter, House",
-    typeOfService: "Sell",
-    price: "50$-90$",
+    typeOfService: "rent",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
@@ -489,25 +488,25 @@ export const products = [
 
     product: "medical Kit",
     type: "Shelter, House",
-    typeOfService: "Sell",
-    price: "50$-90$",
+    typeOfService: "rent",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
     id: 6,
 
-    product: "medical Kit",
-    type: "Shelter, House",
+    product: "medical2",
+    type: "Shelter ",
     typeOfService: "Sell",
-    price: "50$-90$",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
     id: 7,
-    product: "medical Kit",
-    type: "Shelter, House",
+    product: "Kit2",
+    type: "House",
     typeOfService: "Sell",
-    price: "50$-90$",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   }
 ];

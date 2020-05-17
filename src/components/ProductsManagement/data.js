@@ -453,8 +453,8 @@ export const products = [
     id: 1,
     product: "medical Kit",
     type: "Shelter, House",
-    typeOfService: "Sell",
-    price: "50$-90$",
+    typeOfService: "rent",
+    price: "5-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
@@ -463,7 +463,7 @@ export const products = [
     product: "medical Kit",
     type: "Shelter, House",
     typeOfService: "Sell",
-    price: "50$-90$",
+    price: "50-200",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
@@ -471,8 +471,8 @@ export const products = [
 
     product: "medical Kit",
     type: "Shelter, House",
-    typeOfService: "Sell",
-    price: "50$-90$",
+    typeOfService: "rent",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
@@ -481,7 +481,7 @@ export const products = [
     product: "medical Kit",
     type: "Shelter, House",
     typeOfService: "Sell",
-    price: "50$-90$",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
@@ -490,24 +490,24 @@ export const products = [
     product: "medical Kit",
     type: "Shelter, House",
     typeOfService: "Sell",
-    price: "50$-90$",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
     id: 6,
 
-    product: "medical Kit",
-    type: "Shelter, House",
+    product: "Kit2",
+    type: "Shelter",
     typeOfService: "Sell",
-    price: "50$-90$",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   },
   {
     id: 7,
-    product: "medical Kit",
-    type: "Shelter, House",
+    product: "medical2",
+    type: "House",
     typeOfService: "Sell",
-    price: "50$-90$",
+    price: "50-90",
     description: `Af deel pomp soms tijd veel ad, Enorloopig uitgegeven en.`
   }
 ];
